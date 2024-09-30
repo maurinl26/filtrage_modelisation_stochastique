@@ -1,2 +1,2 @@
-# filtrage_modelisation_stochastique
+# Filtrage et Modélisation Stochastique
 Cours de Filtrage et Modélisation Stochastique ENM / ENSEEIHT
