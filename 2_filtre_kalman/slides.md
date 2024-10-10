@@ -231,12 +231,14 @@ définies sur le même espace de probabilité $(\Omega, \mathcal{F}, \mathbf{P})
 
 En posant $\mu = \mathbb{E}[X_i]$ et $\sigma^2 = \mathbb{V}(X_i) < \infty$.
 
-La variable aléatoire $S_n = \sum_{i=1}^n X_i$ vérifier
+La variable aléatoire $S_n = \sum_{i=1}^n X_i$ vérifie
 $$\lim\limits_{n \rightarrow \infty} \frac{S_n}{n} = \mu,  p.s.$$ 
 
 **p.s.** : presque sûr = "à une infinité dénombrable de points près"
 
 **Application** Méthode de Monte-Carlo : calcul d'une intégrale par des tirages de variables aléatoires.
+
+Pour $U$ variable aléatoire uniforme sur $[0,1]$, $\lim\limits_{n \rightarrow \infty} \sum f(U_i) = \mathbb{E}[f(U)] = \int_0^1 f(x) dx$
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -289,7 +291,9 @@ Rappels et théorèmes fondamentaux
 - Convergence dans **$\mathrm{L}^P$** : $\lim\limits_{n \rightarrow \infty} \mathbb{E}[|X_n - X|^p] = 0$
 - Convergence en probabilité **P**: $\lim\limits_{n \rightarrow \infty} P(|X_n - X| \gt \epsilon) = 0$
 
-Convergence **$\mathrm{L}^p$** $\Rightarrow$ Convergence **P**, Convergence **p.s.** $\Rightarrow$ Convergence **P**  
+Convergence **$\mathrm{L}^p$** $\Rightarrow$ Convergence **P**, 
+
+Convergence **p.s.** $\Rightarrow$ Convergence **P**.
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -315,7 +319,9 @@ Filtre de Kalman
 
 $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et les équations de la dynamique pour contrôler un système ?
 
-**Applications** Contrôle, Calage GPS, Filtrage de données.
+**Applications**
+
+Contrôle, Calage GPS, Filtrage de données.
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -402,8 +408,11 @@ Sans accès aux vraies valeurs de
 $x$ et face à un processus stochastique, annuler l'erreur est généralement impossible.
 Nous décrivons alors (non sans mal) l'erreur $e_{n}$ par récurrence:
 
-$$e_{n+1} = (I - K_{n+1} C) A e_n + (A_f + K_{n+1} CA -A) \hat{x}_n + (B_f +K_{n+1}CB - B) u_{n} + \\
- (K_{n+1} C - I) \phi_n + K_{n+1} \psi_{n+1}$$
+$$e_{n+1} = \begin{array}{rcl}
+(I - K_{n+1} C) A e_n
++ (A_f + K_{n+1} CA -A) \hat{x}_n + (B_f +K_{n+1}CB - B) u_{n} \\
++ (K_{n+1} C - I) \phi_n + K_{n+1} \psi_{n+1}
+\end{array}$$
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -417,7 +426,7 @@ Filtre de Kalman
 **Espérance de l'erreur** Sachant que les bruits blancs gaussiens sont d'espérance nulle : 
 
 
-$\forall n \in \mathbb{N}, \, \mathbb{E}[\phi_n] = 0, \mathbb{E}[\psi_n]$, on décrit l'évolution, l'espérance de l'erreur.
+$\forall n \in \mathbb{N}, \, \mathbb{E}[\phi_n] = 0, \mathbb{E}[\psi_n] = 0$, on décrit l'évolution, l'espérance de l'erreur.
 
 $$\mathbb{E}[e_{n+1}] = (I - K_{n+1}C) A\, \mathbb{E}[e_n] + (A_f + K_{n+1}CA - A)\, \hat{x}_n + (B_f + K_{n+1} CB - B) u_n$$
 
@@ -635,7 +644,7 @@ On cherche à régler $K$ pour que les variances d'erreurs soit les plus faibles
 
 **Récurrence** 
 
-Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons partie des relations de récurrence sur l'erreur $e_n$ pour progesser vers une erreur nulle.
+Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons parti des relations de récurrence sur l'erreur $e_n$ pour progesser vers une erreur nulle.
 
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
@@ -737,10 +746,38 @@ Si la dynamique est non-linéaire ?
 
 **Outil** : les matrices jacobiennes des opérateurs $y = h(x)$ et modèles $x_{n+1} = f(x_n)$
 
-On note alors 
+On note alors :
+
+1. $A_{(i,j)} = \frac{\partial f_i}{\partial x_j}$, la jacobienne de $f$ par rapport à $x$
+2. $W_{(i,j)} = \frac{\partial f_i}{\partial \phi_j}$, la jacobienne de $f$ par rapport au bruit d'état $\phi$
+3. $H_{(i,j)} = \frac{\partial h_i}{\partial x_j}$, la jacobienne de $h$ par rapport à $x$
+4. $V_{(i,j)} = \frac{\partial h_i}{\partial \psi_j}$, la jacobienne de $h$ par rapport au bruit de mesure.
+
+---
+
+# Extended Kalman Filter
+Si la dynamique est non-linéaire ?
+
+**Solution** : Linéariser les équations (modèle et observateurs), autour du point de fonctionnement $\hat{x}_n$ estimé.
+
+**Outil** : les matrices jacobiennes des opérateurs $y = h(x)$ et modèles $x_{n+1} = f(x_n)$
+
+1. On utilise directement $f$, et $h$ directement pour le calcul de $x$ à priori et à posteriori
+2. On utilise les matrices jacobiennes dans le calcul des covariances
 
 
-**En Météo** On ne s'étonnera pas de trouver les termes de **Tangent-Linéaire** (TL) et **Adjoint** en assimilation, il s'agit resp. de la **jacobienne** et de sa **transposée** _(exactement du conjugué de sa transposée si on travail sur un espace complexe)_
+---
+
+# Extended Kalman Filter
+Si la dynamique est non-linéaire ?
+
+**Solution** : Linéariser les équations (modèle et observateurs), autour du point de fonctionnement $\hat{x}_n$ estimé.
+
+**Outil** : les matrices jacobiennes des opérateurs $y = h(x)$ et modèles $x_{n+1} = f(x_n)$
+
+
+**En Météo** On ne s'étonnera pas de trouver les termes de **Tangent-Linéaire** (TL) et **Adjoint** en assimilation, il s'agit resp. de la **jacobienne** et de sa **transposée** 
+_(exactement du conjugué de sa transposée si on travail sur un espace complexe)_
 
 **En pratique** La encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs adéquats (en respectant de manière empirique les hypothèses sur les distributions).
 
@@ -771,6 +808,19 @@ Spoiler alert !
 **TP** : Filtre Kalman sur un oscillateur harmonique
 
 $\rightarrow$ Apportez vos PC, TP sur Google Colab
+
+---
+
+# Sources 
+Liens utiles
+
+[G. Welch, G. Bishop, University of North Carolina, An Introduction to the Kalman Filter](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf)
+
+
+[O. Herscovici-Schiller, ONERA, Introduction au filtrage de Kalman et à la commande optimale](https://www.onera.fr/sites/default/files/270/poly_Kalman_Herscovici.pdf)
+
+
+[G. Chardon, CentraleSupélec, Filtrage de Kalman](https://gilleschardon.fr/fc/kalman/kalman.pdf)
 
 ---
 layout: end
