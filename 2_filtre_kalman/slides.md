@@ -104,16 +104,6 @@ _Note : Wiener a formalisé le mouvement brownien, d'où le nom de processus de 
 
 
 ---
-
-## Au cours précédent
-Correction - Cinétique chimique
-
-<p class="absolute bottom-10 right-10 opacity-30 transform">
-<SlideCurrentNo /> / <SlidesTotal />
-</p>
-
-
----
 layout: section
 
 ---
@@ -209,11 +199,11 @@ On peut alors lier les moments de la distribution avec les caractéristiques phy
 
 - **Concentration de goutelettes** $N_c$ et **moment d'ordre 0** : $N = \int_0^{\infty} f(D) dD$ 
 - **Contenu en eau** $q_c$ et **moment d'ordre 3** : $L = \frac{\pi \rho_w}{6} \int_0^{\infty} D^3 f(D) dD$ _(lié au volume des gouttes)_
-- **Réflectivité radar** $\Sigma_c$ et **moment d'ordre 6** : $R \propto \int_0^{\infty} D^6 f(D) dD$ _(lié à la loi de Rayleigh)_
+- **Réflectivité radar** $\Sigma_c$ et **moment d'ordre 6** : $R \propto \int_0^{\infty} D^6 f(D) dD$ _(lié à la diffusion de Rayleigh)_
 
 En modélisation microphysique, "le jeu" est de choisir le nombre de moments à modéliser (**fermeture**),
 la discrétisation sur l'espace des diamètres (**échantillonage**), pour représenter les interactions possibles
-entre les gouttes (de pluie, neige, etc.).
+entre les gouttes (de pluie, de neige, etc.).
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -256,7 +246,7 @@ On note $\mu = \mathbb{E}[X]$ et $\sigma^2 = \mathbb{V}(X)$. On suppose $0 \lt \
 
 En posant $S_n = \sum_{i=1}^n X_i$,
 
-$$Y_n = \frac{S_n - n\mu}{\sigma \sqrt(n)} \rightarrow Y$$
+$$Y_n = \frac{S_n - n\mu}{\sigma \sqrt(n)} \underset{n \rightarrow \infty}{\longrightarrow} Y \sim \mathcal{N}(0, 1)$$
 
 **Remarque** Il s'agit d'une convergence en loi : la suite des lois $Y_n$ tend vers $Y$ qui est aussi une loi de probabilité.
 
@@ -315,13 +305,13 @@ layout: section
 #  Introduction
 Filtre de Kalman
 
-**Filtre de Kalman** (1960), Rudolf Kalman : utilisé pour la première fois pour l'estimation de trajectoire des programmes Apollo
+**Filtre de Kalman** (1960), Rudolf Kalman (mathématicien hongrois) : utilisé pour la première fois pour l'estimation de trajectoire des programmes Apollo
 
 $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et les équations de la dynamique pour contrôler un système ?
 
 **Applications**
 
-Contrôle, Calage GPS, Filtrage de données.
+Contrôle, Calage GPS, Filtrage et assimilation de données.
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -497,6 +487,7 @@ fidélité aux valeurs de mesure ($y_{n+1}$).
 layout: image-right
 image: ./img/kalman_loop.png
 backgroundSize: 100%
+figcaption: "Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch & Bishop, Intro to the Kalman Filter"
 
 ---
 
@@ -510,6 +501,10 @@ comme si on n'avait que les équations du système
 à disposition.
 
 2. **Correction** : Construction de l'estimation à posteriori avec l'information apportée par les mesures.
+
+_Légende : sur le schéma à droite,_
+
+_$H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -531,6 +526,10 @@ Sans oublier la construction des matrices de covariances, liées au bruit.
 par rapport au **bruit d'état** $Q$ (ou $\Phi$ comme noté précédemment).   
 
 2. **Correction** : Construction de la matrice de covariance $P_k$ par rapport au **bruit de mesure** $R$ (ou $\Psi$ comme noté précédemment).
+
+_Légende : sur le schéma à droite,_
+
+_$H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -586,7 +585,9 @@ _Dans un cas simple à une dimension, $P = \mathbb{E}[(\hat{x}_n - x_n)^2] = \ma
 # Dynamique de l'erreur
 Choix du gain K
 
-**Condition d'optimalité du gain du filtre** On cherche $K$ de telle sorte que la variance de l'erreur $P = \mathbb{E}[e \times e^T] \sim \mathbb{E}[e]$ soit minimale.
+**Condition d'optimalité du gain du filtre** 
+
+On cherche $K$ de telle sorte que la variance de l'erreur $P = \mathbb{E}[e \times e^T] \sim \mathbb{E}[e]$ soit minimale.
 
 Un condition nécessaire est de chercher le gain $K$ tel que $P(k)$ soit extrêmal, autrement dit que 
 
@@ -636,7 +637,7 @@ Synthèse et lien vers les processus stochastiques
 
 **Estimateur sans biais** 
 
-On cherche à obtenir un estimateur qui satisfait $\lim\limits_{n \rightarrow \infty} \mathbb{e_n} = 0$ (assymptotiquement sans biais)
+On cherche à obtenir un estimateur qui satisfait $\lim\limits_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$ (assymptotiquement sans biais)
 
 **Gain optimal** 
 
@@ -644,7 +645,7 @@ On cherche à régler $K$ pour que les variances d'erreurs soit les plus faibles
 
 **Récurrence** 
 
-Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons parti des relations de récurrence sur l'erreur $e_n$ pour progesser vers une erreur nulle.
+Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons parti des relations de récurrence sur l'erreur $e_n$ pour progresser vers une erreur nulle.
 
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
@@ -702,7 +703,8 @@ Construction pratique d'un filtre de Kalman
 2. Que les bruits puissent être assimilés à des bruits blancs gaussiens. Cela implique des tests statistiques, et éventuellement un travail sur les équations pour
 centrer et réduire le bruit (lien avec le TCL).
 
-3. Qu'il y ait effectivement indépendance entre le bruit de mesure et le bruit d'état. Exemple : le capteur de température n'influence pas son environnement en ralentissant le flux d'air dont il mesure la température.
+3. Qu'il y ait effectivement indépendance entre le bruit de mesure et le bruit d'état. _Exemple : le capteur de température qui influence son environnement en 
+ralentissant le flux d'air dont il mesure la température._
 
 **En pratique** 
 
@@ -717,11 +719,131 @@ Il n'y a pas forcément de réponse systématique à ces questions, simplement u
 # Exemple - Estimation d'une constante aléatoire
 Filtre de Kalman
 
+**Problème** 
+
+Nous cherchons à estimer une tension constante. Avec, à disposition, un volt-mètre, dont les mesures sont
+perturbées par un bruit blanc d'écart-type $\sigma = 0.1 V$.
+
+**Système linéaire**
+
+$$x_{n+1} = x_{n} + \phi_{n+1}$$
+$$z_{n+1} = x_{n+1} + \psi_{n+1}$$
+
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
 </p>
 
 ---
+
+# Exemple - Estimation d'une constante aléatoire
+Filtre de Kalman
+
+**Equations du Filtre** Dans ce cas simple, $A_f = B_f = C = I = 1$, nous étudions alors l'estimation 
+$\hat{x}$, la (co)-variance de l'erreur $P_n$ et le gain $K_n$, qui sont les charactéristiques essentielles du filtre. 
+
+1. Prédicteur :
+
+$$\hat{x}^-_{n+1} = \hat{x}_{n}$$
+$$P^-_{n+1} = P_n + \Phi \; (= P_n + \mathbb{V}[\phi_{n+1}]) $$
+
+2. Correcteur :
+
+$$K_{n+1} = P^-_{n+1} (P^-_{n+1} + \Psi)^{-1} = \frac{P_n + \Phi}{P_{n} + \Phi + \mathbb{V}[\psi_n]}$$
+$$\hat{x}_{n+1} = \hat{x}^-_{n+1} + K_{n+1}(z_{n+1} - \hat{x}^-_{n+1}) $$
+$$P_{n+1} = (1 - K_{n+1}) P_{n+1}^-$$
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Exemple - Estimation d'une constante tirée au sort
+
+**Hypothèses et modélisation**
+
+1. Ici, on suppose une variance sur le bruit d'état : $\Phi = 1 \times 10^{-5}$. C'est à dire qu'on se laisse la
+possibilité d'avoir un petit bruit d'état autour de la constante à mesurer (perturbations électromagnétiques ou autre).
+
+2. Choix des conditions initiales : on suppose que la tension à mesurer est une constante tirée d'une loi normale centrée.
+
+
+On fixe alors $x_0 = 0$, et on choisit une valeur arbitraire, mais non-nulle ($P_0 \neq 0$) pour $P_0$. Ici, $P_0 = 1$.
+
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/kalman_1.png
+backgroundSize: 60%
+
+---
+
+# Vraie valeur, Mesures, et Estimation (50 relevés)
+
+
+Filtre de Kalman
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/kalman_2.png
+backgroundSize: 50%
+
+
+---
+
+# Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
+Filtre de Kalman
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/kalman_3.png
+backgroundSize: 60%
+
+
+---
+
+# Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
+Filtre de Kalman
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/kalman_4.png
+backgroundSize: 60%
+
+
+---
+
+# Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
+Filtre de Kalman
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
 
 # Extended Kalman Filter
 Si la dynamique est non linéaire ?
@@ -735,7 +857,7 @@ Par :
 $$x_{n+1} = f(x_n, u_n, \phi_n), \, (modèle\; non-linéaire)$$
 $$y_{n+1} = h(x_{n+1}, \psi_{n+1}), (observateur\; non-linéaire)$$
 
-**Remarque** C'est le cas en Météo où le modèle repose sur les équations de Navier-Stokes (non-linéaires), et les observateurs reposent sur les lois non-linéaire (ex : reflectivité radar $R \propto D^6$)
+**Remarque** C'est le cas en Météo où le modèle repose sur les équations de Navier-Stokes (non-linéaires), et les observateurs reposent sur les lois non-linéaires (ex : réflectivité radar $R \propto D^6$)
 
 ---
 
@@ -748,10 +870,10 @@ Si la dynamique est non-linéaire ?
 
 On note alors :
 
-1. $A_{(i,j)} = \frac{\partial f_i}{\partial x_j}$, la jacobienne de $f$ par rapport à $x$
+1. $J^A_{(i,j)} = \frac{\partial f_i}{\partial x_j}$, la jacobienne de $f$ par rapport à $x$
 2. $W_{(i,j)} = \frac{\partial f_i}{\partial \phi_j}$, la jacobienne de $f$ par rapport au bruit d'état $\phi$
-3. $H_{(i,j)} = \frac{\partial h_i}{\partial x_j}$, la jacobienne de $h$ par rapport à $x$
-4. $V_{(i,j)} = \frac{\partial h_i}{\partial \psi_j}$, la jacobienne de $h$ par rapport au bruit de mesure.
+3. $J^H_{(i,j)} = \frac{\partial h_i}{\partial x_j}$, la jacobienne de $h$ par rapport à $x$
+4. $V_{(i,j)} = \frac{\partial h_i}{\partial \psi_j}$, la jacobienne de $h$ par rapport au bruit de mesure $\psi$.
 
 ---
 
@@ -762,8 +884,17 @@ Si la dynamique est non-linéaire ?
 
 **Outil** : les matrices jacobiennes des opérateurs $y = h(x)$ et modèles $x_{n+1} = f(x_n)$
 
-1. On utilise directement $f$, et $h$ directement pour le calcul de $x$ à priori et à posteriori
-2. On utilise les matrices jacobiennes dans le calcul des covariances
+1. On utilise directement $f$, et $h$ directement pour le calcul de $\hat{x}^-_n$ à priori et l'évaluation de la mesure $h(y_n)$.
+2. On utilise les matrices jacobiennes dans le calcul des covariances :
+
+$P^-_{n+1} = A P_{n} A^T + \Phi$ devient $P^-_{n+1} = J^A P_n (J^{A})^T + W \Phi W^T$ 
+
+$K_{n+1}$ devient $K_{n+1} = P^-_{n+1} (J^H)^T (J^H P^-_{n+1} (J^H)^T + V \Psi V^T)$
+
+$P_{n+1}$ devient $P_{n+1} = (I - K_{n+1} J^H) P^-_{n+1}$
+
+où $J^A$ et $J^H$ ont été évaluées au point $\hat{x}_n$
+
 
 
 ---
@@ -776,10 +907,14 @@ Si la dynamique est non-linéaire ?
 **Outil** : les matrices jacobiennes des opérateurs $y = h(x)$ et modèles $x_{n+1} = f(x_n)$
 
 
-**En Météo** On ne s'étonnera pas de trouver les termes de **Tangent-Linéaire** (TL) et **Adjoint** en assimilation, il s'agit resp. de la **jacobienne** et de sa **transposée** 
-_(exactement du conjugué de sa transposée si on travail sur un espace complexe)_
+**En Météo** 
 
-**En pratique** La encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs adéquats (en respectant de manière empirique les hypothèses sur les distributions).
+On ne s'étonnera pas de trouver les termes de **Tangent-Linéaire** (TL) et **Adjoint** (AD) en assimilation de données, il s'agit respectivement de la **jacobienne** $J^A$ et de sa **transposée** $(J^A)^T$
+_(plus exactement du conjugué de sa transposée si on travaille sur un espace complexe)_.
+
+**En pratique** 
+
+Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs adéquats (en respectant de manière empirique les hypothèses sur les distributions).
 
 ---
 
@@ -789,16 +924,18 @@ Qu'est-ce qu'un filtre de Kalman déjà ?
 
 **Basique**
 - La recette et le fonctionnement de prédicteur-correcteur pour le filtre Kalman,
-- (Théorie), c'est un estimateur assymptotiquement sans biais, et avec une variance à minimiser.
+- (Théorie), c'est un estimateur assymptotiquement sans biais, et avec une variance d'erreur à minimiser.
 
 **En fonction de l'espace de stockage disponible**
 - La démarche récursive de construction du filtre,  _utile pour comprendre le filtre "pas-à-pas"_.
 
 **En pratique, avec l'algorithme à disposition**
-- Comment linéariser le modèle et les observateurs de mesure ?
+- Comment régler le gain du filtre ?
 - Comment respecter au mieux les hypothèses de bruit blanc gaussien ?
+- Comment linéariser le modèle et les observateurs de mesure ?
 
-_En gardant à l'esprit qu'il s'agit d'un mélange de pratique et de théorie, sur la base du Filtre de Kalman, qui est plutôt un filtre simple et robuste_
+_En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et robuste, et que le travail consiste à construire
+les "bonnes" matrices de covariance, et régler le gain du filtre._
 
 ---
 
