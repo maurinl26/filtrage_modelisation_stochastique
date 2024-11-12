@@ -207,17 +207,59 @@ layout: section
 
 ---
 
-# Description de la méthode
+# Méthodes de Monte-Carlo
+Construction de l'estimateur
 
-Supposons que l'on veuille calculer une quantité $I$.
+**Estimateur de Monte-Carlo** Pour une suite de variables aléatoires indépendantes, identiquement distribuées, $\{q_1, ..., q_N\}$ (N arbitrairement grand), et pour une foonction $f$ à valeurs réelles et mesurables, les estimateur de Monte-Carlo sont défini par les **moyennes d'ensemble** de $f$ :
 
-- On met $I$ sous la forme $I = \mathbb{E}[X]$ avec $X$ un variable aléatoire.
-- On effectue un tirage de variables aléatoires $X_1, ..., X_N$ **indépendantes et identiquement distribuées**
+$$\hat{f}_N^{MC} = \frac{1}{N} \sum_{n=1}^N f(q_n)$$
 
-$I$ peut être approché par 
-$$I \sim \frac{1}{N} \sum_i X_i$$
+La moyenne de l'ensemble converge alors vers l'espérance de $f$ :
 
-Sous réserve d'application de la **Loi des Grands Nombres**, c'est-à-dire N suffisament grand.
+$$\lim\limits_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \mathbb{E}_{\pi}[f]$$
+
+Formellement, la variable aléatoire définie par la moyenne d'ensemble $\hat{f}_N^{MC}$ tend vers une distribution de Dirac autour de l'espérance de la fonction : $\lim\limits_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \delta_{\mathbb{E}_{\pi}[f]}$.
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+
+---
+
+# Méthodes de Monte-Carlo
+Erreur de l'estimateur
+
+**Propriété** : L'estimateur défini est assymptotiquement sans biais.
+
+$\rightarrow$ En pratique, on cherche à estimer l'exactitude de l'estimateur pour un petit échantillon _(afin d'utiliser ces méthodes sur des ressources de calcul limitées)_.
+
+**Propriété** : L'estimateur de Monte-Carlo, pour une fonction réelle et de carré intégrable (pour laquelle $\mathbb{E}_{\pi}[f], \mathbb{E}_{\pi}[f]$ existent), satisfait le Théorème Central Limite. 
+C'est-à-dire, la suite des estimateurs de Monte-Carlo standardisés converge vers une loi normale centrée réduite.
+
+$$\lim\limits_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
+
+où $SE_N$ est l'erreur quadratique de l'estiamteur de Monte-Carlo : $SE_N = \sqrt{\frac{Var_{\pi}[f]}{N}}$
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Méthodes de Monte-Carlo
+Résumé
+
+Autrement dit, à la limite,
+
+$$\hat{f}_N^{MC} = \mathcal{N}(\mathbb{E}_{\pi}[f], SE_N[f])$$
+
+En pratique, la quantification de l'erreur par le TCL suppose de connaître la variance $Var_{\pi}[f]$. Si $f^2$ est de carré intégrable ($\mathbb{E}[f^4]$ existe), on peut approximer la variance par un autre estimateur de Monte-Carlo.
+
+**Avantages** : $SE_N \propto \frac{1}{\sqrt{N}}$, l'erreur quadratique moyenne décroît avec l'inverse de la racine carrée de la taille de l'échantillon. En pratique, cela permet de dimensionnner au préalable le nombre d'échantillons nécessaires pour atteindre une erreur donnée. 
+
+**Limitations** : la quantification de l'erreur est probabiliste. Il reste toujours une (mal)-chance que l'estimateur s'échoue dans la queue de la distribution (ex : $\hat{f}_N^{MC} > \mathbb{E}_{\pi}[f] + 3 SE_N[f   ]$).
+
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -226,7 +268,7 @@ Sous réserve d'application de la **Loi des Grands Nombres**, c'est-à-dire N su
 ---
 
 # Loi forte des Grands Nombres
-Théorèmes fondamentaux
+(Rappel, si nécessaire) Théorèmes fondamentaux
 
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **indépendantes** et **identiquement distribuées (i.i.d.)** et
@@ -250,7 +292,7 @@ Pour $U$ variable aléatoire uniforme sur $[0,1]$, $\lim\limits_{n \rightarrow \
 ---
 
 # Théorème Centrale Limite
-Théorèmes fondamentaux
+(Rappel, si nécessaire) Théorèmes fondamentaux
 
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **i.i.d.**
@@ -283,6 +325,7 @@ layout: section
 ---
 
 # Chaînes de Markov
+Définition
 
 **Définition** : Une chaîne de Markov homogène à valeurs dans $S$ de matrice de transition $P$ et de loi initial $\lambda$
 est une famille de variables aléatoires $(X_n, n \in \mathbb{N})$ telle que :
