@@ -165,6 +165,43 @@ $\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir
 
 ---
 
+# Motivations
+Estimation bayésienne et exploration d'une distribution
+
+En estimation bayésienne, on cherche à construire un estimateur (bayésien), c'est à dire une distribution conditionnée aux données d'apprentissage :
+
+$$P(\theta | data ) = \frac{P(\theta) \cdot P(data | \theta)}{P(data)}$$
+
+$\rightarrow$ Le problème principal : estimer **la loi marginale** $P(data)$
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Motivations
+Estimation bayésienne et exploration d'une distribution
+
+$\rightarrow$ Le problème principal : estimer **la loi marginale** $P(data)$
+
+- Cas discret :
+
+$$P(data) = \sum_{\theta} P(data | \theta) \times P(\theta)$$
+
+- Cas continu :
+
+$$P(data) = \int_{\theta} P(data | \theta) \times P(\theta) d\theta$$
+
+Dans le cas continu, calculer $P(data)$ peut devenir intractable.
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
 # Markov Chain Monte-Carlo
 MCMC
 
@@ -210,7 +247,7 @@ layout: section
 # Méthodes de Monte-Carlo
 Construction de l'estimateur
 
-**Estimateur de Monte-Carlo** Pour une suite de variables aléatoires indépendantes, identiquement distribuées, $\{q_1, ..., q_N\}$ (N arbitrairement grand), et pour une foonction $f$ à valeurs réelles et mesurables, les estimateur de Monte-Carlo sont défini par les **moyennes d'ensemble** de $f$ :
+**Estimateur de Monte-Carlo** Pour une suite de variables aléatoires indépendantes, identiquement distribuées, $\{q_1, ..., q_N\}$ (N arbitrairement grand), et pour une fonction $f$ à valeurs réelles et mesurables, les estimateur de Monte-Carlo sont défini par les **moyennes d'ensemble** de $f$ :
 
 $$\hat{f}_N^{MC} = \frac{1}{N} \sum_{n=1}^N f(q_n)$$
 
@@ -327,8 +364,73 @@ layout: section
 # Chaînes de Markov
 Définition
 
+$\rightarrow$ But : on cherche à explorer une distribution cible $\pi$.
+
+**Définition** : Sur un espace d'états $Q$, une chaîne de Markov est définie comme une suite de transitions entre états ${q_1, ..., q_N}$ dont la transition entre 2 états $q_n \rightarrow q_{n+1}$ ne
+dépend que de l'état $q_n$.
+
+$$P(q_{n+1} | q_1, ..., q_n) = P(q_{n+1} | q_n)$$
+
+**Application** : Une chaîne de Markov permet d'échantillonner des chemins discrets sur un espace ambient (à explorer). La mise au point d'une chaîne de Markov sur cet espace permet d'identifier une distribution cible $\pi$.
 
 
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Chaînes de Markov
+Définition
+
+**Distribution de transitions** : Soit un espace ambient $Q$ équipé d'une tribu (ou $\sigma$-algèbre) $\mathcal{Q}$. On peut spécifier les **transitions de Markov** comme une densité de probabilité conditionnelle :
+
+$$
+\begin{array}{rcl}
+T \colon &Q \times Q \rightarrow \mathbb{R}^+\\
+&(q, q') \mapsto T(q'| q)
+\end{array}
+$$
+
+pour une transition de $q$ vers $q'$.
+
+Etant donné un point $q_0$, un tirage aléatoire de $T(\cdot | q_0)$ forme un **saut** ou une **transition**.
+
+$$\bar{q}_1 \sim T(q_1 | q_0)$$
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Chaînes de Markov
+Définition
+
+Etant donné un point $q_0$, un tirage aléatoire de $T(\cdot | q_0)$ forme un **saut** ou une **transition**.
+
+$$\bar{q}_1 \sim T(q_1 | q_0)$$
+
+En itérant ces tirages aléatoires, on réalise (ou simule) une trajectoire $\{\bar{q}_1, ..., \bar{q}_n\}$ où
+
+$$\bar{q}_1 \sim T(q_1 | q_0)$$
+$$...$$
+$$\bar{q}_N \sim T(q_N | q_{N-1})$$
+
+$\rightarrow$ On génère des séquences de points corrélés. _(Loin des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_.
+
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Chaînes de Markov
+Exemple : trajectoire sur un espace à 2 dimensions
+
+_A faire_
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -339,7 +441,14 @@ Définition
 # Chaînes de Markov
 Distribution stationnaire
 
+**Résultat empirique** : la réalisation d'une chaîne de Markov converge vers une distribution invariante par transitions de Markov, **la distribution stationnaire**, pour une distribution de transitions donnée $T('q|q')$.
 
+$$\pi = \int dq' \pi(q') T(q | q')$$
+
+**Application** 
+
+En reprenant le **problème de marginalisation** $P(data) = ?$, si nous arrivons à construire une chaîne de Markov dont la distribtion stationnaire est celle des données ($\pi = P(data)$), alors nous 
+pouvons construire un estimateur de manière analogue à celui de Monte-Carlo.
 
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
@@ -349,9 +458,50 @@ Distribution stationnaire
 ---
 
 # Chaînes de Markov
-Convergence
+Stationnarité - Démonstration
+
+Construisons les densités de probabilités rencontrées sur le chemin formé par la chaîne de Markov :
+
+1. $\bar{q}_0 \sim \rho$. On définit la distribution initiale $\rho = \delta_{q_0}$ (distribution de Dirac autour de $q_0$, le point initial est $q_0$ presque sûrement).
+
+2. L'espérance de la position du point 1 est donnée par :
+  $$(T\rho)(q_1) = \int dq_0 T(q_1|q_0)\rho(q_0)$$
+
+3. En itérant au point 2, puis au point n :
+  $$(T^2 \rho)(q_2) = (T \cdot T\rho)(q_2) = \int dq_1 dq_2 T(q_2|q_1)T(q_1|q_0)\rho(q_0)$$
+  $$(T^N \rho)(q_N) = (T \cdot T^{N-1}\rho)(q_{N-1}) = (T \cdot ... \cdot T \rho)(q_N)$$
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Chaînes de Markov
+Stationnarité - Démonstration
+
+En consruisant la densité de probabilité au point $N$ :
+  $$(T^N \rho)(q_N) = (T \cdot T^{N-1}\rho)(q_{N-1}) = (T \cdot ... \cdot T \rho)(q_N)$$
+
+En observant la convergence, **si la limite existe**, 
+
+$$\lim\limits_{N \rightarrow \infty} T^N \rho = \pi$$
+
+Alors c'est un point fixe :
+
+$$T\pi = \pi$$
+
+$\rightarrow$ _Ce qu'on vient d'énoncer ne présage par de l'existance de la limite. Simplement, si elle exite alors c'est une distribution stationnaire. En pratique, on construit une chaîne de Markov et ses transitions pour qu'elle ait une distribution limite stationnaire._
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
 
 
+---
+
+# Chaîne de Markov
+(Optionnel) Vitesses de convergence
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -361,8 +511,6 @@ Convergence
 
 # Chaînes de Markov
 (Optionnel) Spectre de la matrice de transition et Convergence
-
-
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -384,50 +532,17 @@ layout: section
 # Markov Chain Monte-Carlo
 Construction de l'estimateur
 
-<p class="absolute bottom-10 right-10 opacity-30 transform">
-<SlideCurrentNo /> / <SlidesTotal />
-</p>
+**Estimateur MCMC** Etant donné une suite de points $\{q_1, ..., q_N\}$ qui forment la réalisation d'une chaîne de Markov, l'estimateur **Markov Chain Monte-Carlo** est défini par 
 
----
+$$\hat{f}_N^{MCMC} = \frac{1}{N + 1} \sum_{n=0}^{N} f(q_n)$$
 
-# Markov Chain Monte-Carlo
-Conditions de convergence
+Contrairement aux estimateurs de Monte-Carlo (MC), le comportement assymptotique des estimateurs MCMC n'est pas défini
 
-- Chaîne irréductible
-- Chaîne apériodique (si nécessaire, 2eme slide)
+$$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]} \; ???$$
 
-$\rightarrow$ Attention pour la construction de la matrice de transitions
 
-<p class="absolute bottom-10 right-10 opacity-30 transform">
-<SlideCurrentNo /> / <SlidesTotal />
-</p>
 
----
-
----
-
-# Markov Chain Monte-Carlo
-Vitesse de convergence et nombre d'itérations fini
-
-<p class="absolute bottom-10 right-10 opacity-30 transform">
-<SlideCurrentNo /> / <SlidesTotal />
-</p>
-
----
-
-# Markov Chains Monte-Carlo
-Calcul des probabilités dans une chaîne de Markov
-
-$\rightarrow$ Comment estimer la distibution sur les états d'une chaîne de Markov ?
-
-Etant donnée une chaîne de Markov, on note $D(s,t)$ la distribution des états sur $X_t$ sachant que $X_0 = s$.
-
-_Remarque : On peut représenter $D(s,t)$ comme un vecteur pour lequel $D_i = P(X_t = s_i | X_0 = s)$._ 
-
-**Méthodes de calcul**
-
-- Calcul direct
-- Simulation (Markov Chain Monte Carlo)
+_MCMC : Markov Chain Monte-Carlo_
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -436,21 +551,22 @@ _Remarque : On peut représenter $D(s,t)$ comme un vecteur pour lequel $D_i = P(
 ---
 
 # Markov Chain Monte-Carlo
-Calcul des probabilités dans une chaîne de Markov
+Conditions de convergence - Nombre d'itérations infinies
 
-$\rightarrow$ Comment estimer la distibution sur les états d'une chaîne de Markov ?
+La convergence des estimateurs MCMC est garantie à condition que **la chaîne soit récurrente**.
+Dans ce cas, la limite existe seulement pour **un nombre fini d'initialisations**.
 
-**Calcul direct** 
+$$\lim\limits_{N \rightarrow \infty}  \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]} $$
 
-En prenant un vecteur d'état initial $D(0,s) = [0 ... 0, 1, 0 ... 0]$, $\forall t \geq 1$,
+Ce résultat peut être généralisé à toute distribution initale de points par la **condition de Harris**.
 
-$$D(t,s) = D(t-1, s) P = D(0,s) P^t$$
+**Chaîne de Markov récurrente** : La chaîne est irréductible selon des transitions de Markov sont **apériodiques** et **irréductible**.
 
-**Coût numérique**
 
-Le calcul de $P^t$ est d'une complexité $O(log(t))$, en utilisant un algorithme d'exponentiation rapide. (Calcul et stockage de $P^2, P^4, P^8, P^{16}, ..., P^{2 \lfloor log(t) \rfloor}$).
+**Chaîne de Harris** :  chaîne de Markov dont la chaîne retourne **un nombre non-borné de fois** dans une partie quelconque de l'espace d'états.
 
-_Ce calcul est rapide tant que le nombre d'états est petit._
+
+$\rightarrow$ _En pratique, construire ou utiliser un estimateur **MCMC** nécessite de vérifier précautionneusement les hypothèses sur les transitions de la chaîne de Markov._
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -459,22 +575,11 @@ _Ce calcul est rapide tant que le nombre d'états est petit._
 ---
 
 # Markov Chain Monte-Carlo
-Calcul des probabilités dans une chaîne de Markov
+Conditions de convergence - Nombre d'itérations fini
 
-$\rightarrow$ Comment estimer la distibution sur les états d'une chaîne de Markov ?
+Nous venons d'étudier le comportement assymptotique d'un estimateur **MCMC**, c'est-à-dire en nombre d'itérations infini.
 
-**Calcul par simulations - Markov Chain Monte-Carlo** 
-
-On estime $D(t, s)$ par méthodes de Monte-Carlo. En prenant $X_0 = s$, et $\forall i = 1, ..., t$ on tire au sort les transitions vers l'état $X_i$ compte tenu de l'état $X_{i-1}$ et des probabilités de transition définies par $P$.
-
-En répétant l'opération $k$ fois, on obtient $k$ échantillons de la distribution $D(s,t)$.
-
-**Coût numérique** 
-
-Le coût de l'estimation est de $k \cdot t \cdot update_T$, où $update_T$ est le coût d'un
-tirage au sort.
-
-_Pour un grand nombre d'états, Markov Chain Monte Carlo a un coût raisonnable pour estimer $D(t,s)$._
+$\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itérations finies ?
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -482,8 +587,8 @@ _Pour un grand nombre d'états, Markov Chain Monte Carlo a un coût raisonnable 
 
 ---
 
-# Application au jeu de Go
-Marko Chain Monte Carlo
+# Markov Chain Monte-Carlo
+Illustrations - Cas stable
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -491,8 +596,8 @@ Marko Chain Monte Carlo
 
 ---
 
-# Application à la recherche Web - PageRank
-Markov Chain Monte Carlo
+# Markov Chain Monte-Carlo
+Illustrations - Cas instable - Pincement
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -500,28 +605,99 @@ Markov Chain Monte Carlo
 
 ---
 
+# Markov Chain Monte-Carlo
+Illustrations - Cas instable - Cas Métastable
 
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
 
 ---
 
-# Markov Chains Monte-Carlo
+# Markov Chain Monte-Carlo 
+(Optionnel) Vitesse de convergence théorique
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Markov Chain Monte-Carlo
+(Optionnel) MCMC et Théorème Central Limite 
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+
+# Markov Chain Monte-Carlo
 Algorithme de Metropolis-Hastings
 
+**Implémentation** : Comment construire les distributions de transitions pour obtenir une Chaîne de Markov qui converge vers une distribution stationnaire ?
+
+**L'Algorithme de Métropolis-Hastings** propose une approche générique par essais / erreurs. 
+
+1. On définit une distribution à priori pour définir les probabilités de transition :
+$$
+\begin{array}{rcl}
+K \colon &Q \times Q \rightarrow \mathbb{R}^+\\
+&(q, q') \mapsto K(q'| q)
+\end{array}
+$$
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
 </p>
 
+---
+
+# Markov Chain Monte-Carlo
+Algorithme de Metropolis-Hastings
+
+**L'Algorithme de Métropolis-Hastings** propose une approche générique par essais / erreurs. 
+
+2. Pour une transition entre $q$ et $q'$, on définit la probabilité d'acceptation _(acceptance probability)_ de Metropolis-Hastings
+$$
+a(q',q) = min(1, \frac{K(q|q')\pi(q')}{K(q'|q)\pi(q)})
+$$
+
+avec $\frac{\pi(q')}{\pi(q)}$ le _ratio de Metropolis_, et $\frac{K(q|q')}{K(q'|q)}$ la _correction d'Hastings_
+
+3. La _transition de Métropolis_ est définie comme la probabilité de sauter vers la proposition $q'$ avec une probabilité $a(q',q)$ et de rester au point initial avec la probabilité $1 - a(q',q)$
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
 
 ---
 
-# 
+# Markov Chain Monte-Carlo
+Algorithme de Metropolis-Hastings
+
+_A faire_
+
+Conclusion et Gibbs Sampling
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
 
 ---
 
-# A retenir 
+# A retenir
 Markov Chain Monte Carlo
 
+- Méthodes de Monte-Carlo
+
+- Chaînes de Markov
+
+- Markov Chain Monte-Carlo
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
 
 ---
 
