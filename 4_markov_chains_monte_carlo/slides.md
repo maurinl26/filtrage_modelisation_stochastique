@@ -414,11 +414,17 @@ $$\bar{q}_1 \sim T(q_1 | q_0)$$
 
 En itérant ces tirages aléatoires, on réalise (ou simule) une trajectoire $\{\bar{q}_1, ..., \bar{q}_n\}$ où
 
-$$\bar{q}_1 \sim T(q_1 | q_0)$$
-$$...$$
-$$\bar{q}_N \sim T(q_N | q_{N-1})$$
+$$
+\begin{array}{rcl}
+&\bar{q}_1 \sim T(q_1 | q_0)\\
+&...\\
+&\bar{q}_N \sim T(q_N | q_{N-1})\\
+\end{array}
+$$
 
-$\rightarrow$ On génère des séquences de points corrélés. _(Loin des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_.
+$\rightarrow$ On génère des séquences de points corrélés. 
+
+_(Au contraire des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_.
 
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
@@ -426,11 +432,33 @@ $\rightarrow$ On génère des séquences de points corrélés. _(Loin des tirage
 </p>
 
 ---
+layout: image-right
+image: ./img/markov_chain_path.png
+backgroundSize: 60%
+
+---
 
 # Chaînes de Markov
 Exemple : trajectoire sur un espace à 2 dimensions
 
-_A faire_
+On se dote d'un espace ambient à 2 dimensions $Q = \mathbb{R}^2$, avec 2 fonctions de coordonnées :
+$$
+\begin{array}{rcl}
+\omega_1 \colon& Q \rightarrow \mathbb{R}\\
+& q \mapsto q^1
+\end{array}|
+\begin{array}{rcl}
+\omega_2 \colon& Q \rightarrow \mathbb{R}\\
+& q \mapsto q^2
+\end{array}
+$$
+
+On définit une densité de probabilité de transition de Markov :
+$$
+T(q_1 | q_0) = \mathcal{N}(q_1^1|q_0^1, \sigma) \mathcal{N}(q_1^2|q_0^2, \sigma)
+$$
+
+_A gauche : Réalisation d'une trajectoire d'une chaîne de Markov, [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -491,7 +519,20 @@ Alors c'est un point fixe :
 
 $$T\pi = \pi$$
 
-$\rightarrow$ _Ce qu'on vient d'énoncer ne présage par de l'existance de la limite. Simplement, si elle exite alors c'est une distribution stationnaire. En pratique, on construit une chaîne de Markov et ses transitions pour qu'elle ait une distribution limite stationnaire._
+$\rightarrow$ _Ce qu'on vient d'énoncer ne présage pas de l'existance de la limite. Simplement, si elle exite alors c'est une distribution stationnaire. En pratique, on construit une chaîne de Markov et ses transitions pour qu'elle tende une distribution limite stationnaire._
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/markov_convergence.png
+backgroundSize: 40%
+---
+
+# Chaînes de Markov
+Stationnarité - Illustration
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -503,6 +544,22 @@ $\rightarrow$ _Ce qu'on vient d'énoncer ne présage par de l'existance de la li
 # Chaîne de Markov
 (Optionnel) Vitesses de convergence
 
+
+**Convergence** : Etant donné une distance $\lVert \cdot \rVert$, la chaîne de Markov converge si $\forall \epsilon \in \mathbb{R}^+, \exists N(\rho) \in \mathbb{N}$ tel que 
+$$\lVert T^N \rho - \pi \rVert \leq \epsilon$$
+
+
+**Distance en variations totales** : 
+$\lVert \rho - \pi \rVert_{TV} = sup_{B \in \mathcal{Q}} \lvert \rho[B] - \pi[B]\rvert$
+
+**Vitesses de convergence**
+
+- Ergodicité polynômiale  : $\lVert \rho - \pi \rVert_{TV} \leq C(\rho)(N + 1)^{-\beta}$
+- Ergodicité géométrique  : $\lVert \rho - \pi \rVert_{TV} \leq C(\rho)r^N$
+- Ergodicité uniforme : $\lVert \rho - \pi \rVert_{TV} \leq C r^N$
+
+_Remarque : L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés._
+
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
 </p>
@@ -511,6 +568,8 @@ $\rightarrow$ _Ce qu'on vient d'énoncer ne présage par de l'existance de la li
 
 # Chaînes de Markov
 (Optionnel) Spectre de la matrice de transition et Convergence
+
+
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -586,6 +645,10 @@ $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itération
 </p>
 
 ---
+layout: image
+image: ./img/markov_chain_monte_carlo_stable.png
+backgroundSize: 80%
+---
 
 # Markov Chain Monte-Carlo
 Illustrations - Cas stable
@@ -595,9 +658,23 @@ Illustrations - Cas stable
 </p>
 
 ---
+layout: image
+image: ./img/markov_chain_monte_carlo_pinch.png
+backgroundSize: 80%
+---
 
-# Markov Chain Monte-Carlo
-Illustrations - Cas instable - Pincement
+
+<p class="absolute bottom-10 right-10 opacity-30 transform">
+<SlideCurrentNo /> / <SlidesTotal />
+</p>
+
+---
+layout: image
+image: ./img/markov_chain_monte_carlo_metastable.png
+backgroundSize: 80%
+---
+
+
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -605,8 +682,12 @@ Illustrations - Cas instable - Pincement
 
 ---
 
-# Markov Chain Monte-Carlo
-Illustrations - Cas instable - Cas Métastable
+# Markov Chain Monte Carlo
+Convergence
+
+$\rightarrow$ En pratique, la convergence dépend beaucoup de la distribution à explorer.
+
+Ces méthodes, bien qu'utiles, sont moins robustes que les méthodes de Monte-Carlo. Elles dépendent grandement du jeu de données à explorer et nécessitent une mise au point minutieuse.
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -625,6 +706,20 @@ Illustrations - Cas instable - Cas Métastable
 
 # Markov Chain Monte-Carlo
 (Optionnel) MCMC et Théorème Central Limite 
+
+Le Théorème Central Limite s'applique pour des conditions particulières d'estimateurs MCMC. 
+
+Si on considère un fonction de carré intégrable $f \colon Q \mapsto \mathbb{R}$. On suppose que la distribution de porbabilité des transitions satisfait le Théorème Central Limite. Dans ce cas, à partir d'un certain rang, suffisament long, la chaîne de Markov peut être apporximée à une Gaussienne :
+$$\hat{f}_N^{MCMC} \sim \mathcal{N}(\mathbb{E}[f], MCMC-SE[f])$$
+
+où MCMC-SE (_Markov Chain Monte Carlo Standard Error_) est définie par :
+$$
+MCMC-SE[f] = \sqrt{\frac{Var[f]}{\lambda[f] \cdot N}}
+$$ 
+
+_Remarque : selon le terme $\lambda[f] \cdot N$, la décroissance de l'erreur pour un estimateur MCMC peut être plus rapide que celle d'un estimateur de Monte-Carlo._
+
+
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
@@ -676,9 +771,14 @@ avec $\frac{\pi(q')}{\pi(q)}$ le _ratio de Metropolis_, et $\frac{K(q|q')}{K(q'|
 # Markov Chain Monte-Carlo
 Algorithme de Metropolis-Hastings
 
-_A faire_
+La distribution des transitions de Markov peut être définie comme :
 
-Conclusion et Gibbs Sampling
+$$T(q'|q) = a(q', q) \cdot Q(q'|q) + (1 - \in dq' Q(q'|q)a(q|q')) \cdot \delta(q - q') $$
+
+**Random Walk Metropolis** 
+
+Dans ce cas, $Q(q'|q, \Sigma) = \mathcal{N}(q'|q, \Sigma)$
+On perturbe le point initial par une gaussienne.
 
 <p class="absolute bottom-10 right-10 opacity-30 transform">
 <SlideCurrentNo /> / <SlidesTotal />
