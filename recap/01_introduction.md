@@ -188,7 +188,7 @@ On a alors $\mathbb{E}[X] = p/\lambda$, $\mathbb{V}[X] = p/\lambda^2$
 
 
 ---
-## Exemple : la loi gamma en microphysique
+## Exemple d'application : la loi gamma en microphysique
 
 En microphysique (modélisation des nuages et interactions entre hydrométéores), la distribution des gouttes
 par rapport à leur diamètre est donnée par une loi exponentielle (Loi de Marshall-Palmer).
@@ -267,4 +267,33 @@ Remarque :
 
 
 ---
+## Estimation bayésienne
 
+En estimation bayésienne, on cherche à construire un estimateur (bayésien), c'est à dire une distribution conditionnée aux données d'apprentissage :
+
+$$P(\theta | data ) = \frac{P(\theta) \cdot P(data | \theta)}{P(data)}$$
+
+où :
+- $P(\theta)$ est la **distribution à priori** des paramètres du modèle, ou **prior**
+- $P(data| \theta)$ est la **vraisemblance du modèle** par rapport aux données, ou **likelihood** en anglais. 
+- $P(\theta | data)$ est la **distribution à posteriori** des paramètres du modèle, ou **posterior**
+- $P(data)$ est la loi ou distribtion marginale des données.
+
+_Remarque : on utilise souvent le logarithme de ces grandeurs. Ainsi, on ne s'étonnera pas de minimiser la **Negative Log Likelihood** ou (NLL) en Deep Learning, 
+ce qui revient exactement à **maximiser la vraisemblance** du modèle._
+
+$\rightarrow$ Le problème principal : estimer **la loi marginale** $P(data)$
+
+**En pratique** : on cherche à éviter le calcul de la loi marginale des données.
+
+- Cas discret :
+
+$$P(data) = \sum_{\theta} P(data | \theta) \times P(\theta)$$
+
+- Cas continu :
+
+$$P(data) = \int_{\theta} P(data | \theta) \times P(\theta) d\theta$$
+
+Dans le cas continu, calculer $P(data)$ peut devenir intractable.
+
+---

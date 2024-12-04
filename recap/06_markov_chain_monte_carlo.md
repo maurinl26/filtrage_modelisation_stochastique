@@ -1,33 +1,7 @@
 ---
-# You can also start simply with 'default'
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
 title: Markov Chains Monte Carlo
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
 
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
-# take snapshot for each slide in the overview
-overviewSnapshots: true
 ---
-
-# Filtrage et Modélisation Stochastique
-Loïc Maurin - _loic.maurin@meteo.fr_
-
-
 # Markov Chain Monte Carlo
 
 ## Au cours précédent
@@ -36,15 +10,9 @@ Loïc Maurin - _loic.maurin@meteo.fr_
 
 $\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
 
-
-
-
-
 ---
 ## Chaînes de Markov et  Méthodes de Monte-Carlo
 
-
-$\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
 
 **Méthodes de Monte-Carlo** : estimation d'une densité de probabilité par tirages. 
 
@@ -56,9 +24,9 @@ _Remarque : Le filtre Kalman entre dans le cadre des chaînes de Markov_.
 
 ---
 ## Vers le Filtre Kalman d'Ensemble
-Markov Chain Monte Carlo
 
-Ce cours est indépendant de celui sur le Filtrage Kalman.
+_Remarque : Ce cours est indépendant de celui sur le Filtrage Kalman. Mais il va nus permettre de définir une autre méthode de calcul des matrices de covariance 
+pour le filtre Kalman._
 
 $\rightarrow$ Le Filtre de Kalman et les Chaînes de Markov sont 2 représentants de Processus Stochastiques
 
@@ -72,27 +40,6 @@ $\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir
 2. **Une composante d'échantillonage** :
 
     _Comment estimer la dispersion du modèle_ ?
-
-
----
-
-# Estimation bayésienne
-
-En estimation bayésienne, on cherche à construire un estimateur (bayésien), c'est à dire une distribution conditionnée aux données d'apprentissage :
-
-$$P(\theta | data ) = \frac{P(\theta) \cdot P(data | \theta)}{P(data)}$$
-
-$\rightarrow$ Le problème principal : estimer **la loi marginale** $P(data)$
-
-- Cas discret :
-
-$$P(data) = \sum_{\theta} P(data | \theta) \times P(\theta)$$
-
-- Cas continu :
-
-$$P(data) = \int_{\theta} P(data | \theta) \times P(\theta) d\theta$$
-
-Dans le cas continu, calculer $P(data)$ peut devenir intractable.
 
 
 ---

@@ -1,4 +1,10 @@
-# Processus stochastiques - Définition
+---
+title: Processus stochastiques
+---
+
+# Processus stochastiques
+
+# Définition
 
 On considère un espace probabilisé $(\Omega, \mathcal{F}, \mathbb{P})$, un espace mesurable $(E, \mathcal{E})$ et un ensemble $T$.
 
@@ -111,6 +117,10 @@ On obtient :
 $$\langle X(T) \rangle = \langle \sum^{T}_{t=0} D_t \rangle = 
  \sum^{T}_{t=0} \langle D_t \rangle = 0$$
 $$ Var(X(T)) = Var(\sum^{T}_{t=0} D_t) =  \sum^{T}_{t=0} Var(D_t) = T \sigma^2$$
+
+**TODO** : _introduire ici la définition de marche aléatoire_
+
+**TODO** : _introduire ici la définition de mouvement brownien_
 
 ---
 ## Le mouvement brownien
