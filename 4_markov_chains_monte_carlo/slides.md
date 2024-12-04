@@ -826,6 +826,15 @@ a Markov chain approach](https://npg.copernicus.org/articles/23/375/2016/npg-23-
 Lecture #14: Markov Chain Monte Carlo](https://web.stanford.edu/class/cs168/l/l14.pdf)
 
 
+---
+layout: section
+
+---
+
+# Annexe - Chaînes de Markov
+
+---
+src: ./markov_chains.md
 
 ---
 layout: end
