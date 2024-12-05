@@ -75,12 +75,9 @@ $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 Comment décrire les transitions entre états, y compris en temps continu ?
 
 ---
-layout: image-right
-image: ./img/brownien_1d.png
-backgroundSize:  40%
-
----
 ## Marche Aléatoire
+
+![mouvement brownien 1d](./img/brownien_3132.png)
 
 ### Vers une description formelle des transitions entre états
 
@@ -93,10 +90,7 @@ _(sachant que la particule début à la case $n=0$ à $t=0$)_
 
 
 ---
-layout: image-right
-image: ./img/mvt_brownien_coupe_temporelle.png
-backgroundSize:  40%
-
+![Coupe temporelle marche aléatoire](./img/brownien_3334.png)
 
 
 On cherche à décrire $P(n, t_i)$, pour un temps $t_i$ donné, ou autrement dit, on cherche à faire une coupe temporelle du mouvement brownien au temps $t_i$.
@@ -174,7 +168,10 @@ En reprenant les sauts de $\pm 1$ case, nous pouvons effectuer un bilan infinit�
 
 Ce qui nous mène à établir **l'équation Maîtresse** :
 
-$$\frac{\partial P(n,t)}{\partial t} = W^+(n-1)P(n-1,t) - W^-(n)P(n,t) + W^-(n+1,t)P(n+1,t) - W^+(n)P(n,t) 
+$$\frac{\partial P(n,t)}{\partial t} = \begin{array}{rcl}
+&W^+(n-1)P(n-1,t)& - &W^-(n)P(n,t) \\
+ +& W^-(n+1,t)P(n+1,t)& -& W^+(n)P(n,t) \\
+\end{array}
  $$
 
 Nous obtenons en quelque sorte un **bilan de flux de probabilités** entre cellules adjacentes, telle qu'elle pourrait être établie en physique statistique, avec un flux sur la 
@@ -276,7 +273,8 @@ Avec $n_0 = 0$, on a $\braket{n(t)} = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 **Relations utiles** 
-$$\frac{d\braket{n}}{dt} = \braket{W^+(n) - W^-(n)}, \frac{d\braket{n^2(t)}}{dt} = 2 \braket{n(W^+(n) - W^-(n))} + \braket{W^+(n) + W^-(n)} $$
+$$\frac{d\braket{n}}{dt} = \braket{W^+(n) - W^-(n)}$$ 
+$$\frac{d\braket{n^2(t)}}{dt} = 2 \braket{n(W^+(n) - W^-(n))} + \braket{W^+(n) + W^-(n)} $$
 $$\braket{n} = \sum_n n P(n,t), \braket{n^2(t)} = \sum_n n^2 P(n,t), \braket{f(n)} = \sum_n f(n) P(n,t) $$
 
 

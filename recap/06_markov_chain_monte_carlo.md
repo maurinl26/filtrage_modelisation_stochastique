@@ -154,11 +154,6 @@ _(Au contraire des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_
 
 
 ---
-layout: image-right
-image: ./img/markov_chain_path.png
-backgroundSize: 60%
-
----
 ## Exemple : trajectoire sur un espace à 2 dimensions
 
 On se dote d'un espace ambient à 2 dimensions $Q = \mathbb{R}^2$, avec 2 fonctions de coordonnées :
@@ -178,6 +173,8 @@ $$
 T(q_1 | q_0) = \mathcal{N}(q_1^1|q_0^1, \sigma) \mathcal{N}(q_1^2|q_0^2, \sigma)
 $$
 
+
+![markov chain path](./img/markov_chain_path.png)
 _A gauche : Réalisation d'une trajectoire d'une chaîne de Markov, [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 
@@ -223,12 +220,10 @@ $\rightarrow$ _Ce qu'on vient d'énoncer ne présage pas de l'existance de la li
 
 
 ---
-layout: image
-image: ./img/markov_convergence.png
-backgroundSize: 40%
----
 ## Stationnarité - Illustration
 
+![convergence](./img/markov_convergence.png)
+_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 
 ---
@@ -255,10 +250,6 @@ _Remarque : L'ergodicité uniforme permet la convergence rapuide (en un nombre l
 ## (Optionnel) Spectre de la matrice de transition et Convergence
 
 
-
-
----
-layout: section
 
 ---
 # Markov Chain Monte-Carlo
@@ -301,32 +292,27 @@ Nous venons d'étudier le comportement assymptotique d'un estimateur **MCMC**, c
 
 $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itérations finies ?
 
-
 ---
-layout: image
-image: ./img/markov_chain_monte_carlo_stable.png
-backgroundSize: 80%
----
-
 ## Illustrations - Cas stable
 
+![mcmc stable](./img/markov_chain_monte_carlo_stable.png)
+
+_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 ---
-layout: image
-image: ./img/markov_chain_monte_carlo_pinch.png
-backgroundSize: 80%
+## Illustrations - Cas instables
+
+![mcmc pinch](./img/markov_chain_monte_carlo_pinch.png)
+
+_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
+
+
 ---
+## Illustrations - Cas instables
 
+![mcmc_metastable](./img/markov_chain_monte_carlo_metastable.png)
 
-
----
-layout: image
-image: ./img/markov_chain_monte_carlo_metastable.png
-backgroundSize: 80%
----
-
-
-
+_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 ---
 ## Convergence
@@ -390,18 +376,6 @@ $$T(q'|q) = a(q', q) \cdot Q(q'|q) + (1 - \in dq' Q(q'|q)a(q|q')) \cdot \delta(q
 
 Dans ce cas, $Q(q'|q, \Sigma) = \mathcal{N}(q'|q, \Sigma)$
 On perturbe le point initial par une gaussienne.
-
-
----
-# A retenir
-Markov Chain Monte Carlo
-
-- Méthodes de Monte-Carlo
-
-- Chaînes de Markov
-
-- Markov Chain Monte-Carlo
-
 
 ---
 # Liens du cours

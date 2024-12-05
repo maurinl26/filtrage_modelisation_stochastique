@@ -131,21 +131,17 @@ $$\hat{x}_{n+1} = A \hat{x}_n + B u_n + K_{n+1} [y_{n+1} - C(A \hat{x}_n + B u_n
 **Remarque** $K$ peut être vu comme un compromis à régler entre la fidélité au modèle numérique ($A \hat{x}_n + B u_n$) et la
 fidélité aux valeurs de mesure ($y_{n+1}$). 
 
-
----
-layout: image-right
-image: ./img/kalman_loop.png
-backgroundSize: 100%
-figcaption: "Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch & Bishop, Intro to the Kalman Filter"
-
 ---
 
 ## Filtre Prédicteur - Correcteur
+
 
 **Structure de prédicteur-correcteur**
 
 
 Le filtre de Kalman est un "prédicteur-correcteur", l'estimation $\hat{x}$ de $x$ se contruit en 2 temps :
+
+**Mise à jour de l'état** :
 
 1. **Prédiction** : Estimation à priori de l'état $\hat{x}^-$, 
 comme si on n'avait que les équations du système
@@ -153,26 +149,18 @@ comme si on n'avait que les équations du système
 
 2. **Correction** : Construction de l'estimation à posteriori avec l'information apportée par les mesures.
 
-_Légende : sur le schéma à droite,_
 
-_$H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
-
-
----
-layout: image-right
-image: ./img/kalman_loop.png
-backgroundSize: 100%
-
-Sans oublier la construction des matrices de covariances, liées au bruit.
+**Mise à jour des matrices de covariance** (liées au bruit ajouté à chaque pas) :
 
 1. **Prédiction** : Estimation de la matrice de covariance $P_k^-$,
 par rapport au **bruit d'état** $Q$ (ou $\Phi$ comme noté précédemment).   
 
 2. **Correction** : Construction de la matrice de covariance $P_k$ par rapport au **bruit de mesure** $R$ (ou $\Psi$ comme noté précédemment).
 
-_Légende : sur le schéma à droite,_
+![Kalman Loop](./img/kalman_loop.png)
 
-_$H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
+_Sur l'image ci-dessus, par cohérence avec les notations du cours : $H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
+_"Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
 ---
@@ -344,56 +332,33 @@ possibilité d'avoir un petit bruit d'état autour de la constante à mesurer (p
 
 On fixe alors $x_0 = 0$, et on choisit une valeur arbitraire, mais non-nulle ($P_0 \neq 0$) pour $P_0$. Ici, $P_0 = 1$.
 
-
-
-
----
-layout: image
-image: ./img/kalman_1.png
-backgroundSize: 60%
-
 ---
 
 ## Vraie valeur, Mesures, et Estimation (50 relevés)
 
-
-
-
----
-layout: image
-image: ./img/kalman_2.png
-backgroundSize: 50%
-
+![kalman random constant](./img/kalman_1.png)
+_Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
-
 ## Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
 
+![kalman random constant](./img/kalman_2.png)
 
-
----
-layout: image
-image: ./img/kalman_3.png
-backgroundSize: 60%
-
+_Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
-
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
 
+![kalman](./img/kalman_3.png)
 
-
----
-layout: image
-image: ./img/kalman_4.png
-backgroundSize: 60%
-
+_Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
-
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
 
+![kalman](./img/kalman_4.png)
 
+_Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
 
@@ -435,6 +400,8 @@ $K_{n+1}$ devient $K_{n+1} = P^-_{n+1} (J^H)^T (J^H P^-_{n+1} (J^H)^T + V \Psi V
 $P_{n+1}$ devient $P_{n+1} = (I - K_{n+1} J^H) P^-_{n+1}$
 
 où $J^A$ et $J^H$ ont été évaluées au point $\hat{x}_n$
+
+---
 
 **En Météo** 
 

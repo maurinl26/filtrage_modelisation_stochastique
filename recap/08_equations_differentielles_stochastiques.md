@@ -9,7 +9,7 @@ Une **équation différentielle stochastique** est la généralisation de la not
 
 ## De l'équation différentielle ordinaire (EDO) à l'équation différentielle stochastique (EDS)
 
-On considère une équation différentielle ordinaire $\frac{d_t}{dt} = \mu(X(t))$ à laquelle nous aimerions rajouter du bruit. Nous considérons alors un **bruit blanc**
+On considère une équation différentielle ordinaire $\frac{dX_t}{dt} = \mu(X(t))$ à laquelle nous aimerions rajouter du bruit. Nous considérons alors un **bruit blanc**
 $\xi(t)$ dépendant du temps et de l'espace.
 
 **Motivations** : on souhaiterait définir l'équation d'évolution 
@@ -55,9 +55,23 @@ $$dX_t = a(X_t, t) dt + b(X_t, t) dW_t$$
 
 Alors, pour une fonction $f(X_t, t) \in \mathcal{C}^2$ deux fois continuement différentiable, sa différentielle s'exprime :
 
-$$df = (\frac{\partial f}{\partial t} + a(X_t, t) \frac{\partial f}{\partial t} + \frac{1}{2} b^2(X_t, t) \frac{\partial^2 f}{\partial x^2}) dt + b(X_t, t) \frac{\partial f}{\partial x} dW_t$$
+$$df = (\frac{\partial f}{\partial t} + a(X_t, t) \frac{\partial f}{\partial x} + \frac{1}{2} b^2(X_t, t) \frac{\partial^2 f}{\partial x^2}) dt + b(X_t, t) \frac{\partial f}{\partial x} dW_t$$
 
 **Exemple** : 
+
+Soit $X_t = W_t$ (le mouvement brownien standard) et $f(X_t) = X_t^2$. Calculons $df$ :
+
+$$\frac{\partial f}{\partial x} = 2 X_t, \frac{\partial^2 f}{\partial x^2} = 2, \frac{\partial f}{\partial t} = 0$$
+
+Comme $dX_t = dW_t$, avec $a = 0, b = 0$, la fomule d'Itô donne :
+
+$$df = (0 + 0 \cdot 2X_t + \frac{1}{2} \cdot 1^2 \cdot 2) dt + 1 \cdot 2 X_t dW_t = dt + 2 X_t dW_t$$
+
+Ce résultat montre que :
+$$d(W_t^2) = dt + 2 W_t dW_t$$
+
+_Remarque : Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch](https://en.wikipedia.org/wiki/Stratonovich_integral), qui permettrait l'équivalent d'une intégration trapéoïdale, là où Itô propose une
+intégration cohérente numériquement avec Euler explicite._
 
 ## Intégration numérique - Méthode d'Euler-Maruyama
 
@@ -69,6 +83,77 @@ où $\Delta W_n = W_{t_{n+1}} - W_{t_n} \sim \mathcal{N}(0, \Delta t)$.
 
 ## (Optionnel) Convergence de la Méthode Euler-Maruyama
 
+En considérant l'EDS linéaire simple :
+$$dX_t = \mu dt + \sigma dW_t, X_0 = 0$$
+
+**Résolution analytique** En intégrant les 2 membres de $t = 0$ à $t = t_n$ :
+
+$$X_{t_n} - X_0 = \int_0^{t_n} \mu dt +  \int_0^{t_n} \sigma dW_t$$
+
+Avec $X_0 = 0$, et $W_0 = 0$, donc :
+$$X_{t_n} = \mu t_n + \sigma W_{t_n}$$
+
+**Résolution numérique** Par la méthode d'Euler-Maruyama :
+
+En discrétisant selon un pas de temps $\Delta t$,
+
+$$X_{n+1} = X_n + \mu \Delta t + \sigma \Delta W_n$$
+
+où $\Delta W_n = W_{t_{n+1}} - W_{t_n} \sim \mathcal{N}(0, \Delta t)$.
+
+_Remarque : de la manière où nous avons défini le mouvement brownien, la variance du processus croît de $\Delta t$ à chaque pas de temps._
+
+**Calcul de l'erreur** En posant :
+
+$$e_n = X_{t_n} - X_n$$
+
+Et en utilisant d'une part l'expression analytique, d'autre part l'expression numérique, on obtient :
+
+$$
+\begin{array}{rcl}
+    X_{t_n} &=&\mu t_n + \sigma W_{t_n} \\
+    X_n &=& X_0 + \sum^{n-1}_{k=0} (\mu \Delta t + \sigma \Delta W_k) = \mu n \Delta t +  \sigma \sum^{n-1}_{k=0} \Delta W_k
+\end{array}
+$$
+
+et 
+$$
+e_n = \mu t_n - \mu n \Delta t + \sigma (W_{t_n} - \sum^{n-1}_{k=0} \Delta W_k)
+$$
+
+
+
+**Simplification de l'erreur**  
+
+Comme $t_n = n \Delta t$, le terme déterministe s'annule :
+
+$$\mu t_n - \mu n \Delta t = 0$$
+
+Il reste :
+
+$$e_n = \sigma (W_{t_n} - \sum^{n-1}_{k=0} \Delta W_k)$$
+
+Donc :
+
+$$
+\sum^{n-1}_{k=0} \Delta W_k = W_{t_n} - \Delta W_n
+$$
+
+L'erreur s'écrit :
+
+$$
+e_n = \sigma (W_{t_n} - (W_{t_n} - \Delta W_n)) = \sigma \Delta W_n
+$$
+
+**Erreur Quadratique moyenne** Comme $\Delta W_n \sim \mathcal{N}(0, \Delta t)$, on a :
+
+$$
+\mathbb{E}[e_n^2] = \sigma^2 \mathbb[(\Delta W_n)^2] = \sigma^2 \Delta t
+$$
+
+
+**Conclusion** L'erreur quadratique moyenne étant proportionnelle à $\Delta t$, cela montre que l'erreur tend vers zéro quand $\Delta t \rightarrow 0$. La méthode 
+d'Euler-Maruyama converge vers la solution exacte de cette EDS.
 
 
 ## Applications
