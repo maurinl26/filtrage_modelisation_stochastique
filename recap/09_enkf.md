@@ -158,9 +158,9 @@ $$
 
 où $dW_k$ représente le tirage issu du mouvement brownien $dW_t \sim \mathcal{N}(0, dt)$. Ici, $Q_e$ converge également vers $Q$ (matrice de covariance du bruit d'état pour le KF) à la limite d'un ensemble infini.
 
-Les propriétés remarquables, sont que l'estimateur de la moyenne évolue selon la dynamique du système :
+Les propriétés remarquables sont que l'estimateur de la moyenne évolue selon la dynamique du système :
 
-$$\overline{X_{k+1}} = \overline{f(X_k)} = f(\overline{X_k}) + non-linear\, terms$$
+$$\overline{X_{k+1}} = \overline{f(X_k)} = f(\overline{X_k}) + (non-linear\, terms)$$
 
 La matrice de covariance d'erreur évolue selon :
 

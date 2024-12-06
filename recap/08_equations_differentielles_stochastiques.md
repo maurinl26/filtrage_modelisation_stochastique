@@ -172,3 +172,9 @@ _Remarque : l'équation du premier ordre $dX_t = \mu dt + \sigma dW_t$ avait dé
 
 $$dV(t) = - \lambda V(t) dt + dW_t $$
 
+## Références
+
+Gratton, S., Sequential Filtering, (2024-2025)
+
+Baehr, C., Modélisations Probabilistes d'Equations de la Mécanique des Fluides, Etat de l'art en modélisation stochastique (2004)
+

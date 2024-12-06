@@ -437,6 +437,8 @@ les "bonnes" matrices de covariance, et régler le gain du filtre._
 # Sources 
 Liens utiles
 
+[](Welch, Greg & Bishop, Gary. (2006). An Introduction to the Kalman Filter. Proc. Siggraph Course. 8.) 
+
 ([G. Welch, G. Bishop, University of North Carolina, An Introduction to the Kalman Filter](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf))
 
 
