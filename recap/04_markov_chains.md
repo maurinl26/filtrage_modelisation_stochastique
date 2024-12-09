@@ -129,18 +129,39 @@ en particulier, pour tout i, $p_{ij}^{(n)} \rightarrow \pi(j)$.
 ---
 ## Les propriétés d'une chaîne de Markov 
 
-**Homogénéité** Une chaîne de Markov est homogène si ses probabilités de transitions ne dépendent pas du temps.
+**Homogénéité** 
 
-**Irréductibilité** Une chaîne de Markov est irréductible si chaque état est accessible (en un ou plusieurs pas) depuis chaque état.
-C'est à dire qu'il n'y a pas d'état absorbant. Pour un état $k$ la probabilité d'atteindre cet état depuis un autre $l \neq k$ est non nulle.
+Une chaîne de Markov est homogène si ses probabilités de transitions ne dépendent pas du temps.
 
-**Récurrence** Les états **récurrents** d'une chaîne de markov sont les états visités régulièrement par la chaîne. Si l'espérance du temps de retour, pour un état donné, est borné, l'état est **positivement récurrent**, sinon, l'état est **nullement récurrent**.
+**Irréductibilité** 
 
-Une chaîne est récurrente selon la condition de Harris, si tous les états de cette chaîne sont visités indéfiniment lorsque $t \rightarrow \infty$.
+Une chaîne de Markov est irréductible si chaque état est accessible (en un ou plusieurs pas) depuis chaque état.
+C'est à dire qu'il n'y a pas d'état absorbant. Pour un état L'$k$ la probabilité d'atteindre cet état depuis un autre $l \neq k$ est non nulle.
 
-**Stationnarité**
+**Récurrence** 
+
+Les états **récurrents** d'une chaîne de markov sont les états visités régulièrement par la chaîne. Si l'espérance du temps de retour, pour un état donné, est borné, l'état est **positivement récurrent**, sinon, l'état est **nullement récurrent**.
+
+Une chaîne est récurrente selon la condition de Harris, si tous les états $X \in S$ de cette chaîne sont visités indéfiniment lorsque $t \rightarrow \infty$. Cette propriété est importante pour les espaces d'états continus et non bornés. Quand la chaîne tend vers un ensemble d'états irréductibles et récurrents selon la condition de Harris, elle y reste et visite tous les états avec une
+probabilité de 1.
+
+**Stationnarité** 
+
+Une chaîne de Markov stationnaire a des probabilités de transitions indépendantes du temps. Si $P$ est une matrice $n \times n$ :
+
+$\pi P = \pi$
+
+$\pi$ est alors la distribution limite de la chaîne. _Les méthodes MCMC ont vocation a explorer cette distribution limite. 
 
 **Ergodicité**
+
+L'ergodicité est une propriété des chaînes de Markov irréductibles, apériodiques et récurrentes positivement selon la condition de Harris. L'ergodicité est définie comme
+
+$$\forall \theta_i, \theta_j \in \Theta, \lim\limits_{n \rightarrow \infty} P^{(n)} (\theta_i \rightarrow \theta_j) = \pi(\theta)$$
+
+L'ergodicité est la propriété selon laquelle, à partir d'un certain rang, la chaîne converge vers la distribution stationnaire. 
+
+
 
 
 ---
