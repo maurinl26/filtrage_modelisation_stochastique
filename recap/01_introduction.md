@@ -20,18 +20,18 @@ Cet ensemble constitue une base pour les méthodes d'assimilations en sciences d
 Loïc Maurin - _loic.maurin@meteo.fr_
 
 ---
-# Objectif du cours 
+# Objectifs du cours 
 
-**Objectif : construire une boîte à outils pour modéliser l'incertitude et les phénomènes aléatoires**
+**Construire une boîte à outils pour modéliser l'incertitude et les phénomènes aléatoires**
 
 **Applications en ingénierie et science des données** : 
-  - Assimiler des données bruitées (ex : capteurs de vitesse, température, etc.)
-  - Modéliser des phénomènes chaotiques (ex : dynamique atmosphérique)
+  - Assimiler des données bruitées _(ex : capteurs de vitesse, température, etc.)_
+  - Modéliser des phénomènes chaotiques _(ex : dynamique atmosphérique)_
   - Contrôler et optimiser des systèmes dont la dynamique est inconnue (boîte noire)
 
   
 **Applications en Météo et sciences du climat** :
-  - Estimer les variances d'ébauche, à l'assimilation de données d'observations,
+  - Estimer les variances d'ébauche, à l'assimilation de données d'observations
   - Construction des ensemblistes
 
 
@@ -60,7 +60,7 @@ Loïc Maurin - _loic.maurin@meteo.fr_
 
 
   - Ici, Stochastique = Gaussien (dans la mesure du possible) 
-    - _on modélisera les processus par rapport à la loi normale, en tirant partie du Théorème Centrale Limite_, 
+    - _on modélisera les processus par rapport à la loi normale, en tirant partie du Théorème Central Limite_, 
     - _en gardant à l'esprit d'autres lois peuvent supporter des modèles (ex: processus de poisson)_
 
 ---
@@ -104,9 +104,9 @@ Quelques exemples d'applications
 - Estimation des récurrences et probabilités d'évènements extrêmes dans un modèle de climat : 
   - Marche aléatoire sur des séries temporelles de pluies : comparaison de données historiques et projetées par le modèle de climat.
 
-
-([Sedlmeier, K., Mieruch, S., Schädler, G., and Kottmeier, C.: Compound extremes in a changing climate – a Markov chain approach, Nonlin. Processes Geophys., 23, 375–390, https://doi.org/10.5194/npg-23-375-2016, 2016.](https://doi.org/10.5194/npg-23-375-2016))
-
+:::{note} Application en climatologie
+Les estimateurs MCMC sont utilisé en climatologie, pour mesurer les changements de régime de temps d'une projection climatique par rapport à une série de données historiques : [](https://doi.org/10.5194/npg-23-375-2016)
+:::
 
 ---
 ## Régression par Processus Gaussiens
@@ -119,7 +119,7 @@ Quelques exemples d'applications
 
 - Optimisation
   - Tuning des hyperparamètres d'un réseau de neurone
-  - Réglage de procédés industriels par plans d'expérience
+  - Réglage de procédés industriels par plans d'expériences
 
 
 **Ajustement d'un processus gaussien**

@@ -81,7 +81,25 @@ $$X_{n+1} = X_{n} + a(X_n, t_n) \Delta t + b(X_n, t_n) \Delta W_n$$
 
 où $\Delta W_n = W_{t_{n+1}} - W_{t_n} \sim \mathcal{N}(0, \Delta t)$.
 
-## (Optionnel) Convergence de la Méthode Euler-Maruyama
+
+:::{note} Résolution numérique d'équations différentielles ordinaires
+
+Numériquement, quand on cherche à résoudre $\frac{dX}{dt} = \mathcal{M}(X)$ en se donnant un pas de temps d'intégration $\Delta t$, il existe 2 méthodes 
+d'ordre 1 en temps.
+
+**Euler Explicite** _(Euler forward)_
+
+$$X_{n+1} = X_{n} + \Delta t\; \mathcal{M}(X_n) + \mathcal{O}(\Delta t)$$
+
+
+**Euler Implicite** _(Euler backward)_
+
+$$X_{n+1} = X_{n} + \Delta t\; \mathcal{M}(X_{n+1}) + \mathcal{O}(\Delta t)$$
+:::
+
+En quelque sorte, on pourrait dire que la méthode d'Euler-Maruyama est une "méthode d'Euler explicite stochastique".
+
+## Convergence de la Méthode Euler-Maruyama
 
 En considérant l'EDS linéaire simple :
 $$dX_t = \mu dt + \sigma dW_t, X_0 = 0$$
