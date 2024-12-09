@@ -4,6 +4,9 @@ Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour év
 
 ## Assimilation de données 
 
+Nous évoluons dans le cadre des méthodes d'assimilation de données pour la Météo.
+
+![cycle d'assimilation](./img/assimilation.png)
 
 
 ## Ensemble Kalman Filter (EnKF)
@@ -109,9 +112,11 @@ filtre Kalman d'ensemble **(Ensemble Kalman Filter)**.
 
 Cela permet d'introduire 2 méthodes d'assimilation de données : le **filtrage particulaire** et le **filtre kalman d'ensemble**. Nous exposons ici le filtre kalman d'ensemble en pratique.
 
-_A retenir : on souhaitait utiliser les méthodes stochastiques (MC et MCMC) pour 
+:::{note} A retenir
+On souhaitait utiliser les méthodes stochastiques (MC et MCMC) pour 
 simuler et étudier l'évolution de l'erreur sur un système chaotique (par exemple : un modèle Météo). En construisant le raisonnement, nous venons d'établir que nous souhaitons résoudre numériquement l'équation de Kolmogorov, ce qui nous permettrait
-d'avoir accès à une densité de probabilité de l'état du système._
+d'avoir accès à une densité de probabilité de l'état du système.
+:::
 
 _Bon ... Toutes ces maths pour tomber sur un filtre à particule, ça pue un peu comme un vieux diesel ! Passons à une implémentation pratique de ces méthodes._
 

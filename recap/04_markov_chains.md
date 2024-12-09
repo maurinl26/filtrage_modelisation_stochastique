@@ -110,7 +110,7 @@ Alors $\pi$ est une probabilité invariante.
 ## Théorème ergodique
 
 
-**Théorème** Soit $X$ une chaîne irréductible positive récurrente. Alros, pour toute fonction $f$ positive 
+**Théorème** Soit $X$ une chaîne irréductible positive récurrente. Alors, pour toute fonction $f$ positive 
 ou bornée, presque sûrement : 
 
 $$\frac{1}{n} \sum_{k=1}^n f(X_k) \rightarrow \pi(f)$$
@@ -124,6 +124,23 @@ $\pi$ et apériodique. Alors pour toute loi initiale
 $$\mathbb{P}(X_n = i) \rightarrow \pi(i)$$
 
 en particulier, pour tout i, $p_{ij}^{(n)} \rightarrow \pi(j)$.
+
+
+---
+## Les propriétés d'une chaîne de Markov 
+
+**Homogénéité** Une chaîne de Markov est homogène si ses probabilités de transitions ne dépendent pas du temps.
+
+**Irréductibilité** Une chaîne de Markov est irréductible si chaque état est accessible (en un ou plusieurs pas) depuis chaque état.
+C'est à dire qu'il n'y a pas d'état absorbant. Pour un état $k$ la probabilité d'atteindre cet état depuis un autre $l \neq k$ est non nulle.
+
+**Récurrence** Les états **récurrents** d'une chaîne de markov sont les états visités régulièrement par la chaîne. Si l'espérance du temps de retour, pour un état donné, est borné, l'état est **positivement récurrent**, sinon, l'état est **nullement récurrent**.
+
+Une chaîne est récurrente selon la condition de Harris, si tous les états de cette chaîne sont visités indéfiniment lorsque $t \rightarrow \infty$.
+
+**Stationnarité**
+
+**Ergodicité**
 
 
 ---
