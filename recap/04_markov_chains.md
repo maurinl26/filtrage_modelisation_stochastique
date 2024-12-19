@@ -161,7 +161,59 @@ $$\forall \theta_i, \theta_j \in \Theta, \lim\limits_{n \rightarrow \infty} P^{(
 
 L'ergodicité est la propriété selon laquelle, à partir d'un certain rang, la chaîne converge vers la distribution stationnaire. 
 
+---
+## Application au PageRank
 
+L'algortihme PageRank a emergé à la fin des années 90, sous l'impulsion de Brin et Page, les fondateurs de Google. Contrairement à une recherche thématique ou sémantique classique (bag of words, similarité cosinus, etc.), l'idée de Brin et Page est d'exploiter les liens entre les page web, **un site web étant important s'il est relié à d'autres sites importants**.
 
+Le Page Rank s'appuie sur une marche aléatoire sur les sites webs afin d'estimer le nombre de visites d'une page web.
+
+**Définition**
+
+Soit $X_t$ la page web visitée par une marche aléatoire au pas de temps $t$.
+
+On note $N(i, n)$ le nombre de visites de la page web $i$  pour $t \leq n$. Le **Page Rank** de la page $i$ est définie par se fréquence de visites, dans la limite d'une marche aléatoire infinie :
+
+$$\rho(i) = \lim\limits_{0 \rightarrow \infty} \frac{N(i, n)}{n}$$
+
+La marche aléatoire est définie sur l'ensemble des Page Web. En partant d'une page $i$, l'alogrithme choisi l'un de ses liens sortants de manière équiprobable.
+
+:::{note} Introduction d'un surfeur aléatoire
+Le Page Rank s'appuie sur l'idée d'un surfeur aléatoire. Le surfeur aléatoire mime le comportement d'un internaute. Le surfeur circule sur les pages web en cliquant sur les liens hypertextes, et, s'il se retrouve bloqué (page sans liens), il redémarre une recherche depuis la barre URL.
+
+Ainsi, l'algorithme PageRank repart régulièrement d'une page web tirée aléatoirement, afin d'éviter un blocage sur les feuilles du graphe web.
+:::
+
+**Exemple**
+
+On donne ci-dessous un exemple de graphe web $G_1$ avec sa matrice de transition $M$ :
+
+```mermaid
+graph LR;
+  e0(0) --> e1(1);
+  e0(0) --> e2(2);
+  e1(1) --> e4(4);
+  e2(2) --> e1(1);
+  e2(2) --> e0(0);
+  e3(3) --> e4(4);
+  e3(3) --> e5(5);
+  e4(4) --> e3(3);
+  e4(4) --> e5(5);
+  e5(5) --> e3(3);
+```
+
+$$
+M = \left(\begin{array}{rcl}
+0 & 1/2 & 1/2 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0\\
+1/3 & 1/3 & 0 & 0 & 1/3 \\
+0 & 0 & 0 & 0 & 1/2 & 1/2 \\
+0 & 0 & 0 & 1/2 & 0 & 1/2 \\
+0 & 0 & 0 & 1 & 0 & 0 \\
+\end{array}\right)
+$$
+
+- Pouvez-vous décrire les limiations de cette modélisation ?
+- Comment modifier la matrice de transitions dans le cadre de PageRank ?
 
 ---
