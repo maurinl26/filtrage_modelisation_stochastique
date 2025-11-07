@@ -196,3 +196,5 @@ Gratton, S., Sequential Filtering, (2024-2025)
 
 Baehr, C., Modélisations Probabilistes d'Equations de la Mécanique des Fluides, Etat de l'art en modélisation stochastique (2004)
 
+[Smith L., Itô and Stratanovitch, A guide for the perplexed](https://www.robots.ox.ac.uk/~lsgs/posts/2018-09-30-ito-strat.html)
+
