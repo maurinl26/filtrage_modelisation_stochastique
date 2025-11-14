@@ -27,9 +27,9 @@ $$
 Le problème ci-dessus est effectivement formulé comme un problème d'estimation bayésienne où :
 
 - $p(x_{1:L}|y)$ représente la vraisemblance : _(likelihood) en anglais_,
-- $p(y|x_{1:L})$ la distribution des données,
-- $p(y)$ ,
-- $p(x_1) \prod_{i = 1}^{L - 1} p(x_{i+1}|x_{i})$ la distribution à priori,
+- $p(y|x_{1:L})$ la distribution empirique des données d'observations,
+- $p(y)$ la loi marginale des données,
+- $p(x_1) \prod_{i = 1}^{L - 1} p(x_{i+1}|x_{i})$ le modèle,
 
 La trajectoire est effectivement représentée par une chaîne de Markov, avec :
 - une distribution initiale, appelée **background** en météo : $p(x_1)$
