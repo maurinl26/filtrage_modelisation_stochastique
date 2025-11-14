@@ -1,5 +1,5 @@
 ---
-title: Diffusion Models for Data Assimilation
+title: Modèles de diffusion pour l'assimilation de données
 
 ---
 
