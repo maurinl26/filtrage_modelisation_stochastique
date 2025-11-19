@@ -13,3 +13,19 @@ site:
   # options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
+exports:
+  - format: typst
+    id: typstpdf
+    template: https://github.com/rowanc1/typst-book.git
+    articles:
+      - 01_introduction.md
+      - 02_processus_stochastiques.md
+      - 03_filtre_kalman.md
+      - 04_markov_chains.md
+      - 06_markov_chain_monte_carlo.md
+      - 08_equations_differentielles_stochastiques.md
+      - 09_enkf.md
+      - 11_data_assimilation.md
+      - 12_diffusion_models.md
+    output: ./_build/pdf/filtrage-stochastique.pdf
+
