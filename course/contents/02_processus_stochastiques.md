@@ -191,11 +191,11 @@ Après insertion des moments d'ordre 1, $\langle n(t) \rangle = \sum_n n P(n,t)$
 
 **Moyenne** :
 
-$$\frac{d  \braket{n(t)}}{dt} = \langle W^+(n) - W^-(n) \rangle = \sum_n (W^+(n) - W^-(n))P(n,t) $$
+$$\frac{d  <n(t)>}{dt} = \langle W^+(n) - W^-(n) \rangle = \sum_n (W^+(n) - W^-(n))P(n,t) $$
 
 **Variance** :
 
-$$\frac{d V}{dt} = 2 \langle (n - \braket{n}) (W^+(n) - W^-(n))\rangle + \langle W^+(n) + W^-(n)\rangle$$
+$$\frac{d V}{dt} = 2 \langle (n - <{n}>) (W^+(n) - W^-(n))\rangle + \langle W^+(n) + W^-(n)\rangle$$
 
 **Remarque** Ces formules (un peu ingrates), nous permettent d'extraire une équation différentielle pour chacun des moments de la distribution, et obtenir ainsi la moyenne et la variance du processus au cours du temps.
 
@@ -258,8 +258,8 @@ Cinétique chimique
 
 Nous posons $W^+(n) = \alpha, W^-(n) = \mu n$. L'équation de cinétique chimique est donnée par
 
-$$\frac{d\braket{n}}{dt} = \alpha - \mu \braket{n}$$
-Avec $n_0 = 0$, on a $\braket{n(t)} = (\alpha / \mu)(1 - e^{-\mu t})$
+$$\frac{d <n>}{dt} = \alpha - \mu <n>$$
+Avec $n_0 = 0$, on a $<n(t)> = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 1. Montrer que la variance vaut $V(t) = (\alpha/\mu)(1 - e^{-\mu t})$
@@ -269,9 +269,9 @@ Avec $n_0 = 0$, on a $\braket{n(t)} = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 **Relations utiles** 
-$$\frac{d\braket{n}}{dt} = \braket{W^+(n) - W^-(n)}$$ 
-$$\frac{d\braket{n^2(t)}}{dt} = 2 \braket{n(W^+(n) - W^-(n))} + \braket{W^+(n) + W^-(n)} $$
-$$\braket{n} = \sum_n n P(n,t), \braket{n^2(t)} = \sum_n n^2 P(n,t), \braket{f(n)} = \sum_n f(n) P(n,t) $$
+$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>$$ 
+$$\frac{d<n^2(t)>}{dt} = 2 <n(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)> $$
+$$<n> = \sum_n n P(n,t), <n^2(t)> = \sum_n n^2 P(n,t), <f(n)> = \sum_n f(n) P(n,t) $$
 
 
 ---
@@ -301,8 +301,8 @@ s'établissait de manière analogue à un bilan physique.
 **Relations sur la moyenne et la variance** : à partir de l'équation maîtresse, on peut déduire l'évolution temporelle
 de la moyenne et de la variance du processus. Pour rappel,
 
-$$\frac{d\braket{n}}{dt} = \braket{W^+(n) - W^-(n)}, 
-\frac{dV}{dt} = 2 \braket{(n - \braket{n})(W^+(n) - W^-(n))} + \braket{W^+(n) + W^-(n)}$$
+$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>, 
+\frac{dV}{dt} = 2 <(n - <n>)(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)>$$
 
 
 ---
