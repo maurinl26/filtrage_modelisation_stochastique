@@ -1,7 +1,3 @@
----
-title: Markov Chains Monte Carlo
-
----
 # Markov Chain Monte Carlo
 
 ## Au cours précédent

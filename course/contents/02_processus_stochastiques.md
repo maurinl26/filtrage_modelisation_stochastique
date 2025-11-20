@@ -1,7 +1,6 @@
----
+<!-- ---
 title: Processus stochastiques
----
-
+--- -->
 # Processus stochastiques
 
 # Définition

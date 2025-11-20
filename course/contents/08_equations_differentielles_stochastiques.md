@@ -1,6 +1,5 @@
 # Equations différentielles stochastiques
 
-
 ## Définition
 
 Un **processus stochastique** est une collection de variables aléatoires $\{X_t\}_{t \geq 0}$ définies sur un espace probabilisé commun où $t$ représente le temps. Le processus stochastique décrit l'évolution d'un système soumis à l'aléatoire.

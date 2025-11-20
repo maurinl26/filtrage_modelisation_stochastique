@@ -1,7 +1,7 @@
----
+<!-- ---
 title: Filtrage Kalman
 
----
+--- -->
 # Filtre Kalman
 
 **Filtre de Kalman** (1960), Rudolf Kalman (mathématicien hongrois) : utilisé pour la première fois pour l'estimation de trajectoire des programmes Apollo.

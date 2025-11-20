@@ -1,8 +1,7 @@
-----
+<!-- ----
 title: Assimilation de données
 
-----
-
+---- -->
 # Assimilation de données 
 
 ## Description formelle

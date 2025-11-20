@@ -1,7 +1,7 @@
----
+<!-- ---
 title: Introduction
 
----
+--- -->
 # Introduction
 
 
@@ -181,7 +181,7 @@ En microphysique (modélisation des nuages et interactions entre hydrométéores
 par rapport à leur diamètre est donnée par une loi exponentielle (Loi de Marshall-Palmer).
 
 **Loi de Marshall-Palmer**
-$$ N(D) dD = N_0 e^{-\lambda D} dD, où \, f(D) = e^{-\lambda D}$$
+$$ N(D) dD = N_0 e^{-\lambda D} dD$$, où, $f(D) = e^{-\lambda D}$.
 
 où la densité de probabilité est $f(D) = e^{-\lambda D}$.
 
