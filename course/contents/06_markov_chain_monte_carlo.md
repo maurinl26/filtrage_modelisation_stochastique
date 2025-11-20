@@ -231,7 +231,7 @@ $$| T^N \rho - \pi | \leq \epsilon$$
 
 
 **Distance en variations totales** : 
-$| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}} \lvert \rho[B] - \pi[B]\rvert$
+$| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}}  |\rho[B] - \pi[B]|$
 
 **Vitesses de convergence**
 
