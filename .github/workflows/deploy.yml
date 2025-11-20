@@ -41,14 +41,14 @@ jobs:
 
       - name: Build PDF
         run: |
-          cd example
+          cd course
           myst build --pdf
 
       - name: Upload Output PDF as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Output PDF
-          path: example/exports/plain_typst_book.pdf
+          path: course/exports/plain_typst_book.pdf
           compression-level: 0
 
       - name: Build HTML
@@ -59,7 +59,7 @@ jobs:
       - name: Upload Output HTML as Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './example/_build/html'
+          path: './course/_build/html'
       
       - name: Deploy to GitHub Pages
         id: deployment
