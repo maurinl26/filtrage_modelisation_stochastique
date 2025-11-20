@@ -15,7 +15,7 @@ project:
 # additional options #
 
 # Include a figure at the cover page
-      cover: Cover.PNG
+      cover: cover.png
       coverposition: 5  #in cm from title
       cover_width: 8 #in cm
 
@@ -25,7 +25,7 @@ project:
 
 # Page settings
       #### Logo at top of position
-      logo: logo.svg
+      logo: logo_enm.png
       logo_width: 10
 
       #### Looks
@@ -47,6 +47,15 @@ project:
       colorheadings: navy
       
 # Preface
-      preface: This is a test for the plain_typst_book template. As example, we include a part of a chapter of a JB2 book used at Delft, University of Technology.       
+      preface: Ce cours est enseigné aux élèves du Master HPC-BigData mené conjointement entre ENM et l'ENSEEIHT.
+      Il introduit les fondements théoriques de la modélisation stochastique, et ses applications en météorologie, 
+      notamment l'assimilation de données. Il alterne des chapitres théoriques (processus stochastiques, équations différentielles stochastiques, etc.) 
+      et des chapitres pratiques, dédiés aux applications telles que le filtre de Kalman, et le filtre de Kalman d'Ensemble.
+      Le cours introduit également des méthodes plus avancées, telles que l'assimilation de données par modèles de diffusion.
+      Le cours est accompagné de TP, permettant de mettre en pratique les concepts abordés.
+      
+      
+      Le cours est disponible sur GitHub à l'adresse : https://github.com/maurinl26/filtrage_modelisation_stochastique.
+      Le cours est disponible en ligne à l'adresse : https://maurinl26.github.io/filtrage_modelisation_stochastique/.
       
 
