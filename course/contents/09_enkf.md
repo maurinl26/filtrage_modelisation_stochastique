@@ -29,8 +29,8 @@ La limitation apparâit immédiatement, dans la mesure où "l'état vrai" du sys
 
 $$
 \begin{array}{rcl}
-    P^f \approxeq P_c^f =  \overline{(X_t^f - \overline{X_t})(X_t^f - \overline{X_t})^T} \\
-    P^a \approxeq P_c^a = \overline{(X_t^a - \overline{X_t})(X_t^a - \overline{X_t})^T}
+    P^f \approx P_c^f =  \overline{(X_t^f - \overline{X_t})(X_t^f - \overline{X_t})^T} \\
+    P^a \approx P_c^a = \overline{(X_t^a - \overline{X_t})(X_t^a - \overline{X_t})^T}
 \end{array}
 $$
 
