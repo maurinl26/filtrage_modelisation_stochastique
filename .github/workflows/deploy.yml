@@ -53,7 +53,7 @@ jobs:
 
       - name: Build HTML
         run: |
-          cd example
+          cd course
           myst build --html
         
       - name: Upload Output HTML as Artifact
