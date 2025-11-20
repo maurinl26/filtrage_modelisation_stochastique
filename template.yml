@@ -8,7 +8,6 @@ files:
   - template.typ
   - style.typ
   - aside_style.typ
-  - LICENSE
   
 authors:
   - name: Loïc Maurin
