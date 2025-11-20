@@ -15,7 +15,7 @@ project:
 # additional options #
 
 # Include a figure at the cover page
-      cover: cover.png
+      cover: Cover.PNG
       coverposition: 5  #in cm from title
       cover_width: 8 #in cm
 
