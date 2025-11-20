@@ -179,9 +179,9 @@ $$\frac{\partial P(n,t)}{\partial t} = \sum_{m} W(m \rightarrow n)P(m,t) - W(n \
 
 Formellement, on écrira :
 
-$$\partial_t\ket{P(t)} = \mathcal{L} \ket{P(t)}$$
+$$\partial_t P(t) = \mathcal{L} P(t)$$
 
-avec $\mathcal{L} = \mathcal{L}^n_m = W(m \rightarrow n)$ la matrice de transition entre états $n,m$ et $\ket{P(t)}$ le vecteur colonne des cellules du système.
+avec $\mathcal{L} = \mathcal{L}^n_m = W(m \rightarrow n)$ la matrice de transition entre états $n,m$ et $P(t)$ le vecteur colonne des cellules du système.
 
 **Remarque** _On arrive ici au bout du travail de formalisation. L'exemple bilan sur un mouvement brownien avec des sauts élémentaires $\pm 1$ pouvant être généralisé à d'autres problèmes avec des transitions plus complexes._
 
