@@ -226,18 +226,18 @@ _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalp
 ## (Optionnel) Vitesses de convergence
 
 
-**Convergence** : Etant donné une distance $\lVert \cdot \rVert$, la chaîne de Markov converge si $\forall \epsilon \in \mathbb{R}^+, \exists N(\rho) \in \mathbb{N}$ tel que 
-$$\lVert T^N \rho - \pi \rVert \leq \epsilon$$
+**Convergence** : Etant donné une distance $„”| \cdot | $, la chaîne de Markov converge si $\forall \epsilon \in \mathbb{R}^+, \exists N(\rho) \in \mathbb{N}$ tel que 
+$$| T^N \rho - \pi | \leq \epsilon$$
 
 
 **Distance en variations totales** : 
-$\lVert \rho - \pi \rVert_{TV} = sup_{B \in \mathcal{Q}} \lvert \rho[B] - \pi[B]\rvert$
+$| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}} \lvert \rho[B] - \pi[B]\rvert$
 
 **Vitesses de convergence**
 
-- Ergodicité polynômiale  : $\lVert \rho - \pi \rVert_{TV} \leq C(\rho)(N + 1)^{-\beta}$
-- Ergodicité géométrique  : $\lVert \rho - \pi \rVert_{TV} \leq C(\rho)r^N$
-- Ergodicité uniforme : $\lVert \rho - \pi \rVert_{TV} \leq C r^N$
+- Ergodicité polynômiale  : $| \rho - \pi |_{TV} \leq C(\rho)(N + 1)^{-\beta}$
+- Ergodicité géométrique  : $| \rho - \pi |_{TV} \leq C(\rho)r^N$
+- Ergodicité uniforme : $| \rho - \pi |_{TV} \leq C r^N$
 
 _Remarque : L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés._
 
