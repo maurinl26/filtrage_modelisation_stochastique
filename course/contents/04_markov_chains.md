@@ -54,7 +54,6 @@ P=
 \left(
 \begin{array}{c|c}
 Q & R \\
-\hline
 0 & I
 \end{array}
 \right)
