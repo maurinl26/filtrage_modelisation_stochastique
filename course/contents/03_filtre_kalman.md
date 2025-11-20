@@ -1,7 +1,3 @@
-<!-- ---
-title: Filtrage Kalman
-
---- -->
 # Filtre Kalman
 
 **Filtre de Kalman** (1960), Rudolf Kalman (mathématicien hongrois) : utilisé pour la première fois pour l'estimation de trajectoire des programmes Apollo.
@@ -373,8 +369,8 @@ $$y_{n+1} = C x_{n+1} + \psi_{n+1}$$
 
 
 Par :
-$$x_{n+1} = f(x_n, u_n, \phi_n), \, (modèle\; non-linéaire)$$
-$$y_{n+1} = h(x_{n+1}, \psi_{n+1}), (observateur\; non-linéaire)$$
+- $x_{n+1} = f(x_n, u_n, \phi_n)$ (modèle non-linéaire)
+- $y_{n+1} = h(x_{n+1}, \psi_{n+1})$ (observateur non-linéaire)
 
 **Remarque** C'est le cas en Météo où le modèle repose sur les équations de Navier-Stokes (non-linéaires), et les observateurs reposent sur les lois non-linéaires (ex : réflectivité radar $R \propto D^6$)
 
