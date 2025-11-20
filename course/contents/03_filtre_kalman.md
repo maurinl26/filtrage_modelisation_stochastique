@@ -153,7 +153,7 @@ par rapport au **bruit d'état** $Q$ (ou $\Phi$ comme noté précédemment).
 
 2. **Correction** : Construction de la matrice de covariance $P_k$ par rapport au **bruit de mesure** $R$ (ou $\Psi$ comme noté précédemment).
 
-![Kalman Loop](./img/kalman_loop.png)
+![Kalman Loop](../img/kalman_loop.png)
 
 _Sur l'image ci-dessus, par cohérence avec les notations du cours : $H \rightarrow C, Q \rightarrow \Phi, R \rightarrow \Psi$_
 _"Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch & Bishop, Intro to the Kalman Filter"_
@@ -332,27 +332,27 @@ On fixe alors $x_0 = 0$, et on choisit une valeur arbitraire, mais non-nulle ($P
 
 ## Vraie valeur, Mesures, et Estimation (50 relevés)
 
-![kalman random constant](./img/kalman_1.png)
+![kalman random constant](../img/kalman_1.png)
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
 ## Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
 
-![kalman random constant](./img/kalman_2.png)
+![kalman random constant](../img/kalman_2.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
 
-![kalman](./img/kalman_3.png)
+![kalman](../img/kalman_3.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 ---
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
 
-![kalman](./img/kalman_4.png)
+![kalman](../img/kalman_4.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 

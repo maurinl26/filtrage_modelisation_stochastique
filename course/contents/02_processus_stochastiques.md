@@ -1,6 +1,3 @@
-<!-- ---
-title: Processus stochastiques
---- -->
 # Processus stochastiques
 
 # Définition
@@ -76,7 +73,7 @@ Comment décrire les transitions entre états, y compris en temps continu ?
 ---
 ## Marche Aléatoire
 
-![mouvement brownien 1d](./img/brownien_3132.png)
+![mouvement brownien 1d](../img/brownien_3132.png)
 
 ### Vers une description formelle des transitions entre états
 
@@ -89,7 +86,7 @@ _(sachant que la particule début à la case $n=0$ à $t=0$)_
 
 
 ---
-![Coupe temporelle marche aléatoire](./img/brownien_3334.png)
+![Coupe temporelle marche aléatoire](../img/brownien_3334.png)
 
 
 On cherche à décrire $P(n, t_i)$, pour un temps $t_i$ donné, ou autrement dit, on cherche à faire une coupe temporelle du mouvement brownien au temps $t_i$.

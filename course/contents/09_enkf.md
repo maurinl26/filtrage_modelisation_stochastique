@@ -6,7 +6,7 @@ Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour év
 
 Nous évoluons dans le cadre des méthodes d'assimilation de données pour la Météo.
 
-![cycle d'assimilation](./img/assimilation.png)
+![cycle d'assimilation](../img/assimilation.png)
 
 
 ## Ensemble Kalman Filter (EnKF)

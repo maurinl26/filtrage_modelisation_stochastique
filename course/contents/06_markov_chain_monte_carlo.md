@@ -170,7 +170,7 @@ T(q_1 | q_0) = \mathcal{N}(q_1^1|q_0^1, \sigma) \mathcal{N}(q_1^2|q_0^2, \sigma)
 $$
 
 
-![markov chain path](./img/markov_chain_path.png)
+![markov chain path](../img/markov_chain_path.png)
 _A gauche : Réalisation d'une trajectoire d'une chaîne de Markov, [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 
@@ -218,7 +218,7 @@ $\rightarrow$ _Ce qu'on vient d'énoncer ne présage pas de l'existance de la li
 ---
 ## Stationnarité - Illustration
 
-![convergence](./img/markov_convergence.png)
+![convergence](../img/markov_convergence.png)
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 
@@ -291,14 +291,14 @@ $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itération
 ---
 ## Illustrations - Cas stable
 
-![mcmc stable](./img/markov_chain_monte_carlo_stable.png)
+![mcmc stable](../img/markov_chain_monte_carlo_stable.png)
 
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 ---
 ## Illustrations - Cas instables
 
-![mcmc pinch](./img/markov_chain_monte_carlo_pinch.png)
+![mcmc pinch](../img/markov_chain_monte_carlo_pinch.png)
 
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
@@ -306,7 +306,7 @@ _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalp
 ---
 ## Illustrations - Cas instables
 
-![mcmc_metastable](./img/markov_chain_monte_carlo_metastable.png)
+![mcmc_metastable](../img/markov_chain_monte_carlo_metastable.png)
 
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
