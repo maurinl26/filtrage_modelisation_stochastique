@@ -78,7 +78,6 @@ la particule fait un saut sur une case immédiatement à sa droite ou à sa gauc
 _(sachant que la particule début à la case $n=0$ à $t=0$)_ 
 
 
----
 ![Coupe temporelle marche aléatoire](../img/brownien_3334.png)
 
 
@@ -88,7 +87,6 @@ Pour cela, nous nous intéressons à extraire les moments statistiques, ici, la 
 
 Ici, on remarque que (figure de droite), **la moyenne est nulle** à chaque pas de temps, et **la variance évolue linéairement** en fonction du temps.
 
----
 
 **Démonstration** Soit $D$ la variable aléatoire de déplacement à chaque tour. $D$ prend les valeurs $\pm 1$ avec une probabilité de $0,5$.
 
@@ -105,7 +103,7 @@ $$ Var(X(T)) = Var(\sum^{T}_{t=0} D_t) =  \sum^{T}_{t=0} Var(D_t) = T \sigma^2$$
 
 **TODO** : _introduire ici la définition de mouvement brownien_
 
----
+
 ## Le mouvement brownien
 ### Généralisation vers le temps continu
 Vers une description formelle des transitions entre états
