@@ -1,7 +1,3 @@
-<!-- ---
-title: Modèles de diffusion pour l'assimilation de données
-
---- -->
 # Diffusion Models for Data Assimilation
 
 L'utilisation de Modèles de Diffusion pour les systèmes d'assimilation de donnée est un champ de recherche émergeant, avec des applications prometteuses. L'assimilation variationnelle et les filtres Kalman d'Ensemble constituent le fondement des méthodes d'assimilation (4DEnVar), développées dans les années 1990 et améliorées continuellement depuis pour un usage dans les systèmes opérationnels.
