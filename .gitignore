@@ -1,2 +1,4 @@
 _build
 recap/_build
+.idea
+course/contents/.ipynb_checkpoints/
