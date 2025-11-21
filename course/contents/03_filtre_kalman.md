@@ -158,8 +158,8 @@ _"Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch
 
 
 
-# Filtre de Kalman - Implémentation
-## La recette de cuisine !
+## Filtre de Kalman - Implémentation
+### La recette de cuisine !
 
 1. On initialise $\hat{x}$ à $\hat{x}_0$ : on peut par exemple prendre la valeur $y_0$ renvoyée par le capteur.
 
@@ -176,7 +176,7 @@ $$P_{n+1} = (I - K_{n+1} C)(A P A^T + \Phi) $$
 
 
 
-## Est-ce que ça marche vraiment en pratique ?
+### Est-ce que ça marche vraiment en pratique ?
 Considérations sur l'évolution de la variance 
 
 On a établit que $\lim\limits_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$,  ainsi que la formule pour $P_{n+1}$. 
@@ -195,8 +195,8 @@ _Dans un cas simple à une dimension, $P = \mathbb{E}[(\hat{x}_n - x_n)^2] = \ma
 
  
 
-# Dynamique de l'erreur
-## Choix du gain K
+## Dynamique de l'erreur
+### Choix du gain K
 
 **Condition d'optimalité du gain du filtre** 
 
@@ -233,8 +233,8 @@ $$P_{n+1} = (I - K_{n+1} C)(A P_n A^T + \Phi)$$
 
 
 
-# Synthèse
-## Estimateur assymptotiquement sans biais construit de manière récurrente
+## Synthèse
+### Estimateur assymptotiquement sans biais construit de manière récurrente
 
 **Estimateur sans biais** 
 
@@ -250,9 +250,7 @@ Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons
 
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
-
-
-## Structure probabiliste
+### Structure probabiliste
 
 $\rightarrow$ Quel lien avec les probabilités ?
 
@@ -267,8 +265,7 @@ $\rightarrow$ Quel lien avec les probabilités ?
 - Avec les propriétés de l'estimateur, on progresse vers $\mathbb{E}[\hat{x}_n] = x_k$ en gardant une dispersion minimale $\mathbb{E}[(x_n - \hat{x}_n)(x_n - \hat{x_n})^T] = P_n$.
 
 
-
-## Implémentation pratique d'un filtre de Kalman
+### Implémentation pratique d'un filtre de Kalman
 
 **Hypothèses structurantes** Il reste en pratique à vérifier que les bruits de mesure et d'état sont effectivement des bruits blancs gaussiens, stationnaires.
 
@@ -285,9 +282,7 @@ ralentissant le flux d'air dont il mesure la température._
 Il n'y a pas forcément de réponse systématique à ces questions, simplement un travail de mise au point du filtre, sur un problème donné $\rightarrow$ **Coeur du travail de l'ingénieur**
 
  
-
-
-# Exemple - Estimation d'une constante aléatoire
+## Exemple - Estimation d'une constante aléatoire
 Filtre de Kalman
 
 **Problème** 
@@ -328,27 +323,27 @@ On fixe alors $x_0 = 0$, et on choisit une valeur arbitraire, mais non-nulle ($P
 
 
 
-## Vraie valeur, Mesures, et Estimation (50 relevés)
+### Vraie valeur, Mesures, et Estimation (50 relevés)
 
 ![kalman random constant](../img/kalman_1.png)
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
-## Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
+### Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
 
 ![kalman random constant](../img/kalman_2.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
-## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
+### Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
 
 ![kalman](../img/kalman_3.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
-## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
+### Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
 
 ![kalman](../img/kalman_4.png)
 
@@ -357,8 +352,8 @@ _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
 
-# Dynamique Non-Linéaire
-## Extended Kalman Filter
+## Dynamique Non-Linéaire
+### Extended Kalman Filter
 Si la dynamique est non linéaire ?
 
 Remplaçons :
@@ -408,8 +403,8 @@ Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs a
 
 
 
-# A retenir 
-## Qu'est-ce qu'un filtre de Kalman déjà ?
+## A retenir 
+### Qu'est-ce qu'un filtre de Kalman déjà ?
 
 
 **Basique**
@@ -428,7 +423,7 @@ _En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et 
 les "bonnes" matrices de covariance, et régler le gain du filtre._
 
 
-# Sources 
+## Sources 
 Liens utiles
 
 [G. Welch, G. Bishop, University of North Carolina, An Introduction to the Kalman Filter](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf)
