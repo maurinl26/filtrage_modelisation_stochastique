@@ -192,10 +192,27 @@ $$\frac{d V}{dt} = 2 \langle (n - <{n}>) (W^+(n) - W^-(n))\rangle + \langle W^+(
 
 **Remarque** Ces formules (un peu ingrates), nous permettent d'extraire une équation différentielle pour chacun des moments de la distribution, et obtenir ainsi la moyenne et la variance du processus au cours du temps.
 
+# Le Mouvement Brownien
+
+On a vu que pour une marche aléatoire, avec des sauts de $\pm 1$ équiprobables, la coupe temporelle à un pas de temps 
+donné $t \in \mathbb{N}$, la distribution des positions se rapproche d'une gaussienne. 
+
+On peut alors formaliser le mouvement brownien, en temps continu, par rapport à cette observation.
+
+**Définition** Soit $B = (B_t)_{t \geq 0}$ une famille de variables aléatoires indexées dans le temps. On dit que $B$ est un
+mouvement brownien si c'est un processus à trajectoires continues telles que 
+1. $\forall t \geq 0 : B_t \sim \mathcal{N}(0, t)$
+2. Pour tout $0 \geq t_1 \geq ... \geq t_n$, les variables aléatoires $B_{t_1}, B_{t_2} - B_{t_1}, ..., B_{t_n} - B_{t_{n-1}}$, sont indépendantes.
 
 
----
-## Processus de Poisson
+**Remarque** La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du passé.
+
+_Note : Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement_
+
+
+
+
+# Un exemple, le processus de Poisson
 
 **Exemple de processus stochastique**
 
@@ -244,7 +261,7 @@ Exemple d'une particule radioactive :
  On obtient la moyenne et la variance d'un processus de Poisson :
  $$M = \langle n \rangle = \alpha t, V = \langle n^2 \rangle - \langle n \rangle^2 = \alpha t$$
 
-## Exercice 
+# Exercice 
 Cinétique chimique
 
 Nous posons $W^+(n) = \alpha, W^-(n) = \mu n$. L'équation de cinétique chimique est donnée par
@@ -257,14 +274,13 @@ Avec $n_0 = 0$, on a $<n(t)> = (\alpha / \mu)(1 - e^{-\mu t})$
 2. Vérifier que pour l'état stationnaire, quand $\partial_t P = 0$, la solution est une distribution de Poisson de paramètre $\lambda = \alpha / \mu$
 
 
-
-
 **Relations utiles** 
 $$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>$$ 
 $$\frac{d<n^2(t)>}{dt} = 2 <n(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)> $$
 $$<n> = \sum_n n P(n,t), <n^2(t)> = \sum_n n^2 P(n,t), <f(n)> = \sum_n f(n) P(n,t) $$
 
-## A retenir
+
+# A retenir
 
 - Contruction d'un processus stochastique à partir des **taux de transition**, ou **densités de probabilités** de transition, 
 - Analogie avec des bilans physiques,
@@ -293,31 +309,13 @@ de la moyenne et de la variance du processus. Pour rappel,
 $$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>, 
 \frac{dV}{dt} = 2 <(n - <n>)(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)>$$
 
-## Précisions sur le Mouvement Brownien
 
-On a vu que pour une marche aléatoire, avec des sauts de $\pm 1$ équiprobables, la coupe temporelle à un pas de temps 
-donné $t \in \mathbb{N}$, la distribution des positions se rapproche d'une gaussienne. 
-
-On peut alors formaliser le mouvement brownien, en temps continu, par rapport à cette observation.
-
-**Définition** Soit $B = (B_t)_{t \geq 0}$ une famille de variables aléatoires indexées dans le temps. On dit que $B$ est un
-mouvement brownien si c'est un processus à trajectoires continues telles que 
-1. $\forall t \geq 0 : B_t \sim \mathcal{N}(0, t)$
-2. Pour tout $0 \geq t_1 \geq ... \geq t_n$, les variables aléatoires $B_{t_1}, B_{t_2} - B_{t_1}, ..., B_{t_n} - B_{t_{n-1}}$, sont indépendantes.
-
-
-**Remarque** La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du passé.
-
-_Note : Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement_
-
----
-## Sources 
+# Sources 
 Liens utiles du pour les processus stochastiques
 
+[Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
 
-([Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf))
+[Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf)
 
-([Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf))
 
-[Sedlmeier, K., Mieruch, S., Schädler, G., and Kottmeier, C.: Compound extremes in a changing climate – a Markov chain approach, Nonlin. Processes Geophys., 23, 375–390, https://doi.org/10.5194/npg-23-375-2016, 2016.](https://doi.org/10.5194/npg-23-375-2016)
 
