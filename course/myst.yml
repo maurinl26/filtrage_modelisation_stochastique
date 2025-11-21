@@ -23,6 +23,7 @@ project:
 
 
   toc:
+  - file: README.md
   - file: contents/01_introduction.md
   - file: contents/02_processus_stochastiques.md
   - file: contents/03_equations_differentielles_stochastiques.md
