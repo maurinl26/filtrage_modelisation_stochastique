@@ -1,6 +1,8 @@
-# Chaînes de Markov
+---
+title: Chaînes de Markov
 
-## Définition
+---
+# Définitions
 
 **Définition** : Une chaîne de Markov homogène à valeurs dans $S$ de matrice de transition $P$ et de loi initial $\lambda$
 est une famille de variables aléatoires $(X_n, n \in \mathbb{N})$ telle que :
@@ -78,9 +80,9 @@ En particulier, les limites des lois de $X_n$ sont automatiquement des probabili
 
 Alors $\pi$ est une probabilité invariante.
 
+# Propriétés d'une chaîne de Markov
 
 ## Théorème ergodique
-
 
 **Théorème** Soit $X$ une chaîne irréductible positive récurrente. Alors, pour toute fonction $f$ positive 
 ou bornée, presque sûrement : 
@@ -96,8 +98,7 @@ $$\mathbb{P}(X_n = i) \rightarrow \pi(i)$$
 
 en particulier, pour tout i, $p_{ij}^{(n)} \rightarrow \pi(j)$.
 
-
-## Les propriétés d'une chaîne de Markov 
+## Caractéristiques d'une chaîne de Markov 
 
 **Homogénéité** 
 
@@ -131,7 +132,7 @@ $$\forall \theta_i, \theta_j \in \Theta, \lim\limits_{n \rightarrow \infty} P^{(
 
 L'ergodicité est la propriété selon laquelle, à partir d'un certain rang, la chaîne converge vers la distribution stationnaire. 
 
-## Application au PageRank
+# Application au PageRank
 
 L'algortihme PageRank a emergé à la fin des années 90, sous l'impulsion de Brin et Page, les fondateurs de Google. Contrairement à une recherche thématique ou sémantique classique (bag of words, similarité cosinus, etc.), l'idée de Brin et Page est d'exploiter les liens entre les page web, **un site web étant important s'il est relié à d'autres sites importants**.
 
@@ -185,11 +186,11 @@ $$
 - Pouvez-vous décrire les limiations de cette modélisation ?
 - Comment modifier la matrice de transitions dans le cadre de PageRank ?
 
-## Vers un espace d'états continu
+# Vers un espace d'états continu
 
 todo : exemples espace d'état continu
 
-## Vers une modélisation en temps continu : Chapman-Kolmogorov
+# Vers une modélisation en temps continu : Chapman-Kolmogorov
 
 todo : exemples temps continu
 

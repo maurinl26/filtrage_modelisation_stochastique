@@ -1,12 +1,15 @@
-# Equations différentielles stochastiques
+---
+title: Equations différentielles stochastiques 
 
-## Définition
+---
+
+# Définition
 
 Un **processus stochastique** est une collection de variables aléatoires $\{X_t\}_{t \geq 0}$ définies sur un espace probabilisé commun où $t$ représente le temps. Le processus stochastique décrit l'évolution d'un système soumis à l'aléatoire.
 
 Une **équation différentielle stochastique** est la généralisation de la notion d'équation différentielle en prenant en compte un terme de bruit blanc.
 
-## De l'équation différentielle ordinaire (EDO) à l'équation différentielle stochastique (EDS)
+# De l'équation différentielle ordinaire (EDO) à l'équation différentielle stochastique (EDS)
 
 On considère une équation différentielle ordinaire $\frac{dX_t}{dt} = \mu(X(t))$ à laquelle nous aimerions rajouter du bruit. Nous considérons alors un **bruit blanc**
 $\xi(t)$ dépendant du temps et de l'espace.
@@ -28,7 +31,7 @@ Et on cherche à donner un sens à l'intégration suivante :
 
 $$X(t) = X(0) + \int_0^t \mu(X(s)) ds + \int_0^t \sigma(X(s)) dW(s)$$
 
-## Processus de premier ordre
+# Equation différentielle stochastique de premier ordre
 
 Considérons une équation différentielle stochastique (EDS) du premier ordre :
 
@@ -40,7 +43,7 @@ où :
 - $b(X_t, t)$ est le terme de diffusion
 - $W_t$ est le mouvement brownien standard
 
-## Formule d'Itô
+# Intégration analytique - Formule d'Itô
 
 La **formule d'Itô** est une formule fondamentale du calcul stochastique. Elle permet de calculer la différentielle $df$ d'une fonction 
 $f(X_t, t)$ où $X_t$ suit une équation différentielle stochastique.
@@ -72,7 +75,7 @@ $$d(W_t^2) = dt + 2 W_t dW_t$$
 _Remarque : Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch](https://en.wikipedia.org/wiki/Stratonovich_integral), qui permettrait l'équivalent d'une intégration trapéoïdale, là où Itô propose une
 intégration cohérente numériquement avec Euler explicite._
 
-## Intégration numérique - Méthode d'Euler-Maruyama
+# Intégration numérique - Méthode d'Euler-Maruyama
 
 La **méthode d'Euler-Maruyama** permet d'approximer numériquement les solutions des EDS. En discrétisant selon un pas de temps $\Delta t$,  on obtient :
 
@@ -173,7 +176,7 @@ $$
 d'Euler-Maruyama converge vers la solution exacte de cette EDS.
 
 
-## Applications
+# Applications
 
 Les équations différentielles stochastiques ont de nombreuses applications en ingénierie, météorologie, biologie, finance.
 
@@ -189,7 +192,7 @@ _Remarque : l'équation du premier ordre $dX_t = \mu dt + \sigma dW_t$ avait dé
 
 $$dV(t) = - \lambda V(t) dt + dW_t $$
 
-## Références
+# Références
 
 Gratton, S., Sequential Filtering, (2024-2025)
 

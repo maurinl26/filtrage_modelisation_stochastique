@@ -1,17 +1,13 @@
-# Filtre Kalman d'Ensemble
+---
+title: Filtre Kalman d'Ensemble
+
+---
 
 Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour évaluer la covariance de l'erreur d'analyse, sur un Filtre de Kalman [](doi:10.1029/94JC00572).
 
-## Assimilation de données 
+# Ensemble Kalman Filter (EnKF)
 
-Nous évoluons dans le cadre des méthodes d'assimilation de données pour la Météo.
-
-![cycle d'assimilation](../img/assimilation.png)
-
-
-## Ensemble Kalman Filter (EnKF)
-
-### Statistique de l'erreur
+## Statistique de l'erreur
 
 **Représentation de la statistique d'erreur** 
 
@@ -35,7 +31,7 @@ $$
 $$
 
 
-### Echantillonage par Méthodes de Monte-Carlo
+## Echantillonage par Méthodes de Monte-Carlo
 
 Ici, dans le cadre du Filtre Kalman d'Ensemble, la covariance de l'erreur est représentée en utilisant un ensemble d'états du systèmes,  échantillonné par méthodes de Monte-Carlo. 
 
@@ -50,7 +46,7 @@ avec $dN$ la densité de points par unité de volume, et $N$ le nombre de points
 
 _Remarque : La covariance de l'erreur pourrait être représentée en théorie par la densité de probabilité limite formée par une infinité de points._
 
-### Vers une équation différentielle stochastique
+# Vers une équation différentielle stochastique
 
 En reprenant la dynamique du système associée au filtre de Kalman, le filtre Kalman d'Ensemble propose une résolution
 "stochastique" de cette dynamique par méthodes de Monte-Carlo. L'objectif des méthodes de Monte-Carlo étant d'éviter 
@@ -65,7 +61,7 @@ $$dX_t  = f(X_t) dt + g(X_t) dW_t$$
 
 où, comme précédemment, $W_t$ est un mouvement brownien. Cette équation différentielle pouvant intégrée au sens d'**Itô** et résolue par des méthodes numériques telles que la méthode d'**Euler-Maruyama**.
 
-### De Markov Chain Monte-Carlo à l'EnKF
+# De Markov Chain Monte-Carlo à l'EnKF
 
 _Bon ... Encore un peu de théorie ! Mais en observant de plus près, on arrive finalement à associer les éléments principaux du cours,
 à savoir le filtre de Kalman et les méthodes Markov Chain Monte Carlo._
@@ -177,5 +173,4 @@ Le Filtre Kalman d'Ensemble se comporte comme un Filtre de Kalman dans le cas d'
 
 **En pratique**, la formulation du filtre de Kalman d'Ensemble ne fait pas intervenir d'opérateur Tangent-Linéaire, ce qui le rend très facile à implémenter.
 
-
-
+# Un algorithme opérationnel - Localized Ensemble Transformed Kalman Filter (LETKF)

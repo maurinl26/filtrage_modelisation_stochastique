@@ -1,10 +1,17 @@
-# Assimilation de données 
+---
+title: Assimilation de données
 
-## Méthodes variationnelles
+---
 
-## Méthodes ensemblistes
+Nous évoluons dans le cadre des méthodes d'assimilation de données pour la Météo.
 
-## Description formelle
+![cycle d'assimilation](../img/assimilation.png)
+
+# Méthodes variationnelles
+
+# Méthodes ensemblistes
+
+# Description formelle
 
 On note $x_{1:L} = (x_1, , x_L) \in \mathbb{R}^{LxD}$ une trajectoire d'états (ou $L$ et $D$ sont respectivement la longueur de la trajectoire et la dimension du vecteur d'état). On note
 $p(x_{i+1}|x_i)$ la dynamique de transition de l'état $x_i$ vers l'état $x_{i+1}$.

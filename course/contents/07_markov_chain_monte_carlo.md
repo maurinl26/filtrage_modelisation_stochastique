@@ -1,13 +1,11 @@
-# Markov Chain Monte Carlo
+---
+title: Markov Chain Monte Carlo
 
-## Au cours précédent
-
-**Filtre de Kalman** : la fermeture du système d'équations du filtre s'effectue grâce aux propriétés gaussiennes des bruits d'état et de mesure. On peut ainsi se limiter à construire **l'évolution de la moyenne et de la variance** de l'estimateur.
+---
 
 $\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
 
-
-## Chaînes de Markov et  Méthodes de Monte-Carlo
+# Chaînes de Markov et Méthodes de Monte-Carlo
 
 
 **Méthodes de Monte-Carlo** : estimation d'une densité de probabilité par tirages. 
@@ -39,7 +37,7 @@ $\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir
 
 
 
-# Markov Chain Monte-Carlo
+## Markov Chain Monte-Carlo
 MCMC
 
 $\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de Markov ?
@@ -50,7 +48,7 @@ $\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de
 
 
 
-# Historique et applications
+## Historique et applications
 
 - Aiguilles de Buffon (1733) : Estimation de $\pi$ par le compte de Buffon.
 - Projet Manhattan (1940) :  utilisation des premiers ordinateurs pour la simulation de processus physiques, lors de la construction de la bombe atomique.
@@ -106,7 +104,6 @@ En pratique, la quantification de l'erreur par le TCL suppose de connaître la v
 **Limitations** : la quantification de l'erreur est probabiliste. Il reste toujours une (mal)-chance que l'estimateur s'échoue dans la queue de la distribution (ex : $\hat{f}_N^{MC} > \mathbb{E}_{\pi}[f] + 3 SE_N[f   ]$).
 
 
-
 # Chaînes de Markov
 
 $\rightarrow$ But : on cherche à explorer une distribution cible $\pi$.
@@ -148,7 +145,7 @@ $\rightarrow$ On génère des séquences de points corrélés.
 _(Au contraire des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_.
 
 
-
+_todo: refaire l'exemple_
 
 ## Exemple : trajectoire sur un espace à 2 dimensions
 
@@ -242,13 +239,7 @@ $| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}}  |\rho[B] - \pi[B]|$
 _Remarque : L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés._
 
 
-
-## (Optionnel) Spectre de la matrice de transition et Convergence
-
-
-
-
-# Markov Chain Monte-Carlo
+# Estimateur Markov Chain Monte-Carlo (MCMC)
 ## Construction de l'estimateur
 
 **Estimateur MCMC** Etant donné une suite de points $\{q_1, ..., q_N\}$ qui forment la réalisation d'une chaîne de Markov, l'estimateur **Markov Chain Monte-Carlo** est défini par 
@@ -263,7 +254,9 @@ $$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}
 
 _MCMC : Markov Chain Monte-Carlo_
 
-## Conditions de convergence - Nombre d'itérations infinies
+## Conditions de convergence 
+
+### Nombre d'itérations infinies
 
 La convergence des estimateurs MCMC est garantie à condition que **la chaîne soit récurrente**.
 Dans ce cas, la limite existe seulement pour **un nombre fini d'initialisations**.
@@ -281,30 +274,30 @@ Ce résultat peut être généralisé à toute distribution initale de points pa
 $\rightarrow$ _En pratique, construire ou utiliser un estimateur **MCMC** nécessite de vérifier précautionneusement les hypothèses sur les transitions de la chaîne de Markov._
 
 
-
-## Conditions de convergence - Nombre d'itérations fini
+### Nombre d'itérations fini
 
 Nous venons d'étudier le comportement assymptotique d'un estimateur **MCMC**, c'est-à-dire en nombre d'itérations infini.
 
 $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itérations finies ?
 
 
-## Illustrations - Cas stable
+## Illustrations 
+
+### Cas stable
 
 ![mcmc stable](../img/markov_chain_monte_carlo_stable.png)
 
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 
-## Illustrations - Cas instables
+### Cas instables
 
 ![mcmc pinch](../img/markov_chain_monte_carlo_pinch.png)
 
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 
-
-## Illustrations - Cas instables
+### Cas instables
 
 ![mcmc_metastable](../img/markov_chain_monte_carlo_metastable.png)
 
@@ -317,9 +310,6 @@ $\rightarrow$ En pratique, la convergence dépend beaucoup de la distribution à
 
 Ces méthodes, bien qu'utiles, sont moins robustes que les méthodes de Monte-Carlo. Elles dépendent grandement du jeu de données à explorer et nécessitent une mise au point minutieuse.
 
-
-
-### (Optionnel) Vitesse de convergence théorique
 
 
 ### (Optionnel) MCMC et Théorème Central Limite 
@@ -338,7 +328,7 @@ _Remarque : selon le terme $\lambda[f] \cdot N$, la décroissance de l'erreur po
 
 
 
-## Algorithme de Metropolis-Hastings
+# Algorithme de Metropolis-Hastings
 
 **Implémentation** : Comment construire les distributions de transitions pour obtenir une Chaîne de Markov qui converge vers une distribution stationnaire ?
 
@@ -368,7 +358,7 @@ La distribution des transitions de Markov peut être définie comme :
 
 $$T(q'|q) = a(q', q) \cdot Q(q'|q) + (1 - \in dq' Q(q'|q)a(q|q')) \cdot \delta(q - q') $$
 
-### Random Walk Metropolis
+## Random Walk Metropolis
 
 Dans ce cas, $Q(q'|q, \Sigma) = \mathcal{N}(q'|q, \Sigma)$
 On perturbe le point initial par une gaussienne.
