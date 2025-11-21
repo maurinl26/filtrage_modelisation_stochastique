@@ -25,18 +25,18 @@ project:
   toc:
   - file: contents/01_introduction.md
   - file: contents/02_processus_stochastiques.md
-  - file: contents/03_filtre_kalman.md
-  - file: contents/04_tp_filtre_kalman.ipynb
-  - file: contents/05_markov_chains.md
-  - file: contents/06_tp_page_rank.ipynb
-  - file: contents/07_markov_chain_monte_carlo.md
-  - file: contents/08_equations_differentielles_stochastiques.md
-  - file: contents/09_enkf.md
-  - file: contents/10_tp_metropolis_hastings.ipynb
-  - file: contents/11_data_assimilation.md
+  - file: contents/03_equations_differentielles_stochastiques.md
+  - file: contents/04_filtre_kalman.md
+  - file: contents/06_tp_filtre_kalman.ipynb
+  - file: contents/07_markov_chains.md
+  - file: contents/08_tp_page_rank.ipynb
+  - file: contents/09_markov_chain_monte_carlo.md
+  - file: contents/10_enkf.md
+  - file: contents/11_tp_metropolis_hastings.ipynb
   - file: contents/12_tp_enkf.ipynb
-  - file: contents/13_diffusion_models.md
-  - file: contents/14_tp_diffusion_models.ipynb
+  - file: contents/13_diffusion_modeles.md
+  - file: contents/14_data_assimilation.md
+  - file: contents/15_tp_diffusion_models.ipynb
   - file: contents/99_annexes.md
 
 
