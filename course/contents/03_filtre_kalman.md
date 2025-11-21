@@ -6,8 +6,6 @@ $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et
 
 **Applications** : Contrôle, Calage GPS, Filtrage et assimilation de données.
 
-
-
 ## Contrôle d'un système dynamique
 
 **Système dynamique discret**

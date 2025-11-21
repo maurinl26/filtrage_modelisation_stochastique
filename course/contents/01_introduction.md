@@ -12,9 +12,8 @@ un modèle dynamique à partir d'observations ou de mesures. Puis il présente l
 
 Cet ensemble constitue une base pour les méthodes d'assimilations en sciences de l'atmosphère mais également de nombreuses applications en ingénierie, statistiques et sciences des données, ainsi que dans de nombreux domaines où une simulation stochastique est utile (finance, biologie, etc.).
 
-Loïc Maurin - _loic.maurin@meteo.fr_
 
-## Objectifs du cours 
+# Objectifs du cours 
 
 **Construire une boîte à outils pour modéliser l'incertitude et les phénomènes aléatoires**
 
