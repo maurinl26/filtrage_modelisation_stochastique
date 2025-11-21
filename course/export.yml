@@ -26,7 +26,7 @@ project:
 # Page settings
       #### Logo at top of position
       logo: logo_enm.png
-      logo_width: 10
+      logo_width: 20
 
       #### Looks
       papersize: a4
