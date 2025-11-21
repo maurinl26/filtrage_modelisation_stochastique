@@ -1,5 +1,9 @@
 # Assimilation de données 
 
+## Méthodes variationnelles
+
+## Méthodes ensemblistes
+
 ## Description formelle
 
 On note $x_{1:L} = (x_1, , x_L) \in \mathbb{R}^{LxD}$ une trajectoire d'états (ou $L$ et $D$ sont respectivement la longueur de la trajectoire et la dimension du vecteur d'état). On note
