@@ -63,7 +63,7 @@ où $Q^n \rightarrow 0$.
 **Propriété** Pour une chaîne de Markov avec un état absorbant, la matrice $I - Q$ est inversible d'inverse $N = \sum_n Q^n$. $n_{ij}$ est le nombre moyen de 
 fois où la chaîne est dans l'état $j$ si elle part de l'état $i$.
 
----
+
 ## Mesures invariantes (ou stationnaires)
 Propriétés
 

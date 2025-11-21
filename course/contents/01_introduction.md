@@ -1,9 +1,4 @@
-<!-- ---
-title: Introduction
-
---- -->
-# Introduction
-
+## Introduction
 
 Cours de Filtrage Stochastique donné aux élèves du Master HPC-BigData mené conjointement entre ENM et l'ENSEEIHT.
 
@@ -19,8 +14,7 @@ Cet ensemble constitue une base pour les méthodes d'assimilations en sciences d
 
 Loïc Maurin - _loic.maurin@meteo.fr_
 
----
-# Objectifs du cours 
+## Objectifs du cours 
 
 **Construire une boîte à outils pour modéliser l'incertitude et les phénomènes aléatoires**
 
@@ -35,8 +29,7 @@ Loïc Maurin - _loic.maurin@meteo.fr_
   - Construction des ensemblistes
 
 
----
-# Plan du cours 
+## Plan du cours 
 
 - Introduction
 - Filtre de Kalman
@@ -51,8 +44,7 @@ Loïc Maurin - _loic.maurin@meteo.fr_
 - Devoir 
 
 
----
-# Démystifions l'aspect stochastique !
+## Démystifions l'aspect stochastique !
 
   - Dans ce cours, nous nous intéresserons à modéliser la moyenne et la (co)-variance des processus 
 
@@ -63,9 +55,8 @@ Loïc Maurin - _loic.maurin@meteo.fr_
     - _on modélisera les processus par rapport à la loi normale, en tirant partie du Théorème Central Limite_, 
     - _en gardant à l'esprit d'autres lois peuvent supporter des modèles (ex: processus de poisson)_
 
----
-# Processus stochastiques - Applications
 
+## Processus stochastiques - Applications
 
 **Notions abordées** :
 - Marche aléatoire et Mouvement brownien
@@ -79,9 +70,7 @@ Loïc Maurin - _loic.maurin@meteo.fr_
 - Filtre Kalman : cas particulier de processus gaussien
 
 
-
----
-## Filtrage Kalman
+### Filtrage Kalman
 Quelques exemples d'applications
 
 **Utiliser au mieux la dynamique d'un système pour recaler ses observations** 
@@ -92,9 +81,7 @@ Quelques exemples d'applications
   (Ensemble Kalman Filter - EnKF)
 
 
-
----
-## Markov Chain Monte-Carlo (MCMC)
+### Markov Chain Monte-Carlo (MCMC)
 
 **Echantillonner et estimer les probabilités de transitions entre états d'un système**
 
@@ -108,8 +95,7 @@ Quelques exemples d'applications
 Les estimateurs MCMC sont utilisé en climatologie, pour mesurer les changements de régime de temps d'une projection climatique par rapport à une série de données historiques : [](https://doi.org/10.5194/npg-23-375-2016)
 :::
 
----
-## Régression par Processus Gaussiens
+### Régression par Processus Gaussiens
 
 **Modéliser les incertitudes lors de l'exploration d'un champ / d'un espace de paramètres**
 
@@ -126,8 +112,7 @@ Les estimateurs MCMC sont utilisé en climatologie, pour mesurer les changements
 
 ![ajustement d'un processus gaussien](./img/gaussian_processes.png)
 
----
-# Rappels de Probabilités et Statistiques
+## Rappels de Probabilités et Statistiques
 Pour être à l'aise sur les notions du cours
 
 - Loi Normale
@@ -173,9 +158,7 @@ $$ \forall x \in \mathbb{R}, f(x) = \begin{array}{rcl}
 
 On a alors $\mathbb{E}[X] = p/\lambda$, $\mathbb{V}[X] = p/\lambda^2$
 
-
----
-## Exemple d'application : la loi gamma en microphysique
+### Exemple d'application : la loi gamma en microphysique
 
 En microphysique (modélisation des nuages et interactions entre hydrométéores), la distribution des gouttes
 par rapport à leur diamètre est donnée par une loi exponentielle (Loi de Marshall-Palmer).
@@ -199,7 +182,6 @@ entre les gouttes (de pluie, de neige, etc.).
 _Remarque : Une densité de loi Gamma (plus générique que la loi exponentielle) est choisie sur certains 
 schémas microphysiques._
 
----
 ## Loi forte des Grands Nombres
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **indépendantes** et **identiquement distribuées (i.i.d.)** et
@@ -216,8 +198,7 @@ $$\lim\limits_{n \rightarrow \infty} \frac{S_n}{n} = \mu,  p.s.$$
 
 Pour $U$ variable aléatoire uniforme sur $[0,1]$, $\lim\limits_{n \rightarrow \infty} \sum f(U_i) = \mathbb{E}[f(U)] = \int_0^1 f(x) dx$
 
----
-## Théorème Centrale Limite
+### Théorème Centrale Limite
 
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **i.i.d.**
@@ -232,16 +213,14 @@ $$Y_n = \frac{S_n - n\mu}{\sigma \sqrt(n)} \underset{n \rightarrow \infty}{\long
 
 **Application** Le Thèorème Centrale Limite donne des indications sur les vitesses de convergence vers la loi assymptotique.
 
----
-## LGN vs TCL
+### LGN vs TCL
 
 **Loi des Grand Nombres** : convergence des moyennes empiriques vers la moyenne de la loi des v.a.
 
 
 **Théorème Centrale Limite** : convergence asymptotique de la loi sur la moyenne empirique (donne des indications sur une loi limite).
 
----
-## Modes de convergences
+### Modes de convergences
 
 - Convergence presque sûre (**p.s.**) : $$P(\{\omega \in \Omega: \lim\limits_{n \rightarrow \infty\}} X_n(\omega) = X(\omega)) = 1$$
 - Convergence dans **$\mathrm{L}^P$** : $$\lim\limits_{n \rightarrow \infty} \mathbb{E}[|X_n - X|^p] = 0$$
@@ -252,9 +231,7 @@ Remarque :
 
 - Convergence **p.s.** $\Rightarrow$ Convergence **P**.
 
-
----
-## Estimation bayésienne
+### Estimation bayésienne
 
 En estimation bayésienne, on cherche à construire un estimateur (bayésien), c'est à dire une distribution conditionnée aux données d'apprentissage :
 
@@ -283,4 +260,3 @@ $$P(data) = \int_{\theta} P(data | \theta) \times P(\theta) d\theta$$
 
 Dans le cas continu, calculer $P(data)$ peut devenir intractable.
 
----

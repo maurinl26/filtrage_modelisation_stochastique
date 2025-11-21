@@ -7,7 +7,7 @@ $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et
 **Applications** : Contrôle, Calage GPS, Filtrage et assimilation de données.
 
 
----
+
 ## Contrôle d'un système dynamique
 
 **Système dynamique discret**
@@ -23,7 +23,7 @@ où, à chaque instant $n$:
 **Remarque** : En météo, on appellerait $C$ un **opérateur d'observation**. C'est le lien entre **l'espace des mesures** (ex : la tension au bornes thermomètre), et **l'espace d'état** (ex : la température effective mesurée). 
 
 
----
+
 ## Bruits associés au système
 
 **Système dynamique discret**
@@ -39,7 +39,7 @@ $$y_{n+1} = C x_{n+1} + \psi_{n+1}$$
 **Hypothèse** : Les bruits $\phi$ et $\psi$ sont supposés blancs, gaussiens, centrés, stationnaires
 et indépendants l'un de l'autre. Ces bruit sont chacun associé à une matrice de covariance $\Phi$, et $\Psi$. 
 
----
+
 ## Construction d'un estimateur
 
 On cherche à construire un estimateur qui dépende de l'état estimé à l'instant précédent, de la mesure renoyée 
@@ -56,7 +56,7 @@ _Note : On cherche à construire un estimateur de la forme générique $\hat{x}_
 _Nous nous concentrons sur des systèmes linéaires, et verrons plus tard comment l'étendre à des systèmes non-linéaires._
 
 
----
+
 ## Estimateur (assymptotiquement) sans biais
 
 **Erreur d'estimation** :  On cherche à minimiser l'erreur d'estimation, définie ci-dessous,
@@ -107,7 +107,7 @@ $$\mathbb{E}[e_{n+1}] = (I - K_{n+1}C) A\, \mathbb{E}[e_n] + (A_f + K_{n+1}CA - 
 
 
 
----
+
 ## Construction des Matrices du filtre
 Filtre de Kalman
 
@@ -127,7 +127,7 @@ $$\hat{x}_{n+1} = A \hat{x}_n + B u_n + K_{n+1} [y_{n+1} - C(A \hat{x}_n + B u_n
 **Remarque** $K$ peut être vu comme un compromis à régler entre la fidélité au modèle numérique ($A \hat{x}_n + B u_n$) et la
 fidélité aux valeurs de mesure ($y_{n+1}$). 
 
----
+
 
 ## Filtre Prédicteur - Correcteur
 
@@ -159,7 +159,7 @@ _Sur l'image ci-dessus, par cohérence avec les notations du cours : $H \rightar
 _"Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch & Bishop, Intro to the Kalman Filter"_
 
 
----
+
 # Filtre de Kalman - Implémentation
 ## La recette de cuisine !
 
@@ -177,7 +177,7 @@ $$\hat{x}_{n+1} = A \hat{x}_n + B u_n + K_{n+1} [y_{n+1} - C(A \hat{x}_n + B u_n
 $$P_{n+1} = (I - K_{n+1} C)(A P A^T + \Phi) $$
 
 
----
+
 ## Est-ce que ça marche vraiment en pratique ?
 Considérations sur l'évolution de la variance 
 
@@ -196,7 +196,7 @@ $$P = \mathbb{E}[e_n \times e_n^T]$$
 _Dans un cas simple à une dimension, $P = \mathbb{E}[(\hat{x}_n - x_n)^2] = \mathbb{V}[e_n]$, s'écrit bien comme la variance de l'erreur._
 
  
----
+
 # Dynamique de l'erreur
 ## Choix du gain K
 
@@ -233,7 +233,7 @@ $$P_{n+1} = (I - K_{n+1} C)(A P_n A^T + \Phi)$$
 **Remarque** On ne peut pas obtenir de condition d'optimalité, mais simplement d'une relation de récurrence entre $P$ et $K$. C'est elle qui nous permet d'implémenter $K$ en pratique.
 
 
----
+
 
 # Synthèse
 ## Estimateur assymptotiquement sans biais construit de manière récurrente
@@ -253,7 +253,7 @@ Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
 
----
+
 ## Structure probabiliste
 
 $\rightarrow$ Quel lien avec les probabilités ?
@@ -269,7 +269,7 @@ $\rightarrow$ Quel lien avec les probabilités ?
 - Avec les propriétés de l'estimateur, on progresse vers $\mathbb{E}[\hat{x}_n] = x_k$ en gardant une dispersion minimale $\mathbb{E}[(x_n - \hat{x}_n)(x_n - \hat{x_n})^T] = P_n$.
 
 
----
+
 ## Implémentation pratique d'un filtre de Kalman
 
 **Hypothèses structurantes** Il reste en pratique à vérifier que les bruits de mesure et d'état sont effectivement des bruits blancs gaussiens, stationnaires.
@@ -287,7 +287,7 @@ ralentissant le flux d'air dont il mesure la température._
 Il n'y a pas forcément de réponse systématique à ces questions, simplement un travail de mise au point du filtre, sur un problème donné $\rightarrow$ **Coeur du travail de l'ingénieur**
 
  
----
+
 
 # Exemple - Estimation d'une constante aléatoire
 Filtre de Kalman
@@ -328,35 +328,35 @@ possibilité d'avoir un petit bruit d'état autour de la constante à mesurer (p
 
 On fixe alors $x_0 = 0$, et on choisit une valeur arbitraire, mais non-nulle ($P_0 \neq 0$) pour $P_0$. Ici, $P_0 = 1$.
 
----
+
 
 ## Vraie valeur, Mesures, et Estimation (50 relevés)
 
 ![kalman random constant](../img/kalman_1.png)
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
----
+
 ## Vitesse de convergence - (Co)-Variance de l'erreur $P_n$
 
 ![kalman random constant](../img/kalman_2.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
----
+
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1$
 
 ![kalman](../img/kalman_3.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
----
+
 ## Influence des bruits $\Psi$ et $\Phi$, avec $\Psi = 1 .  10^{-5}$
 
 ![kalman](../img/kalman_4.png)
 
 _Source : Welch & Bishop, Intro to the Kalman Filter"_
 
----
+
 
 
 # Dynamique Non-Linéaire
@@ -397,7 +397,7 @@ $P_{n+1}$ devient $P_{n+1} = (I - K_{n+1} J^H) P^-_{n+1}$
 
 où $J^A$ et $J^H$ ont été évaluées au point $\hat{x}_n$
 
----
+
 
 **En Météo** 
 
@@ -408,7 +408,7 @@ _(plus exactement du conjugué de sa transposée si on travaille sur un espace c
 
 Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs adéquats (en respectant de manière empirique les hypothèses sur les distributions).
 
----
+
 
 # A retenir 
 ## Qu'est-ce qu'un filtre de Kalman déjà ?
@@ -429,7 +429,7 @@ Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs a
 _En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et robuste, et que le travail consiste à construire
 les "bonnes" matrices de covariance, et régler le gain du filtre._
 
----
+
 # Sources 
 Liens utiles
 
@@ -443,4 +443,3 @@ Liens utiles
 
 ([G. Chardon, CentraleSupélec, Filtrage de Kalman](https://gilleschardon.fr/fc/kalman/kalman.pdf))
 
----
