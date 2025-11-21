@@ -37,6 +37,7 @@ project:
   - file: contents/12_tp_enkf.ipynb
   - file: contents/13_diffusion_models.md
   - file: contents/14_tp_diffusion_models.ipynb
+  - file: contents/99_annexes.md
 
 
 extends:
