@@ -3,7 +3,7 @@ title: Processus stochastiques
 
 ---
 
-## Définition
+# Définition
 
 On considère un espace probabilisé $(\Omega, \mathcal{F}, \mathbb{P})$, un espace mesurable $(E, \mathcal{E})$ et un ensemble $T$.
 
@@ -43,7 +43,7 @@ Quand on observe un processus au cours du temps, on connaîot les valeurs de $X_
 **Définition** Le processus $(X_t)_{t \in \mathcal{T}}$ est dit adapté à la filtration $(\mathcal{F_t})_{t \in \mathcal{T}}$, si pour tout $t \in \mathcal{T}$, $X_t$ est $\mathcal{F}_t$-mesurable.
 
 
-### Exemple : les Processus Auto-Régressifs
+## Exemple : les Processus Auto-Régressifs
 
 **Processus Auto-Régressifs (AR)** Dans cet exemple, $\mathcal{T} = \mathbb{N}$. Soit $(\epsilon_t)_{t \in \mathbb{N}}$ une suite de variables aléatoires i.i.d de loi $\mathcal{N}(0, 1)$, $(\alpha, \beta) \in \mathbb{R}^2$, $X_0 = 0$ et
 $$ X_{t+1} = \alpha X_t + \beta + \epsilon_t$$
@@ -51,7 +51,7 @@ $$ X_{t+1} = \alpha X_t + \beta + \epsilon_t$$
 On définit $\mathcal{F}_t = \sigma({\epsilon_s, s \leq t})$. On peut vérifier que le processus $(X_t)_{t \in \mathbb{N}}$ est adapté à la filtration $(\mathcal{F_t})_{t \in \mathbb{N}}$. 
 
 
-### Des processus stochastiques particuliers 
+## Des processus stochastiques particuliers 
 
 - Les **processus de Markov**, dont les transitions ne dépendent que de l'état précédent, 
   $$ \mathcal{P}(X_{t+1}| \mathcal{F}_t) = \mathcal{P}(X_{t+1}| X_t) $$
@@ -64,12 +64,12 @@ $$\mathrm{P}_k = \mathbb{E}[(X_k - \hat{X}_k)(X_k - \hat{X}_k)^T] $$
 $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 
 
-## Marche aléatoire
+# Marche aléatoire
 Comment décrire les transitions entre états, y compris en temps continu ?
 
 ![mouvement brownien 1d](../img/brownien_3132.png)
 
-### Vers une description formelle des transitions entre états
+## Vers une description formelle des transitions entre états
 
 On prend un monde divisé en cases (numérotées chacune par un indice n). A chaque pas de temps,
 la particule fait un saut sur une case immédiatement à sa droite ou à sa gauche.
@@ -105,7 +105,7 @@ $$ Var(X(T)) = Var(\sum^{T}_{t=0} D_t) =  \sum^{T}_{t=0} Var(D_t) = T \sigma^2$$
 **TODO** : _introduire ici la définition de mouvement brownien_
 
 
-### Généralisation vers le temps continu
+## Généralisation vers le temps continu
 Vers une description formelle des transitions entre états
 
 **Généralisation à d'autres lois** Le résultat précédent se généralise aisément à d'autres lois de probabilité de transition, mais le résultat est le même : la variance croit linéairement avec le temps.
@@ -176,7 +176,7 @@ avec $\mathcal{L} = \mathcal{L}^n_m = W(m \rightarrow n)$ la matrice de transiti
 
 **Remarque** _On arrive ici au bout du travail de formalisation. L'exemple bilan sur un mouvement brownien avec des sauts élémentaires $\pm 1$ pouvant être généralisé à d'autres problèmes avec des transitions plus complexes._
 
-### Moyenne et Variance d'un processus stochastique en temps continu
+## Moyenne et Variance d'un processus stochastique en temps continu
 
 Après insertion des moments d'ordre 1, $\langle n(t) \rangle = \sum_n n P(n,t)$ ,et d'ordre 2,  $\langle n^2(t) \rangle = \sum_n n^2 P(n,t)$, dans l'équation maîtresse, nous obtenons,
 
@@ -190,7 +190,7 @@ $$\frac{d V}{dt} = 2 \langle (n - <{n}>) (W^+(n) - W^-(n))\rangle + \langle W^+(
 
 **Remarque** Ces formules (un peu ingrates), nous permettent d'extraire une équation différentielle pour chacun des moments de la distribution, et obtenir ainsi la moyenne et la variance du processus au cours du temps.
 
-## Le Mouvement Brownien
+# Le Mouvement Brownien
 
 On a vu que pour une marche aléatoire, avec des sauts de $\pm 1$ équiprobables, la coupe temporelle à un pas de temps 
 donné $t \in \mathbb{N}$, la distribution des positions se rapproche d'une gaussienne. 
@@ -208,9 +208,7 @@ mouvement brownien si c'est un processus à trajectoires continues telles que
 _Note : Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement_
 
 
-
-
-## Un exemple, le processus de Poisson
+# Un exemple, le processus de Poisson
 
 **Exemple de processus stochastique**
 
@@ -259,8 +257,7 @@ Exemple d'une particule radioactive :
  On obtient la moyenne et la variance d'un processus de Poisson :
  $$M = \langle n \rangle = \alpha t, V = \langle n^2 \rangle - \langle n \rangle^2 = \alpha t$$
 
-## Exercice 
-Cinétique chimique
+# Exercice - Cinétique chimique
 
 Nous posons $W^+(n) = \alpha, W^-(n) = \mu n$. L'équation de cinétique chimique est donnée par
 
@@ -278,7 +275,7 @@ $$\frac{d<n^2(t)>}{dt} = 2 <n(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)> $$
 $$<n> = \sum_n n P(n,t), <n^2(t)> = \sum_n n^2 P(n,t), <f(n)> = \sum_n f(n) P(n,t) $$
 
 
-## Synthèse
+# Synthèse
 
 - Contruction d'un processus stochastique à partir des **taux de transition**, ou **densités de probabilités** de transition, 
 - Analogie avec des bilans physiques,
