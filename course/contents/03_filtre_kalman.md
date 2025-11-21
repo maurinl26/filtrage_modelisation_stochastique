@@ -236,8 +236,8 @@ $$P_{n+1} = (I - K_{n+1} C)(A P_n A^T + \Phi)$$
 
 
 
-# Synthèse
-## Estimateur assymptotiquement sans biais construit de manière récurrente
+## Synthèse
+### Estimateur assymptotiquement sans biais construit de manière récurrente
 
 **Estimateur sans biais** 
 
@@ -253,7 +253,7 @@ Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons
 
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
-## Structure probabiliste
+### Structure probabiliste
 
 $\rightarrow$ Quel lien avec les probabilités ?
 
@@ -268,7 +268,7 @@ $\rightarrow$ Quel lien avec les probabilités ?
 - Avec les propriétés de l'estimateur, on progresse vers $\mathbb{E}[\hat{x}_n] = x_k$ en gardant une dispersion minimale $\mathbb{E}[(x_n - \hat{x}_n)(x_n - \hat{x_n})^T] = P_n$.
 
 
-## Implémentation pratique d'un filtre de Kalman
+### Implémentation pratique d'un filtre de Kalman
 
 **Hypothèses structurantes** Il reste en pratique à vérifier que les bruits de mesure et d'état sont effectivement des bruits blancs gaussiens, stationnaires.
 

@@ -1,13 +1,9 @@
-## Rappels de Probabilités et Statistiques
-Pour être à l'aise sur les notions du cours
+---
+title: Rappels de probabilités et statistiques
 
-- Loi Normale
-- Loi jointe, Loi marginale
-- Théorème Centrale Limite et Loi des Grand Nombres
-- Théorème de Bayes
-- Estimateur du Maximum Vraisemblance
+---
 
-## Lois usuelles
+# Lois usuelles
 
 
 **Loi uniforme** : $X$ suit une **loi uniforme** sur $[a,b] \in \mathbb{R}$ si elle admet la densité de probabilité $f: \mathbb{R} \mapsto \mathbb{R}$
@@ -44,7 +40,7 @@ $$ \forall x \in \mathbb{R}, f(x) = \begin{array}{rcl}
 
 On a alors $\mathbb{E}[X] = p/\lambda$, $\mathbb{V}[X] = p/\lambda^2$
 
-### Exemple d'application : la loi gamma en microphysique
+## Exemple d'application : la loi gamma en microphysique
 
 En microphysique (modélisation des nuages et interactions entre hydrométéores), la distribution des gouttes
 par rapport à leur diamètre est donnée par une loi exponentielle (Loi de Marshall-Palmer).
@@ -68,6 +64,8 @@ entre les gouttes (de pluie, de neige, etc.).
 _Remarque : Une densité de loi Gamma (plus générique que la loi exponentielle) est choisie sur certains 
 schémas microphysiques._
 
+# Théorèmes fondamentaux
+
 ## Loi forte des Grands Nombres
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **indépendantes** et **identiquement distribuées (i.i.d.)** et
@@ -84,8 +82,7 @@ $$\lim\limits_{n \rightarrow \infty} \frac{S_n}{n} = \mu,  p.s.$$
 
 Pour $U$ variable aléatoire uniforme sur $[0,1]$, $\lim\limits_{n \rightarrow \infty} \sum f(U_i) = \mathbb{E}[f(U)] = \int_0^1 f(x) dx$
 
-### Théorème Centrale Limite
-
+## Théorème Centrale Limite
 
 **Théorème** Soit $(X_n)_{n \in \mathbb{N}}$ une suite de variables aléatoires réelles **i.i.d.**
 
@@ -99,25 +96,14 @@ $$Y_n = \frac{S_n - n\mu}{\sigma \sqrt(n)} \underset{n \rightarrow \infty}{\righ
 
 **Application** Le Thèorème Centrale Limite donne des indications sur les vitesses de convergence vers la loi assymptotique.
 
-### LGN vs TCL
+## LGN vs TCL
 
 **Loi des Grand Nombres** : convergence des moyennes empiriques vers la moyenne de la loi des v.a.
 
 
 **Théorème Centrale Limite** : convergence asymptotique de la loi sur la moyenne empirique (donne des indications sur une loi limite).
 
-### Modes de convergences
-
-- Convergence presque sûre (**p.s.**) : $$P(\{\omega \in \Omega: \lim\limits_{n \rightarrow \infty\}} X_n(\omega) = X(\omega)) = 1$$
-- Convergence dans **$\mathrm{L}^P$** : $$\lim\limits_{n \rightarrow \infty} \mathbb{E}[|X_n - X|^p] = 0$$
-- Convergence en probabilité **P**: $$\lim\limits_{n \rightarrow \infty} P(|X_n - X| \gt \epsilon) = 0$$
-
-Remarque :
-- Convergence **$\mathrm{L}^p$** $\Rightarrow$ Convergence **P**, 
-
-- Convergence **p.s.** $\Rightarrow$ Convergence **P**.
-
-### Estimation bayésienne
+## Estimation bayésienne
 
 En estimation bayésienne, on cherche à construire un estimateur (bayésien), c'est à dire une distribution conditionnée aux données d'apprentissage :
 
