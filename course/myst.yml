@@ -34,9 +34,9 @@ project:
   - file: contents/09_enkf.md
   - file: contents/10_tp_metropolis_hastings.ipynb
   - file: contents/11_data_assimilation.md
-  - file: contents/12_diffusion_models.md
-  - file: contents/13_tp_diffusion_models.ipynb
-  - file: contents/14_tp_enkf.ipynb
+  - file: contents/12_tp_enkf.ipynb
+  - file: contents/13_diffusion_models.md
+  - file: contents/14_tp_diffusion_models.ipynb
 
 
 extends:

@@ -16,7 +16,6 @@ $(X_n)_{n \in \mathbb{N}}$ est une chaîne de Markov de paramètres $(\lambda, P
 $$\mathbb{P}(X_0 = 0, ..., X_N = i_N) = \lambda(i_0) p_{i_0, i_1} p_{i_1, i_2} ... p_{i_{N-1},i_N}$$
 
 
----
 ## Conditionnements successifs et calcul
 
 **Propriété** : Si $(X_n)_{0 \leq n \leq N}$ est Markov $(\lambda, P)$, alors, conditionnellement à $X_m = i$, le processus $(X_{m+n}, n \geq 0)$ est Markov  $(\delta_i, P)$ et est indépendant de $(X_0, ..., X_m)$.
@@ -39,7 +38,7 @@ $$
 \mathbb{P}_i(X_n = j)= \mathbb{P}(X_{m+n} = j | X_m = i) = p_{i,j}^n
 $$
 
----
+
 ## Etats transients et récurrents
 
 
@@ -80,7 +79,6 @@ En particulier, les limites des lois de $X_n$ sont automatiquement des probabili
 Alors $\pi$ est une probabilité invariante.
 
 
----
 ## Théorème ergodique
 
 
@@ -89,7 +87,6 @@ ou bornée, presque sûrement :
 
 $$\frac{1}{n} \sum_{k=1}^n f(X_k) \rightarrow \pi(f)$$
 
----
 ## Convergence vers l'équilibre
 
 **Théorème** Soit une chaîne de Markov irréductible positive récurrente de probabilité invariante
@@ -100,7 +97,6 @@ $$\mathbb{P}(X_n = i) \rightarrow \pi(i)$$
 en particulier, pour tout i, $p_{ij}^{(n)} \rightarrow \pi(j)$.
 
 
----
 ## Les propriétés d'une chaîne de Markov 
 
 **Homogénéité** 
@@ -135,7 +131,6 @@ $$\forall \theta_i, \theta_j \in \Theta, \lim\limits_{n \rightarrow \infty} P^{(
 
 L'ergodicité est la propriété selon laquelle, à partir d'un certain rang, la chaîne converge vers la distribution stationnaire. 
 
----
 ## Application au PageRank
 
 L'algortihme PageRank a emergé à la fin des années 90, sous l'impulsion de Brin et Page, les fondateurs de Google. Contrairement à une recherche thématique ou sémantique classique (bag of words, similarité cosinus, etc.), l'idée de Brin et Page est d'exploiter les liens entre les page web, **un site web étant important s'il est relié à d'autres sites importants**.
@@ -190,4 +185,11 @@ $$
 - Pouvez-vous décrire les limiations de cette modélisation ?
 - Comment modifier la matrice de transitions dans le cadre de PageRank ?
 
----
+## Vers un espace d'états continu
+
+todo : exemples espace d'état continu
+
+## Vers une modélisation en temps continu : Chapman-Kolmogorov
+
+todo : exemples temps continu
+
