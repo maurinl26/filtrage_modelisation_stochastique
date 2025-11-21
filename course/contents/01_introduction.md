@@ -97,7 +97,7 @@ Les estimateurs MCMC sont utilisé en climatologie, pour mesurer les changements
 
 **Ajustement d'un processus gaussien**
 
-![ajustement d'un processus gaussien](./img/gaussian_processes.png)
+![ajustement d'un processus gaussien](../img/gaussian_processes.png)
 
 
 # Applications en Météorologie
