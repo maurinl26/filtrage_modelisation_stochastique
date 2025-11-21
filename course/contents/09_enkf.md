@@ -174,3 +174,5 @@ Le Filtre Kalman d'Ensemble se comporte comme un Filtre de Kalman dans le cas d'
 **En pratique**, la formulation du filtre de Kalman d'Ensemble ne fait pas intervenir d'opérateur Tangent-Linéaire, ce qui le rend très facile à implémenter.
 
 # Un algorithme opérationnel - Localized Ensemble Transformed Kalman Filter (LETKF)
+
+

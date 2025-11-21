@@ -1,4 +1,7 @@
-# Introduction
+---
+title: Introduction
+
+---
 
 Cours de Filtrage Stochastique donné aux élèves du Master HPC-BigData mené conjointement entre ENM et l'ENSEEIHT.
 
@@ -95,4 +98,11 @@ Les estimateurs MCMC sont utilisé en climatologie, pour mesurer les changements
 **Ajustement d'un processus gaussien**
 
 ![ajustement d'un processus gaussien](./img/gaussian_processes.png)
+
+
+# Applications en Météorologie
+
+## Modélisation stochastique et prévision d'ensemble
+
+## Filtrage stochastique et assimilation de données
 
