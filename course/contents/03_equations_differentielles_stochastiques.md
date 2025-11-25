@@ -7,7 +7,7 @@ title: Equations différentielles stochastiques
 
 Un **processus stochastique** est une collection de variables aléatoires $\{X_t\}_{t \geq 0}$ définies sur un espace probabilisé commun où $t$ représente le temps. Le processus stochastique décrit l'évolution d'un système soumis à l'aléatoire.
 
-Une **équation différentielle stochastique** est la généralisation de la notion d'équation différentielle en prenant en compte un terme de bruit blanc.
+Une **équation différentielle stochastique** est la généralisation de la notion d'équation différentielle en prenant en compte un terme de bruit blanc. 
 
 # De l'équation différentielle ordinaire (EDO) à l'équation différentielle stochastique (EDS)
 
@@ -32,6 +32,14 @@ Et on cherche à donner un sens à l'intégration suivante :
 
 $$X(t) = X(0) + \int_0^t \mu(X(s)) ds + \int_0^t \sigma(X(s)) dW(s)$$
 
+:::{note} Cours de bourse
+Le cours de bourse en est l'exemple parfait. A partir d'un actif qui se compose exponentiellement dans le temps,
+on souhaite modéliser des fluctuations de marché.
+
+- Sans fluctuations de marché, la valeur de l'actif est modélisée par une Equation Différentielle Ordinaire,
+- Avec fluctuations de marché, la valeur de l'actif est modélisée par une Equation Différentielle Stochastique.
+:::
+
 # Equation différentielle stochastique de premier ordre
 
 Considérons une équation différentielle stochastique (EDS) du premier ordre :
@@ -49,8 +57,10 @@ où :
 La **formule d'Itô** est une formule fondamentale du calcul stochastique. Elle permet de calculer la différentielle $df$ d'une fonction 
 $f(X_t, t)$ où $X_t$ suit une équation différentielle stochastique.
 
-_Remarque : la formule d'Itô nous sert de base pour passer d'une étude déterministe du système représenté par ses états $\{X_t\}_{t \geq 0}$ à une étude stochastique 
-de ce même système (par exemple : ajout d'une force aléatoire ou d'un bruit de mesure)._
+
+:::{note} Différentielle stochastique
+La formule d'Itô nous sert de base pour passer d'une étude déterministe du système représenté par ses états $\{X_t\}_{t \geq 0}$ à une étude stochastique de ce même système (par exemple : ajout d'une force aléatoire ou d'un bruit de mesure).
+:::
 
 **Enoncé** : Soit $\{X_t\}_{t \geq 0}$ un processus stochastique qui satisfait :
 
