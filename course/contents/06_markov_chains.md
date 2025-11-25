@@ -194,3 +194,6 @@ todo : exemples espace d'état continu
 
 todo : exemples temps continu
 
+# Références
+
+

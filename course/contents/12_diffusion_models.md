@@ -16,3 +16,5 @@ De manière analogue, les réseaux de neurones génératifs peuvent reconstruire
 # Functional Generative Networks (FGN) pour la prévision d'ensemble
 
 
+# Références
+

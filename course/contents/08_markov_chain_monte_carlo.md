@@ -364,8 +364,7 @@ Dans ce cas, $Q(q'|q, \Sigma) = \mathcal{N}(q'|q, \Sigma)$
 On perturbe le point initial par une gaussienne.
 
 
-# Liens du cours
-Ressources utiles sur les Monte Carlo Markov Chains
+# Références
 
 [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)
 

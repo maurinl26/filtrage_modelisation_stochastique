@@ -43,3 +43,6 @@ La trajectoire est effectivement représentée par une chaîne de Markov, avec :
 
 :::
 
+
+# Références
+

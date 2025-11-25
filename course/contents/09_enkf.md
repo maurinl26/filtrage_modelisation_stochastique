@@ -176,3 +176,8 @@ Le Filtre Kalman d'Ensemble se comporte comme un Filtre de Kalman dans le cas d'
 # Un algorithme opérationnel - Localized Ensemble Transformed Kalman Filter (LETKF)
 
 
+# Applications 
+
+
+# Références
+

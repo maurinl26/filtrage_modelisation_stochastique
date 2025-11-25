@@ -419,8 +419,7 @@ _En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et 
 les "bonnes" matrices de covariance, et régler le gain du filtre._
 
 
-# Sources 
-Liens utiles
+# Références 
 
 [G. Welch, G. Bishop, University of North Carolina, An Introduction to the Kalman Filter](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf)
 
