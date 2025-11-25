@@ -7,8 +7,6 @@ title: Filtre Kalman
 
 $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et les équations de la dynamique pour contrôler un système ?
 
-**Applications** : Contrôle, Calage GPS, Filtrage et assimilation de données.
-
 # Contrôle d'un système dynamique
 
 **Système dynamique discret**
@@ -21,9 +19,10 @@ où, à chaque instant $n$:
 - $u_n$ est la commande du système. _Exemple : Débit de carburant dans le moteur_.
 - $y_n$ est la mesure de l'état du système. _Exemple : Mesure renvoyée par le thermomètre_.
 
-**Remarque** : En météo, on appellerait $C$ un **opérateur d'observation**. C'est le lien entre **l'espace des mesures** (ex : la tension au bornes thermomètre), et **l'espace d'état** (ex : la température effective mesurée). 
 
-
+:::{note} Notations en météorologie
+En météo, on appellerait $C$ un **opérateur d'observation**. C'est le lien entre **l'espace des mesures** (ex : la tension au bornes thermomètre), et **l'espace d'état** (ex : la température effective de l'air). 
+:::
 
 ## Bruits associés au système
 
@@ -52,9 +51,11 @@ $$ \hat{x}_{n+1} = A_f \hat{x}_n + B_f u_n + K_{n+1} y_{n+1}$$
 
 $\rightarrow$ Comment construire $A_f$, $B_f$, $K_{n+1}$ ?
 
-_Note : On cherche à construire un estimateur de la forme générique $\hat{x}_{n+1} = f(\hat{x}_n, y_{n+1}, u_n)$_
+:::{note} Construction de l'estimateur
+On cherche à construire un estimateur de la forme générique $\hat{x}_{n+1} = f(\hat{x}_n, y_{n+1}, u_n)$.
 
-_Nous nous concentrons sur des systèmes linéaires, et verrons plus tard comment l'étendre à des systèmes non-linéaires._
+Nous nous concentrons sur des systèmes linéaires, et verrons plus tard comment l'étendre à des systèmes non-linéaires.
+:::
 
 
 
@@ -125,18 +126,17 @@ Il reste à régler $K_{n+1}$ pour que $(I - K_{n+1}C)$ soit stable.
 
 $$\hat{x}_{n+1} = A \hat{x}_n + B u_n + K_{n+1} [y_{n+1} - C(A \hat{x}_n + B u_n)]$$
 
+
+:::{note} Gain du filtre : un compromis 
 **Remarque** $K$ peut être vu comme un compromis à régler entre la fidélité au modèle numérique ($A \hat{x}_n + B u_n$) et la
 fidélité aux valeurs de mesure ($y_{n+1}$). 
-
-
+:::
 
 ## Filtre Prédicteur - Correcteur
 
-
 **Structure de prédicteur-correcteur**
 
-
-Le filtre de Kalman est un "prédicteur-correcteur", l'estimation $\hat{x}$ de $x$ se contruit en 2 temps :
+Le filtre de Kalman est un **prédicteur-correcteur**, l'estimation $\hat{x}$ de $x$ se contruit en 2 temps :
 
 **Mise à jour de l'état** :
 
@@ -164,19 +164,18 @@ _"Schéma du prédicteur-correcteur associé au Filtre de Kalman. Source : Welch
 # Filtre de Kalman - Implémentation
 ## La recette de cuisine !
 
-1. On initialise $\hat{x}$ à $\hat{x}_0$ : on peut par exemple prendre la valeur $y_0$ renvoyée par le capteur.
+1. Initialisation de $\hat{x}$ à $\hat{x}_0$ : on peut par exemple prendre la valeur $y_0$ renvoyée par le capteur.
 
-2. On initialise $P$ à $P_0$ :  on peut prendre la valeur $\Psi$ de la covariance de bruit du capteur.
+2. Initialisation de $P$ à $P_0$ :  on peut prendre la valeur $\Psi$ de la covariance de bruit du capteur.
 
-3. On fait évoluer $K$ selon :
+3. Evolution de $K$ selon :
 $$K_{n+1} = (A P_n A^T + \Psi)C^T \times (C A P_n A^T C^T + C \Psi C^T + \Psi)^{-1}$$
 
-4. On fait évoluer $\hat{x}$ selon :
+4. Evolution de $\hat{x}$ selon :
 $$\hat{x}_{n+1} = A \hat{x}_n + B u_n + K_{n+1} [y_{n+1} - C(A \hat{x}_n + B u_n)]$$
 
-5. On fait évoluer $P$ selon :
+5. Evolution de $P$ selon :
 $$P_{n+1} = (I - K_{n+1} C)(A P A^T + \Phi) $$
-
 
 
 ## Est-ce que ça marche vraiment en pratique ?
@@ -194,9 +193,9 @@ $\rightarrow$ En pratique, comment fixer $K_{n+1}$ le gain du filtre ?
 
 $$P = \mathbb{E}[e_n \times e_n^T]$$
 
-_Dans un cas simple à une dimension, $P = \mathbb{E}[(\hat{x}_n - x_n)^2] = \mathbb{V}[e_n]$, s'écrit bien comme la variance de l'erreur._
-
- 
+:::{note} Cas 1D
+Dans un cas à une dimension, $P = \mathbb{E}[(\hat{x}_n - x_n)^2] = \mathbb{V}[e_n]$, s'écrit bien comme la variance de l'erreur.
+:::
 
 # Dynamique de l'erreur
 ## Choix du gain K
@@ -231,7 +230,9 @@ $$P_{n+1} = (A P_nn A^T + \Psi) C^T \times (C A P_n A^T C^T + C \Phi C^T + \Psi)
 
 $$P_{n+1} = (I - K_{n+1} C)(A P_n A^T + \Phi)$$
 
-**Remarque** On ne peut pas obtenir de condition d'optimalité, mais simplement d'une relation de récurrence entre $P$ et $K$. C'est elle qui nous permet d'implémenter $K$ en pratique.
+:::{note} Remarque
+On ne peut pas obtenir de condition d'optimalité, mais simplement d'une relation de récurrence entre $P$ et $K$. C'est elle qui nous permet d'implémenter $K$ en pratique.
+:::
 
 
 ## BLUE - Best Linear Unbiased Estimator
@@ -251,8 +252,6 @@ Dans la mesure où nous ne connaissons pas les valeurs vraies $x_n$, nous tirons
 C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique dans la mesure où le filtre ne dépend que des valeurs à l'état $n$ pour estimer l'état $n+1$ (le filtre est robuste et facile à mettre en oeuvre).
 
 ## Structure stochastique
-
-$\rightarrow$ Quel lien avec les probabilités ?
 
 
 **Point de départ**
@@ -277,10 +276,9 @@ centrer et réduire le bruit (lien avec le TCL).
 3. Qu'il y ait effectivement indépendance entre le bruit de mesure et le bruit d'état. _Exemple : le capteur de température qui influence son environnement en 
 ralentissant le flux d'air dont il mesure la température._
 
-**En pratique** 
-
+:::{note} En pratique
 Il n'y a pas forcément de réponse systématique à ces questions, simplement un travail de mise au point du filtre, sur un problème donné $\rightarrow$ **Coeur du travail de l'ingénieur**
-
+:::
  
 # Exemple - Estimation d'une tension constante
 
@@ -402,22 +400,21 @@ Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs a
 # Synthèse 
 ## Qu'est-ce qu'un filtre de Kalman déjà ?
 
+- **Fondamentaux**
+    - La recette et le fonctionnement de **prédicteur-correcteur** pour le filtre Kalman,
+    - (Théorie), c'est un estimateur **assymptotiquement sans biais**, et avec une **variance d'erreur à minimiser**.
 
-**Basique**
-- La recette et le fonctionnement de prédicteur-correcteur pour le filtre Kalman,
-- (Théorie), c'est un estimateur assymptotiquement sans biais, et avec une variance d'erreur à minimiser.
+- **Construction**
+    - La démarche récursive de construction du filtre,  _utile pour comprendre le filtre "pas-à-pas"_.
 
-**En fonction de l'espace de stockage disponible**
-- La démarche récursive de construction du filtre,  _utile pour comprendre le filtre "pas-à-pas"_.
+- **En pratique, avec l'algorithme à disposition**
+    - Comment régler le gain du filtre ?
+    - Comment respecter au mieux les hypothèses de bruit blanc gaussien ?
+    - Comment linéariser le modèle et les observateurs de mesure ?
 
-**En pratique, avec l'algorithme à disposition**
-- Comment régler le gain du filtre ?
-- Comment respecter au mieux les hypothèses de bruit blanc gaussien ?
-- Comment linéariser le modèle et les observateurs de mesure ?
-
-_En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et robuste, et que le travail consiste à construire
-les "bonnes" matrices de covariance, et régler le gain du filtre._
-
+:::{note} Aspect pratiques
+En gardant à l'esprit que le Filtre de Kalman est plutôt un filtre simple et robuste, et que le travail consiste à construire les "bonnes" matrices de covariance, et régler le gain du filtre.
+:::
 
 # Références 
 

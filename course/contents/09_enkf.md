@@ -44,7 +44,9 @@ $$\phi(X_t) = \frac{dN}{N}$$
 
 avec $dN$ la densité de points par unité de volume, et $N$ le nombre de points échantillonnés.
 
-_Remarque : La covariance de l'erreur pourrait être représentée en théorie par la densité de probabilité limite formée par une infinité de points._
+:::{note} Limite et covariance de l'erreur
+La covariance de l'erreur pourrait être représentée en théorie par la densité de probabilité limite formée par une infinité de points.
+:::
 
 # Vers une équation différentielle stochastique
 
@@ -87,15 +89,19 @@ Lorsque nous utilisons un modèle additif d'erreurs gaussiennes, et que celles-c
 
 Formellement, l'**EnKF** utilise un estimateur **Markov Chain Monte-Carlo** pour résoudre l'équation de **Fokker-Planck**.
 
-_Remarque : nous avions vu l'équation maîtresse, pour les phénomènes continus en temps mais discrets en espace. De manière analogue , l'équation de Fokker-Planck décrit l'évolution d'une densité de probabilité pour **les phénomènes continus en temps et en espace.** Elle s'attache à décrire l'évolution de cette densité selon un transport et une diffusion._
+:::{note} Equation de Fokker-Planck
+Nous avions vu l'équation maîtresse, pour les phénomènes continus en temps mais discrets en espace. De manière analogue , l'équation de Fokker-Planck décrit l'évolution d'une densité de probabilité pour **les phénomènes continus en temps et en espace.** Elle s'attache à décrire l'évolution de cette densité selon un transport et une diffusion.
+:::
 
 **Analogie avec l'équation de la chaleur**
 
 L'équation de Fokker-Planck nous permet ici de décrire fondamentalement l'évolution de la statistique de l'erreur. En considérant un flux de probabilités _(analogie avec l'équation de la chaleur)_, l'équation décrit un changement de densité de probabilité sur un volume local qui dépend d'un flux de probabilité sur ce volume (issu de la dynamique) et d'un terme de diffusion (qui tend à diffuser ou aplatir la densité de probabilité, dans la mesure où l'erreur statistique croît).
 
-_Remarque : l'équation qui régit formellement les transitions d'un processus de 
+:::{note} Fokker-Planck ou Kolmogorov ?
+L'équation qui régit formellement les transitions d'un processus de 
 Markov sera nommée "équation de Fokker-Planck" par les physiciens, et "équation de 
-Kolmogorov" pour les mathématiciens._ 
+Kolmogorov" pour les mathématiciens.
+:::
 
 **Monte-Carlo ou Markov Chain Monte-Carlo ?**
 
@@ -114,7 +120,6 @@ simuler et étudier l'évolution de l'erreur sur un système chaotique (par exem
 d'avoir accès à une densité de probabilité de l'état du système.
 :::
 
-_Bon ... Toutes ces maths pour tomber sur un filtre à particule, ça pue un peu comme un vieux diesel ! Passons à une implémentation pratique de ces méthodes._
 
 ## Formulation de l'EnKF pour l'analyse 
 
@@ -130,7 +135,9 @@ Cet ensemble peut être défini ou généré en perturbant des observations., de
 
 $$R_e = \overline{\epsilon \epsilon^T}$$
 
-_Remarque : On notera que, dans un ensemble de taille infinie, $R$ converge vers la matrice $R$ définie pour le filtre Kalman._
+:::{note} Ensemble de taille infinie
+On notera que, dans un ensemble de taille infinie, $R$ converge vers la matrice $R$ définie pour le filtre Kalman.
+:::
 
 Le filtre Kalman entre alors en jeu avec une étape de prédiction et une étape de correction.
 
@@ -148,7 +155,9 @@ Et la covariance issue de la minimisation de la variance pour l'ajustement du fi
 
 $$P^a_e = (I - K_e H) P^f_e$$
 
-_Remarque : ici, l'EnKF se comporte comme un filtre Kalman dans la limite d'un ensemble de taille infinie._
+:::{note} Le Filtre Kalman comme limite du Filtre Kalman d'Ensemble
+L'EnKF se comporte comme un filtre Kalman dans la limite d'un ensemble de taille infinie.
+:::
 
 **Synthèse**
 

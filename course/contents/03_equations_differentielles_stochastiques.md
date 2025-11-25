@@ -14,13 +14,14 @@ Une **équation différentielle stochastique** est la généralisation de la not
 On considère une équation différentielle ordinaire $\frac{dX_t}{dt} = \mu(X(t))$ à laquelle nous aimerions rajouter du bruit. Nous considérons alors un **bruit blanc**
 $\xi(t)$ dépendant du temps et de l'espace.
 
-**Motivations** : on souhaiterait définir l'équation d'évolution 
+
+:::{note} Motivations
+On aurait envie que le processus évolue par petits sauts gaussiens, de moyenne $\mu(t)$ et de variance $\sigma(t)$.
 
 $$\frac{dX_t}{dt} = \mu(X(t)) + \sigma(X(t))\xi(t)$$
 
-_Remarque : on aurait envie que le processus évolue par petits sauts gaussiens, de moyenne $\mu(t)$ et de variance $\sigma(t)$._
-
 $\rightarrow$ Encore faut-il qu'une différentiation par rapport à un bruit blanc $\xi(t)dt$ ait un sens ! 
+:::
 
 On définit alors un mouvement browien $W_t$, où $W_t$ est un taux de transition, ou une densité de probabilité de transition. Le mouvement 
 browien définit alors l'équation différentielle suivante :
@@ -72,8 +73,13 @@ $$df = (0 + 0 \cdot 2X_t + \frac{1}{2} \cdot 1^2 \cdot 2) dt + 1 \cdot 2 X_t dW_
 Ce résultat montre que :
 $$d(W_t^2) = dt + 2 W_t dW_t$$
 
-_Remarque : Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch](https://en.wikipedia.org/wiki/Stratonovich_integral), qui permettrait l'équivalent d'une intégration trapéoïdale, là où Itô propose une
-intégration cohérente numériquement avec Euler explicite._
+
+:::{note}
+Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch](https://en.wikipedia.org/wiki/Stratonovich_integral), qui permettrait l'équivalent d'une intégration trapéoïdale.
+
+
+L'intégration d'Ito représente l'aléa au début du pas de temps tandis que l'intégration de Stratanovitch représente l'aléa comme la limite d'une suite d'équations différentielles ordinaires.
+:::
 
 # Intégration numérique - Méthode d'Euler-Maruyama
 
@@ -99,7 +105,9 @@ $$X_{n+1} = X_{n} + \Delta t\; \mathcal{M}(X_n) + \mathcal{O}(\Delta t)$$
 $$X_{n+1} = X_{n} + \Delta t\; \mathcal{M}(X_{n+1}) + \mathcal{O}(\Delta t)$$
 :::
 
-En quelque sorte, on pourrait dire que la méthode d'Euler-Maruyama est une "méthode d'Euler explicite stochastique".
+:::{note} Euler-Maruyama ou "Euler Explicite Stochastique"
+En quelque sorte, on pourrait dire que la méthode d'Euler-Maruyama est une méthode d'Euler explicite stochastique.
+:::
 
 ## Convergence de la Méthode Euler-Maruyama
 
@@ -121,7 +129,14 @@ $$X_{n+1} = X_n + \mu \Delta t + \sigma \Delta W_n$$
 
 où $\Delta W_n = W_{t_{n+1}} - W_{t_n} \sim \mathcal{N}(0, \Delta t)$.
 
-_Remarque : de la manière où nous avons défini le mouvement brownien, la variance du processus croît de $\Delta t$ à chaque pas de temps._
+:::{note} Croissance de la variance
+De la même manière que nous avons défini le mouvement brownien, la variance et l'écart type du processus croîssent respectivement de $\Delta t$ et $\sqrt{\Delta t}$ à chaque pas de temps.
+
+Il est alors possible d'écrire l'intégration discrète par rapport à une variable aléatoire gaussienne centrée réduite $X \sim \mathcal{N}(0,1)$ :
+
+$$X_{n+1} = X_n + \mu \Delta t + \sigma \sqrt{\Delta t} X$$
+
+:::
 
 **Calcul de l'erreur** En posant :
 
@@ -185,12 +200,15 @@ La dynamique de ce processus est la base du modèle de Black-Scholes.
 
 $$dX_t = \mu X_t dt + \sigma X_t dW_t$$
 
-_Remarque : l'équation du premier ordre $dX_t = \mu dt + \sigma dW_t$ avait déjà été utilisée par Louis Bachelier (1900) pour établir un modèle de cours de bourse._
-
+:::{note} Modélisation d'un cours de bourse
+L'équation du premier ordre $dX_t = \mu dt + \sigma dW_t$ avait déjà été utilisée par Louis Bachelier (1900) pour établir un modèle de cours de bourse.
+:::
 
 **Equation de Langevin** : Elle modélise le mouvement d'une particule dans un "bain thermique", soumise à une force $\xi(t)$ fluctuante (qui pourrait être un bruit blanc). Dans ce cas, la différentielle de la vitesse associée au principe fondamentale de la dynamique est :
 
 $$dV(t) = - \lambda V(t) dt + dW_t $$
+
+# Exercices
 
 # Références
 

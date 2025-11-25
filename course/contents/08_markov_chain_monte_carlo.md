@@ -8,44 +8,43 @@ $\rightarrow$ Comment construire un estimateur quand on ne connaît plus la stru
 # Chaînes de Markov et Méthodes de Monte-Carlo
 
 
-**Méthodes de Monte-Carlo** : estimation d'une densité de probabilité par tirages. 
+**Méthodes de Monte-Carlo** : échantillonnage d'une densité de probabilité par tirages. 
 
-_Remarque : Une fois que l'on a accès à une estimation de la densité de probabilité, nous pouvons déduire les moments de la distribution, notamment la moyenne et la variance._
+:::{note} Estimation des moments d'une distribution
+Une fois que l'on a accès à une estimation de la densité de probabilité, nous pouvons déduire les moments de la distribution, notamment la moyenne et la variance.
+:::
 
 **Chaînes de Markov** : processus stochastique dont la transition entre 2 états $x_{n-1} \rightarrow x_{n}$ ne dépend que de l'état précédent $x_{n-1}$.
 
-_Remarque : Le filtre Kalman entre dans le cadre des chaînes de Markov_.
 
+:::{note} Liens avec le Filte de Kalman
+Le filtre Kalman est un exemple de chaîne de Markov.
+:::
 
 ## Vers le Filtre Kalman d'Ensemble
 
-_Remarque : Ce cours est indépendant de celui sur le Filtrage Kalman. Mais il va nus permettre de définir une autre méthode de calcul des matrices de covariance 
-pour le filtre Kalman._
 
-$\rightarrow$ Le Filtre de Kalman et les Chaînes de Markov sont 2 représentants de Processus Stochastiques
+:::{note}
+Ce chapitre est indépendant de celui sur le Filtrage Kalman. Mais il va nus permettre de définir une autre méthode de calcul des matrices de covariance 
+pour le filtre Kalman.
+:::
 
 $\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir le filtre de Kalman d'ensemble (EnKF), avec :
 
 1. **Une composante de filtrage** :
-
-
-    _Comment recaler un modèle par rapport aux observations / mesures_ ?
+  - Comment recaler un modèle par rapport aux observations / mesures ?
 
 2. **Une composante d'échantillonage** :
-
-    _Comment estimer la dispersion du modèle_ ?
-
+  - Comment estimer la dispersion du modèle ?
 
 
-## Markov Chain Monte-Carlo
-MCMC
+## Echantillonnage d'une chaîne de Markov par Méthodes de Monte-Carlo (MCMC)
 
 $\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de Markov ?
 
 - Apprendre une distribution, un processus stochastique par échantillonage aléatoire. 
 - Très utile sur des systèmes "en boîte noire" pour lesquels il existe des réalisations (ou des simulations).
 - Efficace sur des problèmes de grandes dimensions _(dont la combinatoire est trop grande pour des méthodes classiques)_.
-
 
 
 ## Historique et applications
@@ -88,7 +87,6 @@ C'est-à-dire, la suite des estimateurs de Monte-Carlo standardisés converge ve
 $$\lim\limits_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
 
 où $SE_N$ est l'erreur quadratique de l'estiamteur de Monte-Carlo : $SE_N = \sqrt{\frac{Var_{\pi}[f]}{N}}$
-
 
 
 ## En bref 
@@ -142,10 +140,10 @@ $$
 
 $\rightarrow$ On génère des séquences de points corrélés. 
 
-_(Au contraire des tirages i.i.d. effectués pour les Méthodes de Monte-Carlo)_.
 
-
-_todo: refaire l'exemple_
+:::{note} Corrélations
+Ici, on génère une séquence de points corrélés, au contraire d'un échantillonnage par méthodes de Monte-Carlo où les points sont des réalisations de variables indépendantes et identiquement distribuées.
+:::
 
 ## Exemple : trajectoire sur un espace à 2 dimensions
 
@@ -169,7 +167,6 @@ $$
 
 ![markov chain path](../img/markov_chain_path.png)
 _A gauche : Réalisation d'une trajectoire d'une chaîne de Markov, [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
-
 
 
 ## Distribution stationnaire (ou invariante)
@@ -209,15 +206,14 @@ Alors c'est un point fixe :
 
 $$T\pi = \pi$$
 
-$\rightarrow$ _Ce qu'on vient d'énoncer ne présage pas de l'existance de la limite. Simplement, si elle exite alors c'est une distribution stationnaire. En pratique, on construit une chaîne de Markov et ses transitions pour qu'elle tende une distribution limite stationnaire._
-
-
+:::{note} Existence de la limite 
+Ce qu'on vient d'énoncer ne présage pas de l'existance de la limite. Simplement, si elle exite alors c'est une distribution stationnaire. En pratique, on construit une chaîne de Markov et ses transitions pour qu'elle tende une distribution limite stationnaire.
+:::
 
 ## Stationnarité - Illustration
 
 ![convergence](../img/markov_convergence.png)
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
-
 
 
 ## (Optionnel) Vitesses de convergence
@@ -236,7 +232,10 @@ $| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}}  |\rho[B] - \pi[B]|$
 - Ergodicité géométrique  : $| \rho - \pi |_{TV} \leq C(\rho)r^N$
 - Ergodicité uniforme : $| \rho - \pi |_{TV} \leq C r^N$
 
-_Remarque : L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés._
+
+:::{note} Convergence rapide
+L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés.
+:::
 
 
 # Estimateur Markov Chain Monte-Carlo (MCMC)
@@ -248,11 +247,8 @@ $$\hat{f}_N^{MCMC} = \frac{1}{N + 1} \sum_{n=0}^{N} f(q_n)$$
 
 Contrairement aux estimateurs de Monte-Carlo (MC), le comportement assymptotique des estimateurs MCMC n'est pas défini
 
-$$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]} \; ???$$
+$$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]}$$
 
-
-
-_MCMC : Markov Chain Monte-Carlo_
 
 ## Conditions de convergence 
 
@@ -271,8 +267,9 @@ Ce résultat peut être généralisé à toute distribution initale de points pa
 **Chaîne de Harris** :  chaîne de Markov dont la chaîne retourne **un nombre non-borné de fois** dans une partie quelconque de l'espace d'états.
 
 
-$\rightarrow$ _En pratique, construire ou utiliser un estimateur **MCMC** nécessite de vérifier précautionneusement les hypothèses sur les transitions de la chaîne de Markov._
-
+:::{note} Hypothèses de l'estimateur MCMC
+En pratique, construire ou utiliser un estimateur **MCMC** nécessite de vérifier précautionneusement les hypothèses sur les transitions de la chaîne de Markov.
+:::
 
 ### Nombre d'itérations fini
 
@@ -311,7 +308,6 @@ $\rightarrow$ En pratique, la convergence dépend beaucoup de la distribution à
 Ces méthodes, bien qu'utiles, sont moins robustes que les méthodes de Monte-Carlo. Elles dépendent grandement du jeu de données à explorer et nécessitent une mise au point minutieuse.
 
 
-
 ### (Optionnel) MCMC et Théorème Central Limite 
 
 Le Théorème Central Limite s'applique pour des conditions particulières d'estimateurs MCMC. 
@@ -324,9 +320,10 @@ $$
 MCMC-SE[f] = \sqrt{\frac{Var[f]}{\lambda[f] \cdot N}}
 $$ 
 
-_Remarque : selon le terme $\lambda[f] \cdot N$, la décroissance de l'erreur pour un estimateur MCMC peut être plus rapide que celle d'un estimateur de Monte-Carlo._
 
-
+:::{note} Avantages de l'estimateur MCMC par rapport à une méthode de Monte-Carlo
+Selon le terme $\lambda[f] \cdot N$, la décroissance de l'erreur pour un estimateur MCMC peut être plus rapide que celle d'un estimateur de Monte-Carlo.
+:::
 
 # Algorithme de Metropolis-Hastings
 

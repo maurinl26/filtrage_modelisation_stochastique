@@ -8,50 +8,47 @@ title: Processus stochastiques
 On considère un espace probabilisé $(\Omega, \mathcal{F}, \mathbb{P})$, un espace mesurable $(E, \mathcal{E})$ et un ensemble $T$.
 
 
-**Définition** On appel processus stochastique, ou processus aléatoire, une famille $(X_t)_{t \in \mathcal{T}}$ de variables aléatoires à valeurs dans $E$. 
+**Définition** On appelle **processus stochastique**, ou processus aléatoire, une famille $(X_t)_{t \in \mathcal{T}}$ de variables aléatoires à valeurs dans $E$. 
 
 Autrement dit, pour tout $t \in \mathcal{T}$, l'application $\omega \mapsto X_t(\omega)$ est une application mesurable de $(\Omega, \mathcal{F})$ dans $(E, \mathcal{E})$. On appelle $E$ l'espace d'état du processus.
 
-**Remarque** 
-- $X_t$ est souvent l'expression d'une variable à un temps t,
-- $\mathcal{T}$ représente l'ensemble des dates possibles
 
+:::{note} Remarque
+$X_t$ est souvent l'expression d'une variable à un temps t, où$\mathcal{T}$ représente l'ensemble des dates possibles.
+:::
 
 
 **Définition** 
 - Lorsque $\mathcal{T} = \mathbb{N}$ ou  $\mathcal{T} = \mathbb{Z}$, on parle de **processus à temps discret**
 - Lorsque $\mathcal{T} = \mathbb{R}$, on parle de **processus à temps continu**
 
-**Exemple**
-- Processus à temps discret : évolution du PIB de la France par année où :
+:::{note} Exemple de processus à temps discret
+ Evolution du PIB de la France par année où $X_t$ représente le PIB, $t \in \mathbb{N}$ est l'année.
+:::
 
-  $X_t$ représente le PIB, $t \in \mathbb{N}$ est l'année
-
-- Processus à temps continue : évolution du cours d'une action où :
-
-  $X_t$ est la valeur de l'action,  $t \in \mathbb{R_+}$ est le temps, considéré comme continu étant donnée la fréquence de rafraîchissement des valeurs.
-
+:::{note} Exemple de processus à temps continu
+Processus à temps continue : évolution du cours d'une action où $X_t$ est la valeur de l'action, $t \in \mathbb{R_+}$ est le temps, considéré comme continu étant donnée la fréquence de rafraîchissement des valeurs.
+:::
 
 
 **Définition** On appelle **filtration** une suite $(\mathcal{F_t})_{t \in \mathcal{T}}$ $\sigma$-algèbres vérifiant 
 $$ s \leq t \Rightarrow \mathcal{F_s} \subset \mathcal{F_t} \subset \mathcal{F}  $$
 
-**Remarque** On utilise la notion de filtration pour représenter l'information disponible à date $t$.
+:::{note} Remarque
+On utilise la notion de filtration pour représenter l'information disponible à date $t$.
 
-Quand on observe un processus au cours du temps, on connaîot les valeurs de $X_s$ pour $s \leq t$, mais pas encore pour $s \gt t$. On sera donc souvent amenés à conditionner par les variables $(X_s)_{s \leq t}$.
+Quand on observe un processus au cours du temps, on connaît les valeurs de $X_s$ pour $s \leq t$, mais pas encore pour $s \gt t$. On sera donc souvent amenés à conditionner par les variables $(X_s)_{s \leq t}$.
+:::
 
 **Définition** Le processus $(X_t)_{t \in \mathcal{T}}$ est dit adapté à la filtration $(\mathcal{F_t})_{t \in \mathcal{T}}$, si pour tout $t \in \mathcal{T}$, $X_t$ est $\mathcal{F}_t$-mesurable.
 
 
-## Exemple : les Processus Auto-Régressifs
+## Exemples :
 
-**Processus Auto-Régressifs (AR)** Dans cet exemple, $\mathcal{T} = \mathbb{N}$. Soit $(\epsilon_t)_{t \in \mathbb{N}}$ une suite de variables aléatoires i.i.d de loi $\mathcal{N}(0, 1)$, $(\alpha, \beta) \in \mathbb{R}^2$, $X_0 = 0$ et
+- **Processus Auto-Régressifs (AR)** Dans cet exemple, $\mathcal{T} = \mathbb{N}$. Soit $(\epsilon_t)_{t \in \mathbb{N}}$ une suite de variables aléatoires i.i.d de loi $\mathcal{N}(0, 1)$, $(\alpha, \beta) \in \mathbb{R}^2$, $X_0 = 0$ et
 $$ X_{t+1} = \alpha X_t + \beta + \epsilon_t$$
 
 On définit $\mathcal{F}_t = \sigma({\epsilon_s, s \leq t})$. On peut vérifier que le processus $(X_t)_{t \in \mathbb{N}}$ est adapté à la filtration $(\mathcal{F_t})_{t \in \mathbb{N}}$. 
-
-
-## Des processus stochastiques particuliers 
 
 - Les **processus de Markov**, dont les transitions ne dépendent que de l'état précédent, 
   $$ \mathcal{P}(X_{t+1}| \mathcal{F}_t) = \mathcal{P}(X_{t+1}| X_t) $$
@@ -65,7 +62,8 @@ $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 
 
 # Marche aléatoire
-Comment décrire les transitions entre états, y compris en temps continu ?
+
+**Comment décrire les transitions entre états, y compris en temps continu ?**
 
 ![mouvement brownien 1d](../img/brownien_3132.png)
 
@@ -100,13 +98,19 @@ $$\langle X(T) \rangle = \langle \sum^{T}_{t=0} D_t \rangle =
  \sum^{T}_{t=0} \langle D_t \rangle = 0$$
 $$ Var(X(T)) = Var(\sum^{T}_{t=0} D_t) =  \sum^{T}_{t=0} Var(D_t) = T \sigma^2$$
 
-**TODO** : _introduire ici la définition de marche aléatoire_
+:::{note} Marche aléatoire et mouvement brownien
 
-**TODO** : _introduire ici la définition de mouvement brownien_
+Une fois la marche aléatoire introduite, nous cherchons à étendre sa définition et sa validité pour
+des espaces et des temps continus. 
+
+- L'extension à des espaces continus se fait relativement aisément en introduisant une loi
+de probabilité continue pour les transitions.
+
+- L'extension au temps continu nécessite l'introduction du **Mouvement Brownien**. Le challenge étant de générer une trajectoire à la fois continue et aléatoire. 
+:::
 
 
 ## Généralisation vers le temps continu
-Vers une description formelle des transitions entre états
 
 **Généralisation à d'autres lois** Le résultat précédent se généralise aisément à d'autres lois de probabilité de transition, mais le résultat est le même : la variance croit linéairement avec le temps.
 
@@ -174,7 +178,8 @@ $$\partial_t P(t) = \mathcal{L} P(t)$$
 
 avec $\mathcal{L} = \mathcal{L}^n_m = W(m \rightarrow n)$ la matrice de transition entre états $n,m$ et $P(t)$ le vecteur colonne des cellules du système.
 
-**Remarque** _On arrive ici au bout du travail de formalisation. L'exemple bilan sur un mouvement brownien avec des sauts élémentaires $\pm 1$ pouvant être généralisé à d'autres problèmes avec des transitions plus complexes._
+:::{note} On arrive ici au bout du travail de formalisation. L'exemple bilan sur un mouvement brownien avec des sauts élémentaires $\pm 1$ pouvant être généralisé à d'autres problèmes avec des transitions plus complexes.
+:::
 
 ## Moyenne et Variance d'un processus stochastique en temps continu
 
@@ -188,7 +193,9 @@ $$\frac{d  <n(t)>}{dt} = \langle W^+(n) - W^-(n) \rangle = \sum_n (W^+(n) - W^-(
 
 $$\frac{d V}{dt} = 2 \langle (n - <{n}>) (W^+(n) - W^-(n))\rangle + \langle W^+(n) + W^-(n)\rangle$$
 
-**Remarque** Ces formules (un peu ingrates), nous permettent d'extraire une équation différentielle pour chacun des moments de la distribution, et obtenir ainsi la moyenne et la variance du processus au cours du temps.
+:::{note} Exploitation des résultats
+Ces formules (un peu ingrates), nous permettent d'extraire une équation différentielle pour chacun des moments de la distribution, et obtenir ainsi la moyenne et la variance du processus au cours du temps.
+:::
 
 # Le Mouvement Brownien
 
@@ -202,15 +209,16 @@ mouvement brownien si c'est un processus à trajectoires continues telles que
 1. $\forall t \geq 0 : B_t \sim \mathcal{N}(0, t)$
 2. Pour tout $0 \geq t_1 \geq ... \geq t_n$, les variables aléatoires $B_{t_1}, B_{t_2} - B_{t_1}, ..., B_{t_n} - B_{t_{n-1}}$, sont indépendantes.
 
+:::{note} Remarque
+La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du passé.
+:::
 
-**Remarque** La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du passé.
+:::{note} Historique
+Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement.
+:::
 
-_Note : Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement_
 
-
-# Un exemple, le processus de Poisson
-
-**Exemple de processus stochastique**
+# Un exemple de processus stochastique, le processus de Poisson
 
 Le processus de Poisson est fondamental pour comprendre les processus stochastiques. On le rencontre sur plusieurs phénomènes :
 - Nombre de particules radioactives qui se désintègrent pendant un temps $t$,
@@ -281,32 +289,36 @@ $$<n> = \sum_n n P(n,t), <n^2(t)> = \sum_n n^2 P(n,t), <f(n)> = \sum_n f(n) P(n,
 - Analogie avec des bilans physiques,
 - Après formulation d'un processus stochastique, les grandeurs qui nous intéressent sont la moyenne du processus (qui souvent correspond à la dynamique classique), et sa variance (ce qui nous permettra de quantifier des incertitudes).
 
-**Remarques** 
+:::{note} Synthèse
+Ce chapitre pose les bases sur processus stochastiques. Nous avons introduit des processus avec des transitions aléatoires, y compris pour des temps continus. Cela qui permettra d'aller vers les modèles et applications lors des prochains cours : Filtre de Kalman, Processus Gaussiens, Chaînes de Markov.
+:::
 
-Ce cours pose les bases sur processus stochastiques, ce qui permettra d'aller vers les modèles et applications lors des prochains cours : Filtre de Kalman, Processus Gaussiens, Chaînes de Markov.
+## En bref, les notions clés
 
+- **Processus stochastique** : famille de variables aléatoires $(X_t)_{t \in \mathcal{T}}$ indexées sur le temps;
 
-## Processus stochastiques - En bref
+- **Temps discret** : $t \in \mathbb{N}$, le processus se modélise avec des **probabilités de transition**;
 
-**Processus stochastique** : famille de variables aléatoires $(X_t)_{t \in \mathcal{T}}$.
+- **Temps continu** : $t \in \mathbb{R}$, le processus se modélise avec des **densités de probabilités** ou **taux de transitions** notés
+$W(n,m)$  pour la transition entre de l'état $n$ vers l'état $m$;
 
-**Temps discret** : $t \in \mathbb{N}$, le processus se modélise avec des **probabilités de transition**.
+- **Equation Maîtresse** : équation différentielle qui représente l'évolution temporelle de la densité de probabilité. Elle s'établit de manière analogue à un bilan physique (entre $t$ et $t + \delta t$). 
+Cette équation nous permet d'introduire et étudier une **dynamique** de la dispersion.
 
-**Temps continu** : $t \in \mathbb{R}$, le processus se modélise avec des **densités de probabilités** ou **taux de transitions** notés
-$W(n,m)$  pour la transition entre de l'état $n$ vers l'état $m$.
-
-**Equation Maîtresse** : équation différentielle qui représente l'évolution temporelle de la densité de probabilité. On a vu qu'elle 
-s'établissait de manière analogue à un bilan physique. 
-
-**Relations sur la moyenne et la variance** : à partir de l'équation maîtresse, on peut déduire l'évolution temporelle
-de la moyenne et de la variance du processus. Pour rappel,
-
-$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>, 
-\frac{dV}{dt} = 2 <(n - <n>)(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)>$$
+- **Relations sur la moyenne et la variance** : à partir de l'équation maîtresse, on peut déduire l'évolution temporelle de la moyenne et de la variance du processus.
 
 
-# Sources 
-Liens utiles du pour les processus stochastiques
+:::{note} Pour rappel
+$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>$$
+$$\frac{dV}{dt} = 2 <(n - <n>)(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)>$$
+:::
+
+- **Marche aléatoire**
+
+- **Mouvement brownien**
+
+
+# Références 
 
 [Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
 

@@ -17,7 +17,7 @@ project:
 # Include a figure at the cover page
       cover: Cover.PNG
       coverposition: 5  #in cm from title
-      cover_width: 12 #in cm
+      cover_width: 16 #in cm
 
 # ToC
       ToC_depth: 2

@@ -134,7 +134,7 @@ L'ergodicité est la propriété selon laquelle, à partir d'un certain rang, la
 
 # Application au PageRank
 
-L'algortihme PageRank a emergé à la fin des années 90, sous l'impulsion de Brin et Page, les fondateurs de Google. Contrairement à une recherche thématique ou sémantique classique (bag of words, similarité cosinus, etc.), l'idée de Brin et Page est d'exploiter les liens entre les page web, **un site web étant important s'il est relié à d'autres sites importants**.
+L'algortihme PageRank a emergé à la fin des années 90, sous l'impulsion de Brin et Page, les fondateurs de Google. Contrairement à une recherche thématique ou sémantique classique (bag of words, similarité cosinus, etc.), l'idée de Brin et Page est d'exploiter les liens hypertextes entre les pages web.
 
 Le Page Rank s'appuie sur une marche aléatoire sur les sites webs afin d'estimer le nombre de visites d'une page web.
 
@@ -195,5 +195,4 @@ todo : exemples espace d'état continu
 todo : exemples temps continu
 
 # Références
-
 
