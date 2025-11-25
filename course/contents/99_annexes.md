@@ -56,7 +56,7 @@ En microphysique (modélisation des nuages et interactions entre hydrométéores
 par rapport à leur diamètre est donnée par une loi exponentielle (Loi de Marshall-Palmer).
 
 :::{note} Distribution de Marshall-Palmer
-$$ N(D) dD = N_0 e^{-\lambda D} dD$$, où, $f(D) = e^{-\lambda D}$$
+$$ N(D) dD = N_0 e^{-\lambda D} dD$$
 
 où la densité de probabilité est $f(D) = e^{-\lambda D}$.
 - D: diamètre des gouttes dans une parcelle d'air
@@ -142,10 +142,11 @@ où :
 - $P(\theta | data)$ est la **distribution à posteriori** des paramètres du modèle, ou **posterior**
 - $P(data)$ est la loi ou distribtion marginale des données.
 
-_Remarque : on utilise souvent le logarithme de ces grandeurs. Ainsi, on ne s'étonnera pas de minimiser la **Negative Log Likelihood** ou (NLL) en Deep Learning, 
-ce qui revient exactement à **maximiser la vraisemblance** du modèle._
+:::{note} Negative Log-Likelihood (NLL)
+La _**Negative Log Likelihood**_ est une fonction de coût (loss) couramment utilisée en _deep learning_.
+:::
 
-$\rightarrow$ Le problème principal : estimer **la loi marginale** $P(data)$
+- Le problème principal : estimer **la loi marginale** $P(data)$
 
 **En pratique** : on cherche à éviter le calcul de la loi marginale des données.
 
@@ -158,4 +159,9 @@ $$P(data) = \sum_{\theta} P(data | \theta) \times P(\theta)$$
 $$P(data) = \int_{\theta} P(data | \theta) \times P(\theta) d\theta$$
 
 Dans le cas continu, calculer $P(data)$ peut être impossible selon la dimension du problème.
+
+**Exercice**
+
+Une loi Normale ($\theta = (\mu, \sigma)$) et un échantillon dont les éléments sont des réalisations de cette loi.
+
 
