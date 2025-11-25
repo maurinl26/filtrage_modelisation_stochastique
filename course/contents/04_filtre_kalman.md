@@ -31,9 +31,11 @@ En météo, on appellerait $C$ un **opérateur d'observation**. C'est le lien en
 $$x_{n+1} = A x_n + B u_n + \phi_n$$
 $$y_{n+1} = C x_{n+1} + \psi_{n+1}$$
 
-**Bruits $\phi_n$, $\psi_n$**: on modélise un bruit d'état $\phi_n$ un bruit de mesure $\psi_n$.
-1. **Bruit d'état** $\phi_n$: représente notre méconnaissance de la physique du système. _Exemple : Variations de la richesse du mélange_.
-2. **Bruit de mesure** $\psi_n$: représente un bruit de mesure. _Exemple: bruit électronique de la sonde de température_.
+**Représentation des bruits** :
+1. **Bruit d'état** $\phi_n$: représente notre méconnaissance de la physique du système. 
+    - _Exemple : Variations de la richesse du mélange_.
+2. **Bruit de mesure** $\psi_n$: représente un bruit de mesure. 
+    - _Exemple: bruit électronique de la sonde de température_.
 
 
 **Hypothèse** : Les bruits $\phi$ et $\psi$ sont supposés blancs, gaussiens, centrés, stationnaires
@@ -90,7 +92,7 @@ On cherche à construire un estimateur dont l'espérance de l'erreur tend vers 0
 
 
 **Définition** 
-$$\lim\limits_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$$
+$$\lim_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$$
 
 
 **Espérance de l'erreur** Sachant que les bruits blancs gaussiens sont d'espérance nulle : 
@@ -383,7 +385,6 @@ $K_{n+1}$ devient $K_{n+1} = P^-_{n+1} (J^H)^T (J^H P^-_{n+1} (J^H)^T + V \Psi V
 $P_{n+1}$ devient $P_{n+1} = (I - K_{n+1} J^H) P^-_{n+1}$
 
 où $J^A$ et $J^H$ ont été évaluées au point $\hat{x}_n$
-
 
 
 **En Météo** 

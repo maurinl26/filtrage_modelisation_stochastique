@@ -105,16 +105,14 @@ Kolmogorov" pour les mathématiciens.
 
 **Monte-Carlo ou Markov Chain Monte-Carlo ?**
 
-**Monte-Carlo** ou **Markov Chain Monte-Carlo** permettent de construire 2 estimateurs pour résoudre les mêmes équations.
+**Monte-Carlo** ou **Markov Chain Monte-Carlo** sont 2 estimateurs qui permettent d'échantillonner numériquement les trajectoires d'un système dont la dynamique est l'équation de **Kolmogorov** (ou de **Fokker-Planck**).
 
-Ici, on pourrait résoudre l'équation de **Fokker-Planck** des 2 manières :
-- En utilisant un estimateur de **Monte-Carlo** : il s'agit des, méthodes de filtrage particulaire **(Particle Filter)**.
-- En faisant appel à un estimateur **Markov Chain Monte-Carlo** : on obtient alors le
-filtre Kalman d'ensemble **(Ensemble Kalman Filter)**.
+- **Filtre Particulaire** : échantillonnage par méthodes de **Monte-Carlo**,
+- **Filtre Kalman d'Ensemble**: échantillonnage d'un estimateur **Markov Chain Monte-Carlo**.
 
-Cela permet d'introduire 2 méthodes d'assimilation de données : le **filtrage particulaire** et le **filtre kalman d'ensemble**. Nous exposons ici le filtre kalman d'ensemble en pratique.
 
-:::{note} A retenir
+:::{note} Synthèse : Une résolution numérique de l'équation de Kolmogorov
+
 On souhaitait utiliser les méthodes stochastiques (MC et MCMC) pour 
 simuler et étudier l'évolution de l'erreur sur un système chaotique (par exemple : un modèle Météo). En construisant le raisonnement, nous venons d'établir que nous souhaitons résoudre numériquement l'équation de Kolmogorov, ce qui nous permettrait
 d'avoir accès à une densité de probabilité de l'état du système.

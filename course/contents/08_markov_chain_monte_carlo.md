@@ -31,11 +31,8 @@ pour le filtre Kalman.
 
 $\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir le filtre de Kalman d'ensemble (EnKF), avec :
 
-1. **Une composante de filtrage** :
-  - Comment recaler un modèle par rapport aux observations / mesures ?
-
-2. **Une composante d'échantillonage** :
-  - Comment estimer la dispersion du modèle ?
+1. **Une composante de filtrage** : Comment recaler un modèle par rapport aux observations / mesures ?
+2. **Une composante d'échantillonage** : Comment estimer la dispersion du modèle ?
 
 
 ## Echantillonnage d'une chaîne de Markov par Méthodes de Monte-Carlo (MCMC)
@@ -49,16 +46,12 @@ $\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de
 
 ## Historique et applications
 
-- Aiguilles de Buffon (1733) : Estimation de $\pi$ par le compte de Buffon.
+- Expérience des Aiguilles de Buffon (1733) : Estimation de $\pi$ par le compte de Buffon.
 - Projet Manhattan (1940) :  utilisation des premiers ordinateurs pour la simulation de processus physiques, lors de la construction de la bombe atomique.
 
-$\rightarrow$ Les Méthodes de Monte-Carlo se développent avec l'augmentation des puissances de calcul, avec, en particulier, quelques applications remarquables : 
-
-
+Les Méthodes de Monte-Carlo se développent avec l'augmentation des puissances de calcul, avec, en particulier, quelques applications remarquables : 
 - PageRank : estimation du poids d'une page web par échantillonage sur ses liens sortants,
-
 - AlphaGo : (Monte-Carlo Tree Search), estimation du meilleur coup par échantillonage des différentes trajectoires possibles.
-
 
 # Méthodes de Monte-Carlo
 
@@ -70,9 +63,9 @@ $$\hat{f}_N^{MC} = \frac{1}{N} \sum_{n=1}^N f(q_n)$$
 
 La moyenne de l'ensemble converge alors vers l'espérance de $f$ :
 
-$$\lim\limits_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \mathbb{E}_{\pi}[f]$$
+$$\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \mathbb{E}_{\pi}[f]$$
 
-Formellement, la variable aléatoire définie par la moyenne d'ensemble $\hat{f}_N^{MC}$ tend vers une distribution de Dirac autour de l'espérance de la fonction : $\lim\limits_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \delta_{\mathbb{E}_{\pi}[f]}$.
+Formellement, la variable aléatoire définie par la moyenne d'ensemble $\hat{f}_N^{MC}$ tend vers une distribution de Dirac autour de l'espérance de la fonction : $\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \delta_{\mathbb{E}_{\pi}[f]}$.
 
 
 ## Erreur de l'estimateur
@@ -84,7 +77,7 @@ $\rightarrow$ En pratique, on cherche à estimer l'exactitude de l'estimateur po
 **Propriété** : L'estimateur de Monte-Carlo, pour une fonction réelle et de carré intégrable (pour laquelle $\mathbb{E}_{\pi}[f], \mathbb{E}_{\pi}[f]$ existent), satisfait le Théorème Central Limite. 
 C'est-à-dire, la suite des estimateurs de Monte-Carlo standardisés converge vers une loi normale centrée réduite.
 
-$$\lim\limits_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
+$$\lim_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
 
 où $SE_N$ est l'erreur quadratique de l'estiamteur de Monte-Carlo : $SE_N = \sqrt{\frac{Var_{\pi}[f]}{N}}$
 
@@ -102,7 +95,7 @@ En pratique, la quantification de l'erreur par le TCL suppose de connaître la v
 **Limitations** : la quantification de l'erreur est probabiliste. Il reste toujours une (mal)-chance que l'estimateur s'échoue dans la queue de la distribution (ex : $\hat{f}_N^{MC} > \mathbb{E}_{\pi}[f] + 3 SE_N[f   ]$).
 
 
-# Chaînes de Markov
+# Distribution stationnaire d'une chaîne de Markov
 
 $\rightarrow$ But : on cherche à explorer une distribution cible $\pi$.
 
@@ -200,7 +193,7 @@ En consruisant la densité de probabilité au point $N$ :
 
 En observant la convergence, **si la limite existe**, 
 
-$$\lim\limits_{N \rightarrow \infty} T^N \rho = \pi$$
+$$\lim_{N \rightarrow \infty} T^N \rho = \pi$$
 
 Alors c'est un point fixe :
 
@@ -247,7 +240,7 @@ $$\hat{f}_N^{MCMC} = \frac{1}{N + 1} \sum_{n=0}^{N} f(q_n)$$
 
 Contrairement aux estimateurs de Monte-Carlo (MC), le comportement assymptotique des estimateurs MCMC n'est pas défini
 
-$$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]}$$
+$$\lim_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]}$$
 
 
 ## Conditions de convergence 
@@ -257,7 +250,7 @@ $$\lim\limits_{N \rightarrow \infty} \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}
 La convergence des estimateurs MCMC est garantie à condition que **la chaîne soit récurrente**.
 Dans ce cas, la limite existe seulement pour **un nombre fini d'initialisations**.
 
-$$\lim\limits_{N \rightarrow \infty}  \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]} $$
+$$\lim_{N \rightarrow \infty}  \pi_{f_N^{MCMC}} = \delta_{\mathbb{E}_{\pi}[f]} $$
 
 Ce résultat peut être généralisé à toute distribution initale de points par la **condition de Harris**.
 
@@ -276,6 +269,8 @@ En pratique, construire ou utiliser un estimateur **MCMC** nécessite de vérifi
 Nous venons d'étudier le comportement assymptotique d'un estimateur **MCMC**, c'est-à-dire en nombre d'itérations infini.
 
 $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itérations finies ?
+
+_todo : section à finir_
 
 
 ## Illustrations 
@@ -301,14 +296,11 @@ _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalp
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
 
 
-## Convergence
+## Convergence : MCMC et Théorème Central Limite
 
 $\rightarrow$ En pratique, la convergence dépend beaucoup de la distribution à explorer.
 
 Ces méthodes, bien qu'utiles, sont moins robustes que les méthodes de Monte-Carlo. Elles dépendent grandement du jeu de données à explorer et nécessitent une mise au point minutieuse.
-
-
-### (Optionnel) MCMC et Théorème Central Limite 
 
 Le Théorème Central Limite s'applique pour des conditions particulières d'estimateurs MCMC. 
 

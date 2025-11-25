@@ -810,7 +810,7 @@ $\rightarrow$ Apportez vos PC, TP sur Google Colab
 
 ---
 
-# Liens du cours
+# Références
 Ressources utiles sur les Monte Carlo Markov Chains
 
 [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)
