@@ -187,7 +187,7 @@ Après insertion des moments d'ordre 1, $\langle n(t) \rangle = \sum_n n P(n,t)$
 
 **Moyenne** :
 
-$$\frac{d  <n(t)>}{dt} = \langle W^+(n) - W^-(n) \rangle = \sum_n (W^+(n) - W^-(n))P(n,t) $$
+$$\frac{d  \langle n(t) \rangle}{dt} = \langle W^+(n) - W^-(n) \rangle = \sum_n (W^+(n) - W^-(n))P(n,t) $$
 
 **Variance** :
 
@@ -269,8 +269,8 @@ Exemple d'une particule radioactive :
 
 Nous posons $W^+(n) = \alpha, W^-(n) = \mu n$. L'équation de cinétique chimique est donnée par
 
-$$\frac{d <n>}{dt} = \alpha - \mu <n>$$
-Avec $n_0 = 0$, on a $<n(t)> = (\alpha / \mu)(1 - e^{-\mu t})$
+$$\frac{d \langle n \rangle}{dt} = \alpha - \mu <n>$$
+Avec $n_0 = 0$, on a $\langle n(t) \rangle = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 1. Montrer que la variance vaut $V(t) = (\alpha/\mu)(1 - e^{-\mu t})$
@@ -278,9 +278,9 @@ Avec $n_0 = 0$, on a $<n(t)> = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 **Relations utiles** 
-$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>$$ 
-$$\frac{d<n^2(t)>}{dt} = 2 <n(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)> $$
-$$<n> = \sum_n n P(n,t), <n^2(t)> = \sum_n n^2 P(n,t), <f(n)> = \sum_n f(n) P(n,t) $$
+$$\frac{d \langle n \rangle}{dt} = <W^+(n) - W^-(n)>$$ 
+$$\frac{d \langle n^2(t) \rangle}{dt} = 2 \langle n(W^+(n) - W^-(n)) \rangle + \langle W^+(n) + W^-(n) \rangle$$
+$$\langle n \rangle = \sum_n n P(n,t), \langle n^2(t) \rangle = \sum_n n^2 P(n,t), \langle f(n) \rangle = \sum_n f(n) P(n,t)$$
 
 
 # Synthèse
@@ -307,11 +307,8 @@ Cette équation nous permet d'introduire et étudier une **dynamique** de la dis
 
 - **Relations sur la moyenne et la variance** : à partir de l'équation maîtresse, on peut déduire l'évolution temporelle de la moyenne et de la variance du processus.
 
-
-:::{note} Pour rappel
-$$\frac{d<n>}{dt} = <W^+(n) - W^-(n)>$$
-$$\frac{dV}{dt} = 2 <(n - <n>)(W^+(n) - W^-(n))> + <W^+(n) + W^-(n)>$$
-:::
+$$\frac{d \langle n \rangle}{dt} = \langle W^+(n) - W^-(n) \rangle$$
+$$\frac{dV}{dt} = 2 \langle(n - \langle n \rangle)(W^+(n) - W^-(n)) \rangle+ \langle W^+(n) + W^-(n) \rangle$$
 
 - **Marche aléatoire**
 
