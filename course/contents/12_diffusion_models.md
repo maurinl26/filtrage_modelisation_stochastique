@@ -13,6 +13,14 @@ Fondamentalement, ces systèmes reposent sur la résolution numérique de l'équ
 De manière analogue, les réseaux de neurones génératifs peuvent reconstruire les bruits sur ces modèles, à partir d'un générateur stochastique. Les références suivantes donnent un aperçu de ces méthodes :
 [](https://doi.org/10.48550/arXiv.2306.10574), [](https://doi.org/10.48550/arXiv.2401.05932),[](https://doi.org/10.48550/arXiv.2506.02249).
 
+# Architecture du modèle de Diffusion
+
+## Diffusion Model
+
+## Forward Diffusion Process
+
+## Reverse Diffusion Process with Sampling for Data Assimilation
+
 # Functional Generative Networks (FGN) pour la prévision d'ensemble
 
 
