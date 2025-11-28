@@ -136,9 +136,7 @@ fidélité aux valeurs de mesure ($y_{n+1}$).
 
 ## Filtre Prédicteur - Correcteur
 
-**Structure de prédicteur-correcteur**
-
-Le filtre de Kalman est un **prédicteur-correcteur**, l'estimation $\hat{x}$ de $x$ se contruit en 2 temps :
+Le filtre de Kalman est un filtre **prédicteur-correcteur**, l'estimation $\hat{x}$ de $x$ se contruit en 2 temps :
 
 **Mise à jour de l'état** :
 
@@ -186,8 +184,6 @@ Considérations sur l'évolution de la variance
 On a établit que $\lim\limits_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$,  ainsi que la formule pour $P_{n+1}$. 
 
 $\rightarrow$ Est-ce qu'on est obligé d'attendre l'$\infty$ pour que le filtre commence à fonctionner ?
-
-$\rightarrow$ Pourquoi on se balade avec une matrice de covariance $P_{n+1}$ (si ce n'est par pure beauté mathématique) ?
 
 $\rightarrow$ En pratique, comment fixer $K_{n+1}$ le gain du filtre ?
 
@@ -241,11 +237,11 @@ On ne peut pas obtenir de condition d'optimalité, mais simplement d'une relatio
 
 **Estimateur sans biais** 
 
-On cherche à obtenir un estimateur qui satisfait $\lim\limits_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$ (assymptotiquement sans biais)
+On cherche à obtenir un estimateur qui satisfait $\lim_{n \rightarrow \infty} \mathbb{E}[e_n] = 0$ (assymptotiquement sans biais).
 
 **Gain optimal** 
 
-On cherche à régler $K$ pour que les variances d'erreurs soit les plus faibles à chaque pas de temps, c'est-à-dire $\frac{\partial P_{n+1}}{\partial K_{n+1}} = 0$
+On cherche à régler $K$ pour que les variances d'erreurs soit les plus faibles à chaque pas de temps, c'est-à-dire $\frac{\partial P_{n+1}}{\partial K_{n+1}} = 0$.
 
 **Récurrence** 
 
@@ -258,11 +254,11 @@ C'est cela même qui fait la structure du Filtre Kalman. Et c'est bien pratique 
 
 **Point de départ**
 
-- Bruit d'état $\phi \sim \mathcal{N}(0, \Phi)$ (ex : $\Phi$ donné par la distibution de températures au point de mesure, i.e. la climatologie du lieu)  
-- Bruit de mesure $\psi \sim \mathcal{N}(0, \Psi)$ (ex : $\Psi$, précision donnée par la fiche technique du capteur de température)
+- Bruit d'état $\phi \sim \mathcal{N}(0, \Phi)$ (ex : $\Phi$ donné par la distibution de températures au point de mesure, i.e. la climatologie du lieu),
+- Bruit de mesure $\psi \sim \mathcal{N}(0, \Psi)$ (ex : $\Psi$, précision donnée par la fiche technique du capteur de température).
 
 **Point d'arrivée**
-- On modélise $P(x_n| z_n) \sim \mathcal{N}(\hat{x}_n, P_n)$, avec notre estimateur $\hat{x}_n$
+- On modélise $P(x_n| z_n) \sim \mathcal{N}(\hat{x}_n, P_n)$, avec notre estimateur $\hat{x}_n$,
 - Avec les propriétés de l'estimateur, on progresse vers $\mathbb{E}[\hat{x}_n] = x_k$ en gardant une dispersion minimale $\mathbb{E}[(x_n - \hat{x}_n)(x_n - \hat{x_n})^T] = P_n$.
 
 
@@ -361,7 +357,10 @@ Par :
 - $x_{n+1} = f(x_n, u_n, \phi_n)$ (modèle non-linéaire)
 - $y_{n+1} = h(x_{n+1}, \psi_{n+1})$ (observateur non-linéaire)
 
-**Remarque** C'est le cas en Météo où le modèle repose sur les équations de Navier-Stokes (non-linéaires), et les observateurs reposent sur les lois non-linéaires (ex : réflectivité radar $R \propto D^6$)
+
+:::{note} En météorologie
+C'est le cas en Météo où le modèle repose sur les équations de Navier-Stokes (non-linéaires), et les observateurs reposent sur les lois non-linéaires (ex : réflectivité radar $R \propto D^6$).
+:::
 
 **Solution** : Linéariser les équations (modèle et observateurs), autour du point de fonctionnement $\hat{x}_n$ estimé.
 

@@ -148,7 +148,9 @@ $$X_{n+1} = X_n + \mu \Delta t + \sigma \sqrt{\Delta t} X$$
 
 :::
 
-**Calcul de l'erreur** En posant :
+**Calcul de l'erreur**
+
+En posant :
 
 $$e_n = X_{t_n} - X_n$$
 

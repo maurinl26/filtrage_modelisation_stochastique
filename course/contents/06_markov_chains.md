@@ -186,94 +186,6 @@ $$
 - Pouvez-vous décrire les limiations de cette modélisation ?
 - Comment modifier la matrice de transitions dans le cadre de PageRank ?
 
-# Vers un espace d'états continu
-
-todo : exemples espace d'état continu
-
-# Vers une modélisation en temps continu : Chapman-Kolmogorov
-
-todo : exemples temps continu
-
-$\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
-
-# Méthodes de Monte-Carlo pour l'estimation d'une chaîne de Markov
-
-
-**Méthodes de Monte-Carlo** : échantillonnage d'une densité de probabilité par tirages. 
-
-:::{note} Liens avec le Filte de Kalman
-Le filtre Kalman est un exemple de chaîne de Markov.
-:::
-
-
-:::{note} Lien avec l'assimilation de données
-Le filtre Kalman est un exemple de chaîne de Markov. Echantillonner une chaîne de Markov par Méthodes de Monte-Carlo (MCMC) nous permet de reconstruire empirirquement les matrice de covariance d'erreur, à partir d'un ensemble de trajectoires.
-
-2 filtres s'appuient sur ces notions :
-- le filtre particulaire
-- le filtre Kalman d'Ensemble
-:::
-
-## Echantillonnage d'une chaîne de Markov par Méthodes de Monte-Carlo (MCMC)
-
-$\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de Markov ?
-
-- Apprendre une distribution, un processus stochastique par échantillonage aléatoire. 
-- Très utile sur des systèmes "en boîte noire" pour lesquels il existe des réalisations (ou des simulations).
-- Efficace sur des problèmes de grandes dimensions _(dont la combinatoire est trop grande pour des méthodes classiques)_.
-
-
-## Historique et applications
-
-- Expérience des Aiguilles de Buffon (1733) : Estimation de $\pi$ par le compte de Buffon.
-- Projet Manhattan (1940) :  utilisation des premiers ordinateurs pour la simulation de processus physiques, lors de la construction de la bombe atomique.
-
-Les Méthodes de Monte-Carlo se développent avec l'augmentation des puissances de calcul, avec, en particulier, quelques applications remarquables : 
-- PageRank : estimation du poids d'une page web par échantillonage sur ses liens sortants,
-- AlphaGo : (Monte-Carlo Tree Search), estimation du meilleur coup par échantillonage des différentes trajectoires possibles.
-
-# Méthodes de Monte-Carlo
-
-## Construction de l'estimateur
-
-**Estimateur de Monte-Carlo** Pour une suite de variables aléatoires indépendantes, identiquement distribuées, $\{q_1, ..., q_N\}$ (N arbitrairement grand), et pour une fonction $f$ à valeurs réelles et mesurables, les estimateur de Monte-Carlo sont défini par les **moyennes d'ensemble** de $f$ :
-
-$$\hat{f}_N^{MC} = \frac{1}{N} \sum_{n=1}^N f(q_n)$$
-
-La moyenne de l'ensemble converge alors vers l'espérance de $f$ :
-
-$$\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \mathbb{E}_{\pi}[f]$$
-
-Formellement, la variable aléatoire définie par la moyenne d'ensemble $\hat{f}_N^{MC}$ tend vers une distribution de Dirac autour de l'espérance de la fonction : $\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \delta_{\mathbb{E}_{\pi}[f]}$.
-
-
-## Erreur de l'estimateur
-
-**Propriété** : L'estimateur défini est assymptotiquement sans biais.
-
-$\rightarrow$ En pratique, on cherche à estimer l'exactitude de l'estimateur pour un petit échantillon _(afin d'utiliser ces méthodes sur des ressources de calcul limitées)_.
-
-**Propriété** : L'estimateur de Monte-Carlo, pour une fonction réelle et de carré intégrable (pour laquelle $\mathbb{E}_{\pi}[f], \mathbb{E}_{\pi}[f]$ existent), satisfait le Théorème Central Limite. 
-C'est-à-dire, la suite des estimateurs de Monte-Carlo standardisés converge vers une loi normale centrée réduite.
-
-$$\lim_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
-
-où $SE_N$ est l'erreur quadratique de l'estiamteur de Monte-Carlo : $SE_N = \sqrt{\frac{Var_{\pi}[f]}{N}}$
-
-
-## En bref 
-
-Autrement dit, à la limite,
-
-$$\hat{f}_N^{MC} = \mathcal{N}(\mathbb{E}_{\pi}[f], SE_N[f])$$
-
-En pratique, la quantification de l'erreur par le TCL suppose de connaître la variance $Var_{\pi}[f]$. Si $f^2$ est de carré intégrable ($\mathbb{E}[f^4]$ existe), on peut approximer la variance par un autre estimateur de Monte-Carlo.
-
-**Avantages** : $SE_N \propto \frac{1}{\sqrt{N}}$, l'erreur quadratique moyenne décroît avec l'inverse de la racine carrée de la taille de l'échantillon. En pratique, cela permet de dimensionnner au préalable le nombre d'échantillons nécessaires pour atteindre une erreur donnée. 
-
-**Limitations** : la quantification de l'erreur est probabiliste. Il reste toujours une (mal)-chance que l'estimateur s'échoue dans la queue de la distribution (ex : $\hat{f}_N^{MC} > \mathbb{E}_{\pi}[f] + 3 SE_N[f   ]$).
-
-
 # Distribution stationnaire d'une chaîne de Markov
 
 $\rightarrow$ But : on cherche à explorer une distribution cible $\pi$.
@@ -388,7 +300,7 @@ Ce qu'on vient d'énoncer ne présage pas de l'existance de la limite. Simplemen
 _Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_ 
 
 
-## (Optionnel) Vitesses de convergence
+## Vitesses de convergence
 
 
 **Convergence** : Etant donné une distance $„”| \cdot | $, la chaîne de Markov converge si $\forall \epsilon \in \mathbb{R}^+, \exists N(\rho) \in \mathbb{N}$ tel que 
@@ -408,6 +320,90 @@ $| \rho - \pi |_{TV} = sup_{B \in \mathcal{Q}}  |\rho[B] - \pi[B]|$
 :::{note} Convergence rapide
 L'ergodicité uniforme permet la convergence rapuide (en un nombre limité d'opérations), mais est typiqueemnt réservée aux espaces bornés.
 :::
+
+
+# Vers un espace d'états continu
+
+todo : exemples espace d'état continu
+
+# Vers une modélisation en temps continu : Chapman-Kolmogorov
+
+todo : exemples temps continu
+
+$\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
+
+# Estimateurs de Monte-Carlo sur une chaîne de Markov (MCMC)
+
+
+**Méthodes de Monte-Carlo** : échantillonnage d'une densité de probabilité par tirages. 
+
+
+:::{note} Lien avec l'assimilation de données
+Le filtre Kalman est un exemple de chaîne de Markov. Echantillonner une chaîne de Markov par Méthodes de Monte-Carlo (MCMC) nous permet de reconstruire empirirquement les matrice de covariance d'erreur, à partir d'un ensemble de trajectoires.
+
+2 filtres s'appuient sur ces notions :
+- le filtre particulaire
+- le filtre Kalman d'Ensemble
+:::
+
+## Echantillonnage d'une chaîne de Markov par Méthodes de Monte-Carlo (MCMC)
+
+$\rightarrow$ Pourquoi utiliser les méthodes de Monte-Carlo sur des chaînes de Markov ?
+
+- Apprendre une distribution, un processus stochastique par échantillonage aléatoire. 
+- Très utile sur des systèmes "en boîte noire" pour lesquels il existe des réalisations (ou des simulations).
+- Efficace sur des problèmes de grandes dimensions _(dont la combinatoire est trop grande pour des méthodes classiques)_.
+
+
+## Historique et applications
+
+- Expérience des Aiguilles de Buffon (1733) : Estimation de $\pi$ par le compte de Buffon.
+- Projet Manhattan (1940) :  utilisation des premiers ordinateurs pour la simulation de processus physiques, lors de la construction de la bombe atomique.
+
+Les Méthodes de Monte-Carlo se développent avec l'augmentation des puissances de calcul, avec, en particulier, quelques applications remarquables : 
+- PageRank : estimation du poids d'une page web par échantillonage sur ses liens sortants,
+- AlphaGo : (Monte-Carlo Tree Search), estimation du meilleur coup par échantillonage des différentes trajectoires possibles.
+
+# Méthodes de Monte-Carlo
+
+## Construction de l'estimateur
+
+**Estimateur de Monte-Carlo** Pour une suite de variables aléatoires indépendantes, identiquement distribuées, $\{q_1, ..., q_N\}$ (N arbitrairement grand), et pour une fonction $f$ à valeurs réelles et mesurables, les estimateur de Monte-Carlo sont défini par les **moyennes d'ensemble** de $f$ :
+
+$$\hat{f}_N^{MC} = \frac{1}{N} \sum_{n=1}^N f(q_n)$$
+
+La moyenne de l'ensemble converge alors vers l'espérance de $f$ :
+
+$$\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \mathbb{E}_{\pi}[f]$$
+
+Formellement, la variable aléatoire définie par la moyenne d'ensemble $\hat{f}_N^{MC}$ tend vers une distribution de Dirac autour de l'espérance de la fonction : $\lim_{N \rightarrow \infty} \hat{f}_{N}^{MC} = \delta_{\mathbb{E}_{\pi}[f]}$.
+
+
+## Erreur de l'estimateur
+
+**Propriété** : L'estimateur défini est assymptotiquement sans biais.
+
+$\rightarrow$ En pratique, on cherche à estimer l'exactitude de l'estimateur pour un petit échantillon _(afin d'utiliser ces méthodes sur des ressources de calcul limitées)_.
+
+**Propriété** : L'estimateur de Monte-Carlo, pour une fonction réelle et de carré intégrable (pour laquelle $\mathbb{E}_{\pi}[f], \mathbb{E}_{\pi}[f]$ existent), satisfait le Théorème Central Limite. 
+C'est-à-dire, la suite des estimateurs de Monte-Carlo standardisés converge vers une loi normale centrée réduite.
+
+$$\lim_{N \rightarrow \infty} \frac{\hat{f}_N^{MC} - \mathbb{E}_{\pi}[f]}{SE_{N}} \sim \mathcal{N}(0,1)$$
+
+où $SE_N$ est l'erreur quadratique de l'estiamteur de Monte-Carlo : $SE_N = \sqrt{\frac{Var_{\pi}[f]}{N}}$
+
+
+## En bref 
+
+Autrement dit, à la limite,
+
+$$\hat{f}_N^{MC} = \mathcal{N}(\mathbb{E}_{\pi}[f], SE_N[f])$$
+
+En pratique, la quantification de l'erreur par le TCL suppose de connaître la variance $Var_{\pi}[f]$. Si $f^2$ est de carré intégrable ($\mathbb{E}[f^4]$ existe), on peut approximer la variance par un autre estimateur de Monte-Carlo.
+
+**Avantages** : $SE_N \propto \frac{1}{\sqrt{N}}$, l'erreur quadratique moyenne décroît avec l'inverse de la racine carrée de la taille de l'échantillon. En pratique, cela permet de dimensionnner au préalable le nombre d'échantillons nécessaires pour atteindre une erreur donnée. 
+
+**Limitations** : la quantification de l'erreur est probabiliste. Il reste toujours une (mal)-chance que l'estimateur s'échoue dans la queue de la distribution (ex : $\hat{f}_N^{MC} > \mathbb{E}_{\pi}[f] + 3 SE_N[f   ]$).
 
 
 # Estimateur Markov Chain Monte-Carlo (MCMC)
@@ -452,27 +448,7 @@ $\rightarrow$ En pratique, qu'en est il de la convergence en nombre d'itération
 _todo : section à finir_
 
 
-## Illustrations 
-
-### Cas stable
-
-![mcmc stable](../img/markov_chain_monte_carlo_stable.png)
-
-_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
-
-
-### Cas instables
-
-![mcmc pinch](../img/markov_chain_monte_carlo_pinch.png)
-
-_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
-
-
-### Cas instables
-
-![mcmc_metastable](../img/markov_chain_monte_carlo_metastable.png)
-
-_Source : [Markov Chain Monte Carlo in Practice, M. Betancourt](https://betanalpha.github.io/assets/case_studies/markov_chain_monte_carlo.html#2_markov_chain_of_command)_
+## Exemples 
 
 
 ## Convergence : MCMC et Théorème Central Limite
@@ -530,6 +506,8 @@ $$T(q'|q) = a(q', q) \cdot Q(q'|q) + (1 - \in dq' Q(q'|q)a(q|q')) \cdot \delta(q
 
 Dans ce cas, $Q(q'|q, \Sigma) = \mathcal{N}(q'|q, \Sigma)$
 On perturbe le point initial par une gaussienne.
+
+# Exercices
 
 
 # Références

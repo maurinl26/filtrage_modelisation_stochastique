@@ -3,13 +3,11 @@ title: Filtre Kalman d'Ensemble
 
 ---
 
-Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour évaluer la covariance de l'erreur d'analyse, sur un Filtre de Kalman [](doi:10.1029/94JC00572).
+Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour évaluer la covariance de l'erreur d'analyse, sur un Filtre de Kalman. La méthode est développée à l'origine par [](doi:10.1029/94JC00572).
 
 # Ensemble Kalman Filter (EnKF)
 
-## Statistique de l'erreur
-
-**Représentation de la statistique d'erreur** 
+## Représentation de la statistique de l'erreur
 
 Nous reprenons les notations introduites par [](doi:10.1109/MCS.2009.932223).
 
@@ -48,7 +46,7 @@ avec $dN$ la densité de points par unité de volume, et $N$ le nombre de points
 La covariance de l'erreur pourrait être représentée en théorie par la densité de probabilité limite formée par une infinité de points.
 :::
 
-# Vers une équation différentielle stochastique
+# Vers la résolution numérique d'une équation différentielle stochastique
 
 En reprenant la dynamique du système associée au filtre de Kalman, le filtre Kalman d'Ensemble propose une résolution
 "stochastique" de cette dynamique par méthodes de Monte-Carlo. L'objectif des méthodes de Monte-Carlo étant d'éviter 
@@ -65,12 +63,11 @@ où, comme précédemment, $W_t$ est un mouvement brownien. Cette équation diff
 
 # De Markov Chain Monte-Carlo à l'EnKF
 
-_Bon ... Encore un peu de théorie ! Mais en observant de plus près, on arrive finalement à associer les éléments principaux du cours,
-à savoir le filtre de Kalman et les méthodes Markov Chain Monte Carlo._
+:::{note} Des équations différentielles stochastiques aux filtre Kalman d'ensemble
+Ici, nous représentons notre modèle comme une chaîne de Markov.
 
-**Equation de Kolmogorov ou de Fokker-Planck**
-
-L'équation de Fokker-Planck régit les transitions d'un processus de Markov. Il s'agit de l'équation de diffusion pour une densité de probabilité lorsque l'espace et le temps sont continus.
+:::
+**Fokker-Planck régit les transitions d'un processus de Markov**. Il s'agit de l'équation de diffusion pour une densité de probabilité lorsque l'espace et le temps sont continus.
 
 Son expression est la suivante, en 1 dimension :
 
