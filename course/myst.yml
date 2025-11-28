@@ -35,7 +35,6 @@ project:
   - file: contents/09_data_assimilation.ipynb
   - file: contents/10_diffusion_models.md
   - file: contents/11_tp_diffusion_models.ipynb
-  - file: contents/12_tp_real_data.ipynb
   - file: contents/99_annexes.md
 
 
