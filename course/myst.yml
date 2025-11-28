@@ -52,7 +52,7 @@ site:
 
   actions:
     - title: GitHub Repo
-      url: https://github.com/myst-templates/plain_typst_book
+      url: https://github.com/maurinl26/filtrage_modelisation_stochastique
     - title: Feedback
       url: https://github.com/myst-templates/plain_typst_book/issues
     - title: Download PDF
