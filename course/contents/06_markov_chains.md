@@ -201,30 +201,18 @@ $\rightarrow$ Comment construire un estimateur quand on ne connaît plus la stru
 
 **Méthodes de Monte-Carlo** : échantillonnage d'une densité de probabilité par tirages. 
 
-:::{note} Estimation des moments d'une distribution
-Une fois que l'on a accès à une estimation de la densité de probabilité, nous pouvons déduire les moments de la distribution, notamment la moyenne et la variance.
-:::
-
-**Chaînes de Markov** : processus stochastique dont la transition entre 2 états $x_{n-1} \rightarrow x_{n}$ ne dépend que de l'état précédent $x_{n-1}$.
-
-
 :::{note} Liens avec le Filte de Kalman
 Le filtre Kalman est un exemple de chaîne de Markov.
 :::
 
-## Vers le Filtre Kalman d'Ensemble
 
+:::{note} Lien avec l'assimilation de données
+Le filtre Kalman est un exemple de chaîne de Markov. Echantillonner une chaîne de Markov par Méthodes de Monte-Carlo (MCMC) nous permet de reconstruire empirirquement les matrice de covariance d'erreur, à partir d'un ensemble de trajectoires.
 
-:::{note}
-Ce chapitre est indépendant de celui sur le Filtrage Kalman. Mais il va nus permettre de définir une autre méthode de calcul des matrices de covariance 
-pour le filtre Kalman.
+2 filtres s'appuient sur ces notions :
+- le filtre particulaire
+- le filtre Kalman d'Ensemble
 :::
-
-$\rightarrow$ Les 2 sont utilisés en **Assimilation de données** pour établir le filtre de Kalman d'ensemble (EnKF), avec :
-
-1. **Une composante de filtrage** : Comment recaler un modèle par rapport aux observations / mesures ?
-2. **Une composante d'échantillonage** : Comment estimer la dispersion du modèle ?
-
 
 ## Echantillonnage d'une chaîne de Markov par Méthodes de Monte-Carlo (MCMC)
 
