@@ -33,11 +33,11 @@ Et on cherche à donner un sens à l'intégration suivante :
 $$X(t) = X(0) + \int_0^t \mu(X(s)) ds + \int_0^t \sigma(X(s)) dW(s)$$
 
 :::{note} Cours de bourse
-Le cours de bourse en est l'exemple parfait. A partir d'un actif qui se compose exponentiellement dans le temps,
-on souhaite modéliser des fluctuations de marché.
-
-- Sans fluctuations de marché, la valeur de l'actif est modélisée par une Equation Différentielle Ordinaire,
-- Avec fluctuations de marché, la valeur de l'actif est modélisée par une Equation Différentielle Stochastique.
+Le cours de bourse en est l'exemple parfait. On souhaite modéliser la valeur d'un actif (action) à partir d'un
+terme qui se compose exponentiellement dans le temps, et de fluctuations de marché aléatoires :
+$$dS_t = \mu S dt + \sigma S dW_t$$
+- le terme de dérive $\mu S dt$ modélise la croissance déterministe de la valeur de l'action au cours du temps,
+- le terme de volatilit" $\sigma S dW$ modélise les fluctuations stochastiques de la valeur de l'action selon un mouvement Brownien.
 :::
 
 # Equation différentielle stochastique de premier ordre
@@ -126,16 +126,18 @@ En quelque sorte, on pourrait dire que la méthode d'Euler-Maruyama est une mét
 En considérant l'EDS linéaire simple :
 $$dX_t = \mu dt + \sigma dW_t, X_0 = 0$$
 
-**Résolution analytique** En intégrant les 2 membres de $t = 0$ à $t = t_n$ :
+**Résolution analytique** 
+
+En intégrant les 2 membres de $t = 0$ à $t = t_n$ :
 
 $$X_{t_n} - X_0 = \int_0^{t_n} \mu dt +  \int_0^{t_n} \sigma dW_t$$
 
 Avec $X_0 = 0$, et $W_0 = 0$, donc :
 $$X_{t_n} = \mu t_n + \sigma W_{t_n}$$
 
-**Résolution numérique** Par la méthode d'Euler-Maruyama :
+**Résolution numérique** 
 
-En discrétisant selon un pas de temps $\Delta t$,
+En appliquant la méthode d'Euler-Maruyama, sur un pas de temps $\Delta t$ :
 
 $$X_{n+1} = X_n + \mu \Delta t + \sigma \Delta W_n$$
 
@@ -178,30 +180,29 @@ Comme $t_n = n \Delta t$, le terme déterministe s'annule :
 
 $$\mu t_n - \mu n \Delta t = 0$$
 
-Il reste :
-
 $$e_n = \sigma (W_{t_n} - \sum^{n-1}_{k=0} \Delta W_k)$$
-
-Donc :
 
 $$
 \sum^{n-1}_{k=0} \Delta W_k = W_{t_n} - \Delta W_n
 $$
 
-L'erreur s'écrit :
 
 $$
 e_n = \sigma (W_{t_n} - (W_{t_n} - \Delta W_n)) = \sigma \Delta W_n
 $$
 
-**Erreur Quadratique moyenne** Comme $\Delta W_n \sim \mathcal{N}(0, \Delta t)$, on a :
+**Erreur Quadratique moyenne** 
+
+Comme $\Delta W_n \sim \mathcal{N}(0, \Delta t)$, nous obtenons :
 
 $$
 \mathbb{E}[e_n^2] = \sigma^2 \mathbb[(\Delta W_n)^2] = \sigma^2 \Delta t
 $$
 
 
-**Conclusion** L'erreur quadratique moyenne étant proportionnelle à $\Delta t$, cela montre que l'erreur tend vers zéro quand $\Delta t \rightarrow 0$. La méthode 
+**Conclusion** 
+
+L'erreur quadratique moyenne étant proportionnelle à $\Delta t$, cela montre que l'erreur tend vers zéro quand $\Delta t \rightarrow 0$. La méthode 
 d'Euler-Maruyama converge vers la solution exacte de cette EDS.
 
 
@@ -247,13 +248,15 @@ Nous allons explorer plusieurs méthodes numériques pour simuler le mouvement b
 
 1. Implémenter la méthode d'Euler-Maruyama.
 
-2. La méthode de Milstein ajoute un terme de correction pour les dérivées d'ordre 2. Cette correction améliore la précision mais rend le schéma plus instable pour de grands pas de temps ou de fortes variabilités stochastiques.
+2. La méthode de Milstein ajoute un terme de correction pour les dérivées d'ordre 2. Cette correction améliore la précision mais rend le schéma plus instable pour de grands pas de temps ou de forte volatilité.
 
 En ordres de grandeurs, la précision de la méthode d'Euler-Maruyama est $\mathcal{O}(\sqrt{t})$ tandis que celle du schéma de Milstein est $\mathcal{O}(t)$.
 
 La formule est la suivante :
 
 $$\delta S_t = (\mu + \frac{1}{2}\sigma^2)\delta t + \sigma \sqrt{\delta t}\phi + \frac{1}{2} \sigma^2\phi^2 \delta t$$
+
+où $\phi \sim \mathcal{N}(0,1)$
 
 Implémenter la méthode de Milstein.
 
@@ -304,7 +307,7 @@ Nous allons voir plusieurs modèles de pricing d'options :
 
 Simuler plusieurs trajectoires de la valeur de l'action : on prendra $n = 100 000$ trajectoires.
 
-7. Asian option, Average strike option :
+7. Asian option, average strike option :
 
 - Achat : $V = max(0, S-A)$,
 - Vente : $V = max(0, A-S)$
@@ -318,7 +321,7 @@ Calculer le prix d'achat et le prix de vente.
 - Achat : $V = max(0, S - M_{min})$
 - Vente : $V = max(0, M_{max} - S)$
 
-Où $M_{max}$ et $M_{min}$ sont respectivement les valeurs maximum et moyenne de l'actif.
+Où $M_{max}$ et $M_{min}$ sont respectivement les valeurs maximum et moyenne de l'actif sur la période.
 
 Calculer le prix d'achat et le prix de vente.
 
