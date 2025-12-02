@@ -224,7 +224,7 @@ $$dV(t) = - \lambda V(t) dt + dW_t $$
 
 # Exercices
 
-## Le Mouvement Brownien Geometric 
+## Le Mouvement Brownien Géometrique
 
 Le mouvement brownien géométrique est utilisé en finance pour modéliser la dynamique de prix d'un actif.
 
