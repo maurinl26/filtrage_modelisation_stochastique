@@ -91,6 +91,8 @@ Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch]
 L'intégration d'Ito représente l'aléa au début du pas de temps tandis que l'intégration de Stratanovitch représente l'aléa comme la limite d'une suite d'équations différentielles ordinaires.
 :::
 
+# Une autre interprétation - L'intégrale de Stratanovitch
+
 # Intégration numérique - Méthode d'Euler-Maruyama
 
 La **méthode d'Euler-Maruyama** permet d'approximer numériquement les solutions des EDS. En discrétisant selon un pas de temps $\Delta t$,  on obtient :
@@ -222,6 +224,109 @@ $$dV(t) = - \lambda V(t) dt + dW_t $$
 
 # Exercices
 
+## Le Mouvement Brownien Geometric 
+
+Le mouvement brownien géométrique est utilisé en finance pour modéliser la dynamique de prix d'un actif.
+
+$$dS = \mu S dt + \sigma S dW$$
+
+Où :
+- $S$ est la valeur de l'action,
+- $\mu$ est le coefficient de dérive,
+- $\sigma$ est le coefficient de volatilité,
+- $dW$ est un processus de Wiener.
+
+Les caractéristiques intéressantes du mouvement brownien géométrique, dans ce cadre, sont :
+- une croissance exponentielle,
+- des fluctuations aléatoires,
+- l'absence de bornes sur la valeur de l'actif.
+
+Nous allons explorer plusieurs méthodes numériques pour simuler le mouvement brownien géométrique.
+
+1. Donner la solution analytique du mouvement brownien géométrique. Elle servira de référence pour le calcul des erreurs numériques.
+
+1. Implémenter la méthode d'Euler-Maruyama.
+
+2. La méthode de Milstein ajoute un terme de correction pour les dérivées d'ordre 2. Cette correction améliore la précision mais rend le schéma plus instable pour de grands pas de temps ou de fortes variabilités stochastiques.
+
+En ordres de grandeurs, la précision de la méthode d'Euler-Maruyama est $\mathcal{O}(\sqrt{t})$ tandis que celle du schéma de Milstein est $\mathcal{O}(t)$.
+
+La formule est la suivante :
+
+$$\delta S_t = (\mu + \frac{1}{2}\sigma^2)\delta t + \sigma \sqrt{\delta t}\phi + \frac{1}{2} \sigma^2\phi^2 \delta t$$
+
+Implémenter la méthode de Milstein.
+
+3. Nous allons comparer les différentes approches.
+Implémenter une fonction pour calculer l'erreur quadratique moyenne.
+
+4. Simulation d'un cours de bourse :
+
+On donne :
+- $S_0 = 100$ : la valeur initiale de l'action,
+- $\mu = 0.05$ : le coefficient de dérive,
+- $\sigma = 0.05$ : le coefficient de volatilité,
+
+On modélisera le cours de bourse sur un an ($T=1$) avec un rafraîchissement journalier ($n=252$).
+ 
+Afficher les résultats de simulation pour les 2 méthodes.
+
+Evaluation des options d'achat et de vente :
+En finance, une option d'achat (call) ou de ventre (put) donne le droit d'acheter ou de vendre une action à une date donnée, à un prix fixé à l'avance. C'est un contrat entre le propriétaire de l'option et son vendeur.
+
+En pratique, une option d'achat permet de parier à la hausse d'un titre financier tandis qu'une option de vente permet de parier sur la baisse, ou de se couvrir contre le risque de baisse.
+
+On appelle **prix d'exercice**, ou **strike** le prix, déterminé à l'avance, auquel le propriétaire peut respectivement acheter ou vendre l'action. Et **prix d'achat de l'option**, ou **prime** le montant initial 
+versé pour acquérir l'option.
+
+Le profit à échéance est alors :
+- Pour une option d'achat :
+$$Profit = Max(0, Prix - Strike) - Prime$$
+- Pour une option de vente :
+$$Profit = Max(0, Strike - Prix_{marché}) - Prime$$
+
+Le pricing sous risque neutre est donné par :
+$$ V(S,t) = e^{-\sigma (T-t)}\mathbb{E}^{\mathbb{Q}}[Payoff(S_T)] $$
+
+Où :
+- $V$ est la valeur de l'option,
+- $\mathbb{E}^{\mathbb{Q}}$ est l'espérance sous risque neutre,
+- $Payoff(S_T)$
+
+Nous allons voir plusieurs modèles de pricing d'options :
+- Pricing sous risque neutre,
+- Asian pricing,
+- Loopback pricing.
+
+6. Nous reprenons l'exemple précédent, avec :
+- $\sigma = 20 %$ pour le coefficient de volatilté,
+- $E = 100$ le prix de l'option (strike)
+
+Simuler plusieurs trajectoires de la valeur de l'action : on prendra $n = 100 000$ trajectoires.
+
+7. Asian option, Average strike option :
+
+- Achat : $V = max(0, S-A)$,
+- Vente : $V = max(0, A-S)$
+
+Où A est la moyenne arithmétique de la valeur de l'actif sur la période.
+
+Calculer le prix d'achat et le prix de vente.
+
+8. Lookback option, floating strike option :
+
+- Achat : $V = max(0, S - M_{min})$
+- Vente : $V = max(0, M_{max} - S)$
+
+Où $M_{max}$ et $M_{min}$ sont respectivement les valeurs maximum et moyenne de l'actif.
+
+Calculer le prix d'achat et le prix de vente.
+
+:::{note} Météorologie
+Nous présentons un exercice de finance quantitative, mais les raisonnements peuvent être transférés à la prévision ensembliste en météo. 
+:::
+
+
 # Références
 
 Gratton, S., Sequential Filtering, (2024-2025)
@@ -229,4 +334,6 @@ Gratton, S., Sequential Filtering, (2024-2025)
 Baehr, C., Modélisations Probabilistes d'Equations de la Mécanique des Fluides, Etat de l'art en modélisation stochastique (2004)
 
 [Smith L., Itô and Stratanovitch, A guide for the perplexed](https://www.robots.ox.ac.uk/~lsgs/posts/2018-09-30-ito-strat.html)
+
+[In-Depth Guide to Simulating Paths with the Euler-Maruyama Scheme for Exotic Options Pricing](https://quantfin.net/posts/option-introduction/)
 
