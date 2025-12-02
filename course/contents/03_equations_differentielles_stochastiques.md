@@ -325,8 +325,8 @@ Calculer le prix d'achat et le prix de vente.
 :::{note} Assurance paramétrique
 De manière analogue, ce type de produit est développé en assurance paramétrique. Il vise à couvrir les pertes en fixant le remboursement sur un paramètre météo donné.
 
-Par exemple, le programme [**Index-Based Livestock Insurance**](https://www.sparc-knowledge.org/innovations/index-based-livestock-insurance) surveille les niveaux de végétations au Kenya et rembourse
-les exploitants agricoles à un certain seuil de végétation basse.  
+Par exemple, le programme **Index-Based Livestock Insurance** surveille les niveaux de végétations au Kenya et en Ethiopie pour couvrir les exploitants agricoles en cas de sécheresse.
+[Ci-joint](https://doi.org/10.3389/fclim.2024.1476202) un article sur l'adoption des assurances paramétriques en Ethiopie pour couvrir les risques liés au changement climatique.
 :::
 
 
