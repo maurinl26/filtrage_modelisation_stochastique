@@ -322,8 +322,8 @@ Où $M_{max}$ et $M_{min}$ sont respectivement les valeurs maximum et moyenne de
 
 Calculer le prix d'achat et le prix de vente.
 
-:::{note} Météorologie
-Nous présentons un exercice de finance quantitative, mais les raisonnements peuvent être transférés à la prévision ensembliste en météo. 
+:::{note} Assurance paramétrique
+De manière analogue, ce type de produit est développé en assurance paramétrique. Il vise à couvrir les pertes en fixant le remboursement sur un paramètre météo donné.
 :::
 
 
