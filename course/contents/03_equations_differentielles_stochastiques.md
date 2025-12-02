@@ -343,3 +343,5 @@ Baehr, C., Modélisations Probabilistes d'Equations de la Mécanique des Fluides
 
 [In-Depth Guide to Simulating Paths with the Euler-Maruyama Scheme for Exotic Options Pricing](https://quantfin.net/posts/option-introduction/)
 
+[Evaluation d'une option d'achat/vente en temps continu](https://www.ressources-actuarielles.net/EXT/ISFA/fp-isfa.nsf/0/0B9DF464E9543283C1256F130067B2F9/$FILE/AOA_P.pdf?OpenElement)
+
