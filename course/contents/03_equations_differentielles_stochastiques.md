@@ -40,6 +40,8 @@ $$dS_t = \mu S dt + \sigma S dW_t$$
 - le terme de volatilit" $\sigma S dW$ modélise les fluctuations stochastiques de la valeur de l'action selon un mouvement Brownien.
 :::
 
+![Cours LVMH](../img/lvmh_stock_gbm.png)
+
 # Equation différentielle stochastique de premier ordre
 
 Considérons une équation différentielle stochastique (EDS) du premier ordre :
