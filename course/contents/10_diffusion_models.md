@@ -19,7 +19,14 @@ De manière analogue, les réseaux de neurones génératifs peuvent reconstruire
 
 ## Forward Diffusion Process
 
+Le "Forward Diffusion Process" fait intervenir une équation différentielle stochastique pour générer du bruit.
+
+$$dx(t) = f(t)x(t) dt + g(t) dw(t)$$
+
 ## Reverse Diffusion Process with Sampling for Data Assimilation
+
+
+$$dx(t) = [f(t)x(t) - g(t)^2 \nabla_{x(t)} log p(x(t))]dt + g(t)dw(t)$$
 
 # Functional Generative Networks (FGN) pour la prévision d'ensemble
 
