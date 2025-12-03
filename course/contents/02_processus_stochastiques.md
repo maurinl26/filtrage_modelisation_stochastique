@@ -65,7 +65,7 @@ $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 
 **Comment décrire les transitions entre états, y compris en temps continu ?**
 
-![mouvement brownien 1d](../img/brownien_3132.png)
+![mouvement brownien 1d](../img/brownian_motion_ensembles.pdf)
 
 ## Vers une description formelle des transitions entre états
 
@@ -76,8 +76,10 @@ la particule fait un saut sur une case immédiatement à sa droite ou à sa gauc
 
 _(sachant que la particule début à la case $n=0$ à $t=0$)_ 
 
+![Moyenne et variance](../img/mean_std_ensembles.pdf)
 
-![Coupe temporelle marche aléatoire](../img/brownien_3334.png)
+
+![Coupe temporelle marche aléatoire](../img/position_histograms.pdf)
 
 
 On cherche à décrire $P(n, t_i)$, pour un temps $t_i$ donné, ou autrement dit, on cherche à faire une coupe temporelle du mouvement brownien au temps $t_i$.
