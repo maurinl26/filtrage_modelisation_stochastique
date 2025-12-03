@@ -9,9 +9,17 @@ Nous évoluons dans le cadre des méthodes d'assimilation de données pour la M�
 
 # Méthodes variationnelles
 
+## 4D-Var
+
 # Méthodes ensemblistes
 
+## Filtre particulaire
+
+## Filtre Kalman d'ensemble
+
+
 # Description formelle
+
 
 On note $x_{1:L} = (x_1, , x_L) \in \mathbb{R}^{LxD}$ une trajectoire d'états (ou $L$ et $D$ sont respectivement la longueur de la trajectoire et la dimension du vecteur d'état). On note
 $p(x_{i+1}|x_i)$ la dynamique de transition de l'état $x_i$ vers l'état $x_{i+1}$.
