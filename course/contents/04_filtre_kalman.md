@@ -285,6 +285,8 @@ Il n'y a pas forcément de réponse systématique à ces questions, simplement u
 Nous cherchons à estimer une tension constante. Avec, à disposition, un volt-mètre, dont les mesures sont
 perturbées par un bruit blanc d'écart-type $\sigma = 0.1 V$.
 
+![noisy_measurements](../img/constant_voltage_noisy_measurements.png)
+
 **Système linéaire**
 
 $$x_{n+1} = x_{n} + \phi_{n+1}$$
