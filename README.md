@@ -18,3 +18,5 @@ Cours de Filtrage et Modélisation Stochastique, parcours de 3e année ENM / ENS
 - (Eventuellement) LETKF opérationnel (assimilation de données suisse),
 - Expliquer le modèle de diffusion -> apprentissage du bruit,
 - Implémentation notebook, modèle de diffusion
+  - enlever les erreurs,
+  - rendre l'apprentissage stable
