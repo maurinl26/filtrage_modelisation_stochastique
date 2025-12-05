@@ -8,6 +8,7 @@ Cours de Filtrage et Modélisation Stochastique, parcours de 3e année ENM / ENS
 
 ## Feuille de route :
 - Ajouter les défintions de bruit blanc gaussien et de martingale,
+- Evaluation d'une option en temps continu
 - Enlever la seconde partie sur les chaînes de Markov
 - Expliquer le processus de Diffusion
   - Kolmogorov / Chapman-Kolmogorov
