@@ -221,6 +221,13 @@ La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du
 Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement.
 :::
 
+# Le Processus Gaussien
+
+Un processus stochastique est gaussien si toutes ses lois fini dimensionnelles sont gaussiennes.
+Il est défini par :
+
+1. $m : I -> \mathbb{R} m(t) = \mathbb{E}[X_t] $,
+2. $\Gamma : I x I -> mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
 
 # Un exemple de processus stochastique, le processus de Poisson
 
