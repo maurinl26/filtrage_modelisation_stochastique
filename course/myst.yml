@@ -32,9 +32,10 @@ project:
   - file: contents/06_markov_chains.md
   - file: contents/07_tp_page_rank.ipynb
   - file: contents/08_enkf.md
-  - file: contents/09_data_assimilation.ipynb
-  - file: contents/10_diffusion_models.md
-  - file: contents/11_tp_diffusion_models.ipynb
+  - file: contents/09_tp_enkf.ipynb
+  - file: contents/10_data_assimilation.md
+  - file: contents/11_diffusion_models.md
+  - file: contents/12_tp_diffusion_models.ipynb
   - file: contents/99_annexes.md
 
 

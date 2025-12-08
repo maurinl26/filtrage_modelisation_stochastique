@@ -164,4 +164,6 @@ Dans le cas continu, calculer $P(data)$ peut être impossible selon la dimension
 
 Une loi Normale ($\theta = (\mu, \sigma)$) et un échantillon dont les éléments sont des réalisations de cette loi.
 
+## Estimateur du Maximum de Vraisemblance
+
 
