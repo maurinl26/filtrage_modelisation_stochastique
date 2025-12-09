@@ -1,8 +1,25 @@
 ---
-title: Chaînes de Markov
+title: Chaînes et Processus de Markov
 
 ---
-# Définitions
+# Introduction
+
+Dans ce chapitre, nous présentons les chaînes et processus de Markov. Intuitivement, une chaîne ou un processus de Markov est une suite de variables aléatoires $(X_t)_{t in \mathcal{T}}, \mathcal{T} = \mathbb{N}, ou \mathbb{R}$
+qui n'a pas mémoire du passé. 
+
+Chaque pas est défini par la densité de probabilité au pas de temps précédant, et une fonction ou matrice de transition entre états.
+
+Dans un premier temps, nous définirons la chaîne de Markov, pour un espace d'états et
+une modélisation temporelle discrètes. Le PageRank en est un application clé.
+
+Dans un second temps, nous étendrons la définition à un espace d'état et une modélisation temporelles continues, ce qui est le cas lorsque l'on conçoit des systèmes d'assimilation de données météorologiques.
+
+:::{note} Intérêt calculatoire
+  Cela nous permet de concevoir des systèmes de contrôle ou de régulation en temps réel, robustes et économiques. Ces systèmes sont définis par récurrence, de manière analogue au Filtre de Kalman. Il n'est pas nécessaire de stocker le passé ou la trajectoire complète pour estimer le pas de temps actuel.
+:::
+
+
+# Chaîne de Markov
 
 **Définition** : Une chaîne de Markov homogène à valeurs dans $S$ de matrice de transition $P$ et de loi initial $\lambda$
 est une famille de variables aléatoires $(X_n, n \in \mathbb{N})$ telle que :
@@ -186,9 +203,10 @@ $$
 - Pouvez-vous décrire les limiations de cette modélisation ?
 - Comment modifier la matrice de transitions dans le cadre de PageRank ?
 
-# Vers une modélisation en temps continu : Chapman-Kolmogorov
+# Modélisation Physique - Processus d'Ornstein-Uhlenbeck
 
-## Processus de Markov
+
+# Modélisation continue : Processis de Markov
 
 De la même manière que pour une chaîne de Markov discrète, un processus est de Markov si son évolution future ne dépend que de l'état présent du processus.
 
@@ -273,7 +291,6 @@ avec $p_0(x, .) = \delta_x(.)$
 
 Et on note $X^x$ la solution de cette équation lorsqu'elle part de $x$ à $t=0$.
 
-# Modélisation Physique - Processus d'Ornstein-Uhlenbeck
 
 # Application à l'assimilation de données
 
