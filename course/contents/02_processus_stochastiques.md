@@ -218,7 +218,14 @@ La seconde propriété signifie que le mouvement brownien n'a pas de mémoire du
 :::
 
 :::{note} Historique
-Wiener a formalisé le mouvement brownien, d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement.
+Le mouvement brownien est décrit empiriquement à la fin du $XIX^e$ siècle, avant d'être formalisé par
+Wiener en 1923 (d'où le nom de **Processus de Wiener** et les notations $W(n,m)$ vues précédement).
+
+Le Mouvement Brownien en dates :
+- 1827 : le botaniste Brown observe les mouvements désordonnés d'une particule en suspension dans un liquide,
+- 1900 : Bachelier étudie les fluctuations du cours de la bourse,
+- 1905 : Einstein étudie les impulsions transmises à une particule par les molécules environnantes,
+- 1923 : Wiener établi un modèle de processus dont les trajectoires sont continues et les vitesses infinies en tout point.
 :::
 
 # Le Processus Gaussien

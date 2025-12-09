@@ -241,7 +241,7 @@ $$p_t(x, dy) = $$
 
 :::{note} Processus de Markov et Equations aux Dérivées Partielles
 
-Ici, la partie de cours peut paraître un peu théorique. Elle s'attache à démontrer que décrire un **processus de diffusion** revient à établir une **équation** aux dérivées partielles (EDP)** pour une densité de probabilité.
+Ici, la partie de cours peut paraître un peu théorique. Elle s'attache à démontrer que décrire un **processus de diffusion** revient à établir une **équation aux dérivées partielles** (EDP) pour une densité de probabilité.
 
 Au lieu d'intégrer "stochastiquement" le modèle de diffusion, nous pouvons simplement résoudre l'équation différentielle qui régit sa densité de probabilité.
 :::
@@ -251,12 +251,6 @@ variable aléatoire selon la mesure de Wiener (mouvement brownien).
 
 Ici, nous allons compléter cette intégration en donnant un sens à des équations aux dérivées partielles stochastique (espace et temps continu). 
 
-:::
-
-:::{note} Sens physique : particule dans un fluide
-
-
-:::
 
 # Equation de Fokker-Planck
 
