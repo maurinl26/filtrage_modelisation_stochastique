@@ -335,9 +335,9 @@ $$\frac{dV}{dt} = 2 \langle(n - \langle n \rangle)(W^+(n) - W^-(n)) \rangle+ \la
 
 # Références 
 
-[Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
+[^Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
 
-[Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf)
+[^Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf)
 
 
 
