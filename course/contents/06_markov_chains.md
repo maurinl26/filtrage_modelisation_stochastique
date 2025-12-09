@@ -206,7 +206,7 @@ $$
 # Modélisation Physique - Processus d'Ornstein-Uhlenbeck
 
 
-# Modélisation continue : Processis de Markov
+# Modélisation continue : Processus de Markov
 
 De la même manière que pour une chaîne de Markov discrète, un processus est de Markov si son évolution future ne dépend que de l'état présent du processus.
 
@@ -237,9 +237,14 @@ $$p_t(x, dy) = $$
 
 :::
 
-# Processus de Markov et Equation Différentielle Stochastique
+# Equations Différentielle Stochastique
 
-:::{note} Lien avec les Equations Différentielles Stochastiques (EDS)
+:::{note} Processus de Markov et Equations aux Dérivées Partielles
+
+Ici, la partie de cours peut paraître un peu théorique. Elle s'attache à démontrer que décrire un **processus de diffusion** revient à établir une **équation** aux dérivées partielles (EDP)** pour une densité de probabilité.
+
+Au lieu d'intégrer "stochastiquement" le modèle de diffusion, nous pouvons simplement résoudre l'équation différentielle qui régit sa densité de probabilité.
+:::
 
 Au chapitre sur les EDS, nous avons donné un sens à l'intégration d'une 
 variable aléatoire selon la mesure de Wiener (mouvement brownien).
