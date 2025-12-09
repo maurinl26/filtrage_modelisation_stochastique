@@ -11,6 +11,19 @@ Nous évoluons dans le cadre des méthodes d'assimilation de données pour la M�
 
 ## 4D-Var
 
+Les méthodes variationnelles cherchent à minimiser un foncitonnelle globale sur une fenêtre temporelle donnée :
+
+$$
+J(x_0) = \frac{1}{2}(x_0 - x_0^b)^T B^{-1} (x_0 -x_0^b)
++ \frac{1}{2} \sum_{i=0}^N [H_i(x_i) - y_i]^T
+$$
+
+Avec la matrice d'erreurs d'observations :
+
+$$
+R^{-1}_i [H_i(x_i) - y_i] = J^b + J^0
+$$
+
 # Méthodes ensemblistes
 
 ## Filtre particulaire
