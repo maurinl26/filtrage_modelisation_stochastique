@@ -60,6 +60,13 @@ $$\hat{X}_k = \mathbb{E}[X_k]$$
 $$\mathrm{P}_k = \mathbb{E}[(X_k - \hat{X}_k)(X_k - \hat{X}_k)^T] $$
 $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 
+# Le Processus Gaussien
+
+Un processus stochastique est gaussien si toutes ses lois fini dimensionnelles sont gaussiennes.
+Il est défini par :
+
+1. $m : I -> \mathbb{R} m(t) = \mathbb{E}[X_t] $,
+2. $\Gamma : I x I -> mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
 
 # Marche aléatoire
 
@@ -228,13 +235,6 @@ Le Mouvement Brownien en dates :
 - 1923 : Wiener établi un modèle de processus dont les trajectoires sont continues et les vitesses infinies en tout point.
 :::
 
-# Le Processus Gaussien
-
-Un processus stochastique est gaussien si toutes ses lois fini dimensionnelles sont gaussiennes.
-Il est défini par :
-
-1. $m : I -> \mathbb{R} m(t) = \mathbb{E}[X_t] $,
-2. $\Gamma : I x I -> mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
 
 # Un exemple de processus stochastique, le processus de Poisson
 
