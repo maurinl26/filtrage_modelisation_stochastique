@@ -65,8 +65,8 @@ $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 Un processus stochastique est gaussien si toutes ses lois fini dimensionnelles sont gaussiennes.
 Il est défini par :
 
-1. $m : I -> \mathbb{R} m(t) = \mathbb{E}[X_t] $,
-2. $\Gamma : I x I -> mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
+1. $m : I -> \mathbb{R},  m(t) = \mathbb{E}[X_t] $,
+2. $\Gamma : I \times I \mapsto \mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
 
 # Marche aléatoire
 
