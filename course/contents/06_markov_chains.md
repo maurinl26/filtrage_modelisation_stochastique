@@ -188,33 +188,104 @@ $$
 
 # Vers une modélisation en temps continu : Chapman-Kolmogorov
 
-**Définition** : Martingale
+## Processus de Markov
 
-Un processus $(Mt)_{t \geq 0}$ est une martingale adaptée à la filtration $(\mathcal{F_t}_{t \geq 0})$ si :
-1. $\forall t, M_t$ est $\mathcal{F}_t$ mesurable,
-2. $\mathbb{E}[M_t] \leq + \infty$
-3. $\forall s \leq t, \mathbb{E}[M_t|\mathcal{F}_s] = M_s$
+De la même manière que pour une chaîne de Markov discrète, un processus est de Markov si son évolution future ne dépend que de l'état présent du processus.
 
-:::{note} Exemple suspension d'un véhicule
+**Définition** Noyau de transition
+
+Une famille $(p_t(x,.))_{t \leq 0, x \in \mathbb{R}^d}$ de mesures de probabilité sur est un noyau de transition si 
+1. $p_0(x,.) = \delta_x$ pour tout $x \in \mathbb{R}^d$,
+2. pour tout Borélien $A \in \mathcal{B}(R^d)$, l'application $(t,x) \mapsto p_t(x,A)$ est mesurable,
+3. pour tout Borélien $A \in \mathcal{B}(R^d)$, et toute paire $0 \leq s \leq t$, la relation de Chapman-Kolmogorov est satisfaite :
+
+$$p_t(x,A) = \int_{\mathbb{R^d}} p_s(x, dy)p_{t-s}(y, A), \forall x in \mathbb{R}^d$$
+
+
+:::{note} Explication
+On définit ici le processus de Markov où le noyau de transition $p_s(x, dy)$ décrit la transition entre états et $p_{t-s}(y,A)$ donne la densité de probabilité des $y$ au temps $t-s$. 
+
+En intégrant la relation de Chapman-Kolmogorov, on propage la distribution des états en
+$t-s$ (représentée par la densité $p(y,A)$) à $t$ grâce au noyau de transition $p_t(x,dy)$.
+
+Il s'agit de l'exact équivalent en espace continu de la chaîne de Markov sur espaces discrets où :
+$$p_t(x, A) = \sum_{y \in \mathbb{N}} A(x, y) p_{t-s}(y)$$
 :::
 
-todo : exemples temps continu
+:::{note} Mouvement brownien
+Le mouvement brownien est un processus de Markov dont le noyau de transition est donné par 
 
-$\rightarrow$ Comment construire un estimateur quand on ne connaît plus la structure du bruit ?
+$$p_t(x, dy) = $$
 
-# Estimateurs de Monte-Carlo sur une chaîne de Markov (MCMC)
-
-
-**Méthodes de Monte-Carlo** : échantillonnage d'une densité de probabilité par tirages. 
-
-
-:::{note} Lien avec l'assimilation de données
-Le filtre Kalman est un exemple de chaîne de Markov. Echantillonner une chaîne de Markov par Méthodes de Monte-Carlo (MCMC) nous permet de reconstruire empirirquement les matrice de covariance d'erreur, à partir d'un ensemble de trajectoires.
-
-2 filtres s'appuient sur ces notions :
-- le filtre particulaire
-- le filtre Kalman d'Ensemble
 :::
+
+# Processus de Markov et Equation Différentielle Stochastique
+
+:::{note} Lien avec les Equations Différentielles Stochastiques (EDS)
+
+Au chapitre sur les EDS, nous avons donné un sens à l'intégration d'une 
+variable aléatoire selon la mesure de Wiener (mouvement brownien).
+
+Ici, nous allons compléter cette intégration en donnant un sens à des équations aux dérivées partielles stochastique (espace et temps continu). 
+
+:::
+
+:::{note} Sens physique : particule dans un fluide
+
+
+:::
+
+# Equation de Fokker-Planck
+
+
+On considère l'EDS suivante :
+
+$$dX_t = b dt + dW_tn=, X_0 = x$$
+
+Où $X_t = x + bt + W_t$. 
+
+La solution de cette équation est explicite : $X_t =x + bt + W_t$ et sa loi est donnée par une gaussienne de moyenne $x + bt$ et de variance $t$.
+
+On introduit le noyau de transition :
+$$p_t(x, dy) = p_t(x,y)dy = g_t(y - x - bt)dy$$
+
+où $g_t(u)$ est la loi $\mathcal{N}(0,t)$ évaluée en $u$.
+
+On a la propriété suivante :
+
+$$\partial_t g_t(x) = \frac{1}{2} \partial_x^2 g_t(x)$$
+
+Par calcul :
+
+$$\partial_t p_t(x,y) = -b\partial_y p_t(x, y) + \frac{1}{2} \partial_y^2 p_t(x,y)$$
+
+Ici, il s'agit de l'opérateur :
+
+$$\mathcal{L}^{\star} f = -b f' + \frac{1}{2} f^{(2)}$ 
+appliqué à $y \mapsto p_t(x,y)$.
+
+**Résultat** $t \mapsto p_t(x, .)$ est solution de l'équation d'évolution de Fokker-Planck 
+
+$$\partial_t p_t(x, .) = \mathcal{L}^{\star} p_t(x, .)$$
+
+avec $p_0(x, .) = \delta_x(.)$
+
+
+Et on note $X^x$ la solution de cette équation lorsqu'elle part de $x$ à $t=0$.
+
+# Modélisation Physique - Processus d'Ornstein-Uhlenbeck
+
+# Application à l'assimilation de données
+
+# Extensions à d'autres équations aux dérivées partielles.
+
+
+
+
+
+
+
+
 
 
 # Exercices
@@ -226,6 +297,8 @@ Le filtre Kalman est un exemple de chaîne de Markov. Echantillonner une chaîne
 
 [Compound extremes in a changing climate –
 a Markov chain approach](https://npg.copernicus.org/articles/23/375/2016/npg-23-375-2016.pdf)
+
+[Calcul stochastique et modèles de Diffusion](https://perso.lpsm.paris/~clabbe/Poly_CalculSto.pdf)
 
 [Algorithme de Métropolis-Hastings](https://perso.lpsm.paris/~vlemaire/4ma074/cours/metropolis.html)
 
