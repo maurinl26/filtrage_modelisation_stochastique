@@ -26,8 +26,8 @@ Les modèles de diffusion sont des modèles à variables latentes, de la forme $
 
 En détail, nous reconnaissons le problème d'inversion bayésienne sur une chaîne de Markov :
 
-$$p{\theta}(x_{0:T}) = p(x_T) \Pi_{t = 1}^T p_{\theta}(x_{t-1}|x_t), \\
-p{\theta}(x_{t-1}|x_t) = \mathcal{N}(x{t-1}; \mu_{\theta}(x_t, t), \Sigma_{\theta}(x_t, t))
+$$p_{\theta}(x_{0:T}) = p(x_T) \Pi_{t = 1}^T p_{\theta}(x_{t-1}|x_t), \\
+p_{\theta}(x_{t-1}|x_t) = \mathcal{N}(x_{t-1}; \mu_{\theta}(x_t, t), \Sigma_{\theta}(x_t, t))
 $$
 
 Avec cette définition, le réseau de neurone entaîné approxime la distribution à posteriori $q(x_{0:T}|x_0)$, le **processus de diffusion** que nous voulons émuler. 
@@ -57,8 +57,4 @@ $$dx(t) = f(t)x(t) dt + g(t) dw(t)$$
 
 $$dx(t) = [f(t)x(t) - g(t)^2 \nabla_{x(t)} log p(x(t))]dt + g(t)dw(t)$$
 
-# Functional Generative Networks (FGN) pour la prévision d'ensemble
-
-
-# Références
 

@@ -6,8 +6,7 @@ title: Introduction
 
 # Objectifs du cours 
 
-L'objectif du cours est de construire une boîte à outils pour **modéliser l'incertitude et les phénomènes aléatoires**. Le cours introduit des notions de modélisation stochastique (**mouvement brownien, **équations différentielles stochastiques) employées pour **modéliser et prévoir des phénomènes
-chaotiques** (prévision du temps, modélisation d'un cours de bourse), et des notions de filtrage stochastiques pour assimiler des observation sur un modèle chaotique. Ces techniques (filtre de Kalman, filtres particulaires, modèles de diffusion) sont utilisées en ingénierie pour
+L'objectif du cours est de construire une boîte à outils pour **modéliser l'incertitude et les phénomènes aléatoires**. Le cours introduit des notions de modélisation stochastique (**mouvement brownien**, **équations différentielles stochastiques**) employées pour **modéliser et prévoir des phénomènes chaotiques** (prévision du temps, modélisation d'un cours de bourse), et des notions de filtrage stochastiques pour assimiler des observations sur un modèle chaotique. Ces techniques (filtre de Kalman, filtres particulaires, modèles de diffusion) sont utilisées en ingénierie pour
 estimer d'une part les erreurs d'observation et d'autre part l'incertitude sur la trajectoire du modèle.
 
 Ces méthodes de modélisation sont clés pour représenter d'une part des phénomènes chaotiques, et d'autre part, rendre la modélisation robuste par rapport aux erreurs introduites (erreurs d'observation, de discrétisation du modèle, etc).
