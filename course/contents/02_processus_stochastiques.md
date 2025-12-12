@@ -287,7 +287,7 @@ Exemple d'une particule radioactive :
 
 Nous posons $W^+(n) = \alpha, W^-(n) = \mu n$. L'équation de cinétique chimique est donnée par
 
-$$\frac{d \langle n \rangle}{dt} = \alpha - \mu <n>$$
+$$\frac{d \langle n \rangle}{dt} = \alpha - \mu \langle n \rangle$$
 Avec $n_0 = 0$, on a $\langle n(t) \rangle = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
@@ -296,7 +296,7 @@ Avec $n_0 = 0$, on a $\langle n(t) \rangle = (\alpha / \mu)(1 - e^{-\mu t})$
 
 
 **Relations utiles** 
-$$\frac{d \langle n \rangle}{dt} = <W^+(n) - W^-(n)>$$ 
+$$\frac{d \langle n \rangle}{dt} = \langle W^+(n) - W^-(n) \rangle$$ 
 $$\frac{d \langle n^2(t) \rangle}{dt} = 2 \langle n(W^+(n) - W^-(n)) \rangle + \langle W^+(n) + W^-(n) \rangle$$
 $$\langle n \rangle = \sum_n n P(n,t), \langle n^2(t) \rangle = \sum_n n^2 P(n,t), \langle f(n) \rangle = \sum_n f(n) P(n,t)$$
 
@@ -335,9 +335,9 @@ $$\frac{dV}{dt} = 2 \langle(n - \langle n \rangle)(W^+(n) - W^-(n)) \rangle+ \la
 
 # Références 
 
-[^Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
+[Houchmandzadeh, B.: Processus stochastiques, ](https://hal.science/cel-01148909v3/file/Stochastic2.pdf)
 
-[^Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf)
+[Chopin, N.: Introduction aux processus stochastiques, Notes de cours](https://nchopin.github.io/files/poly_processus.pdf)
 
 
 
