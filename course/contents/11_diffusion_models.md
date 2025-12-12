@@ -7,11 +7,11 @@ title: Apprentissage profond pour l'assimilation de données
 
 L'utilisation de Modèles de Diffusion pour les systèmes d'assimilation de donnée est un champ de recherche émergeant, avec des applications prometteuses. L'assimilation variationnelle et les filtres Kalman d'Ensemble constituent le fondement des méthodes d'assimilation (4DEnVar), développées dans les années 1990 et améliorées continuellement depuis pour un usage dans les systèmes opérationnels. Ces systèmes reposent sur la résolution numérique de l'équation de Fokker-Planck : l'équation de diffusion pour une équation différentielle stochastique de diffusion. 
 
-Initialement, les modèles de Diffusions s'inspirent de la [thermodynamique hors-équilibre](https://doi.org/10.48550/arXiv.1503.03585) pour débruiter des images et générer des disributions de pixels réalistes, à partir d'un bruit gaussien. Ici, le raisonnement est le même : à partir d'un bruit gaussien (le processus de diffusion), nous apprenons au réseau de neurone des états de l'atmosphère réalistes. Les références suivantes donnent un aperçu de ces méthodes :[](https://doi.org/10.48550/arXiv.2306.10574), [](https://doi.org/10.48550/arXiv.2401.05932),[](https://doi.org/10.48550/arXiv.2506.02249).
+Initialement, les modèles de diffusions s'inspirent de la [thermodynamique hors-équilibre](https://doi.org/10.48550/arXiv.1503.03585) pour débruiter des images et générer des disributions de pixels réalistes, à partir d'un bruit gaussien. Ici, le raisonnement est le même : à partir d'un bruit gaussien (le processus de diffusion), nous apprenons au réseau de neurone des états de l'atmosphère réalistes. Les références suivantes donnent un aperçu de ces méthodes :[](https://doi.org/10.48550/arXiv.2306.10574), [](https://doi.org/10.48550/arXiv.2401.05932),[](https://doi.org/10.48550/arXiv.2506.02249).
 
 # Architecture du modèle de Diffusion
 
-Nous nous intéressons particulièrement aux modèles de débruitage par diffusion, où **Denoising Diffusion Probabilistic Models**. Ces modèles sont une alternative aux Generative Adversarial Networks (GAN) pour la synthèse d'images ou d'enregistrements audio.
+Nous nous intéressons particulièrement aux modèles de débruitage par diffusion, où [**Denoising Diffusion Probabilistic Models**](https://research.google/pubs/score-based-generative-modeling-through-stochastic-differential-equations/). Ces modèles sont une alternative aux Generative Adversarial Networks (GAN) pour la synthèse d'images ou d'enregistrements audio.
 
 ```mermaid
 graph LR;
