@@ -93,7 +93,7 @@ Il existe une autre interprétation des EDS, par [l'intégrale de Stratanovitch]
 L'intégration d'Ito représente l'aléa au début du pas de temps tandis que l'intégration de Stratanovitch représente l'aléa comme la limite d'une suite d'équations différentielles ordinaires.
 :::
 
-# Une autre interprétation - L'intégrale de Stratanovitch
+<!-- # Une autre interprétation - L'intégrale de Stratanovitch -->
 
 # Intégration numérique - Méthode d'Euler-Maruyama
 

@@ -4,13 +4,13 @@ title: Chaînes et Processus de Markov
 ---
 # Introduction
 
-Dans ce chapitre, nous présentons les chaînes et processus de Markov. Intuitivement, une chaîne ou un processus de Markov est une suite de variables aléatoires $(X_t)_{t in \mathcal{T}}, \mathcal{T} = \mathbb{N}, ou \mathbb{R}$
+Dans ce chapitre, nous présentons les chaînes et processus de Markov. Intuitivement, une chaîne ou un processus de Markov est une suite de variables aléatoires $(X_t)_{t \in \mathcal{T}}, \mathcal{T} = \mathbb{N} | \mathbb{R}$
 qui n'a pas mémoire du passé. 
 
 Chaque pas est défini par la densité de probabilité au pas de temps précédant, et une fonction ou matrice de transition entre états.
 
 Dans un premier temps, nous définirons la chaîne de Markov, pour un espace d'états et
-une modélisation temporelle discrètes. Le PageRank en est un application clé.
+une modélisation temporelle discrètes. Le **PageRank** en est un application clé.
 
 Dans un second temps, nous étendrons la définition à un espace d'état et une modélisation temporelles continues, ce qui est le cas lorsque l'on conçoit des systèmes d'assimilation de données météorologiques.
 
@@ -217,7 +217,7 @@ Une famille $(p_t(x,.))_{t \leq 0, x \in \mathbb{R}^d}$ de mesures de probabilit
 2. pour tout Borélien $A \in \mathcal{B}(R^d)$, l'application $(t,x) \mapsto p_t(x,A)$ est mesurable,
 3. pour tout Borélien $A \in \mathcal{B}(R^d)$, et toute paire $0 \leq s \leq t$, la relation de Chapman-Kolmogorov est satisfaite :
 
-$$p_t(x,A) = \int_{\mathbb{R^d}} p_s(x, dy)p_{t-s}(y, A), \forall x in \mathbb{R}^d$$
+$$p_t(x,A) = \int_{\mathbb{R^d}} p_s(x, dy)p_{t-s}(y, A), \forall x \in \mathbb{R}^d$$
 
 
 :::{note} Explication

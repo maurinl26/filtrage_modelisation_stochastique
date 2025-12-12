@@ -60,14 +60,6 @@ $$\hat{X}_k = \mathbb{E}[X_k]$$
 $$\mathrm{P}_k = \mathbb{E}[(X_k - \hat{X}_k)(X_k - \hat{X}_k)^T] $$
 $$ p(X_k | Z_k) \sim \mathcal{N}(\hat{X}_k, \mathrm{P}_k) $$
 
-# Le Processus Gaussien
-
-Un processus stochastique est gaussien si toutes ses lois fini dimensionnelles sont gaussiennes.
-Il est défini par :
-
-1. $m : I \mapsto \mathbb{R},  m(t) = \mathbb{E}[X_t] $,
-2. $\Gamma : I \times I \mapsto \mathbb{R}, \Gamma(s,t) = Cov(X_s, X_t)$
-
 # Marche aléatoire
 
 **Comment décrire les transitions entre états, y compris en temps continu ?**
@@ -135,7 +127,7 @@ On note :
  à partir de la case $n$.
 - $W^+(n)$ : **densité de probabilité** ou **taux de transition** de saut vers la droite. 
 
-Cette description peut être étendue à des sauts de plusieurs cases, en considérant $W(n,m)$ : densité de probabilité de sauter de $n$ à $m$. Et, éventuellement, à un espace d'états continus _(non traité formellement dans le cours)_. 
+Cette description peut être étendue à des sauts de plusieurs cases, en considérant $W(n,m)$ : densité de probabilité de sauter de $n$ à $m$. 
 
 
 **Vers l'équation Maîtresse**

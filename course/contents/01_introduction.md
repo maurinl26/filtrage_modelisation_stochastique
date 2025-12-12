@@ -81,15 +81,10 @@ Ses applications notoires sont la résolution de problèmes inverses coûteux :
 - Réglage des hyperparamètres d'un réseau de neurone
 - Réglage de procédés industriels par plans d'expériences
 
-
+<!-- TODO : exemple imagé processus gaussien
 **Ajustement d'un processus gaussien**
 
-![processus_gaussien](../img/gaussian_processes.png)
+![processus_gaussien](../img/gaussian_processes.png) -->
 
 
-# Applications en Météorologie
-
-## Modélisation stochastique et prévision d'ensemble
-
-## Filtrage stochastique et assimilation de données
 
