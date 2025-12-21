@@ -157,7 +157,7 @@ par rapport au **bruit d'état** $Q$ (ou $\Phi$ comme noté précédemment).
 
 ### Schéma de la boucle Prédicteur-Correcteur
 
-```mermaid
+```{mermaid}
 flowchart TB
     subgraph INIT["🔧 INITIALISATION"]
         direction TB
@@ -198,7 +198,7 @@ flowchart TB
 
 ### Flux de données détaillé
 
-```mermaid
+```{mermaid}
 flowchart LR
     subgraph Entrées
         X0["x̂₀, P₀"]
@@ -250,7 +250,7 @@ flowchart LR
 
 ### Interprétation du Gain de Kalman
 
-```mermaid
+```{mermaid}
 flowchart TB
     subgraph Confiance["Pondération par le Gain K"]
         direction LR
@@ -521,7 +521,7 @@ Là encore, le **coeur du travail d'ingénieur** est d'obtenir les opérateurs a
 
 ### Schéma du Filtre de Kalman Étendu (EKF)
 
-```mermaid
+```{mermaid}
 flowchart TB
     subgraph EKF["Filtre de Kalman Étendu"]
         direction TB
