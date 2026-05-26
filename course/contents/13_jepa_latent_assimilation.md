@@ -297,7 +297,12 @@ Entrées : s_θ (score latent), e^o_θ, H^z_θ, R^z, y, T, N
 - **UK Met Office** (Aardvark, FastNet) — services météo nationaux européens en pivot rapide.
 
 :::{note} À propos de Météo-France
-Réalisme du terrain : MF est en position d'**implémenteur retard**, pas de pionnier. Les annonces de rupture viendront de l'extérieur (DeepMind, ECMWF, INRIA, NVIDIA) ; MF les intégrera dans son chaîne opérationnelle avec un délai typique de 2 à 5 ans. C'est pertinent pour les étudiants qui visent des postes à MF : la valeur ajoutée sera de **savoir lire et déployer** ces systèmes externes plus que de les inventer en interne.
+Distinction interne importante :
+
+- **CNRM (recherche)** : porte la dette historique d'AROME / ARPEGE et de l'assimilation variationnelle classique. Sauf pivot tranché — peu probable —, peu de chances de voir sortir un modèle fondationnel ou une DA générative de l'intérieur. Position de **suiveur** sur le sujet.
+- **DSI / ingénierie / données / opérations** : sur les briques infrastructure (pipelines d'observation, MLOps, intégration de modèles externes type AIFS ou GenCast dans la chaîne opérationnelle, hébergement GPU, bases d'obs ouvertes), il y a une vraie marge de manœuvre et des livrables possibles.
+
+**Implication carrière** : pour un étudiant ENM/ENSEEIHT visant MF, la valeur ajoutée se construira *côté ingénierie* — savoir lire les papiers externes, déployer les modèles publiés, industrialiser l'inférence — bien plus qu'en R&D modèles. C'est cohérent avec le positionnement *intégrateur* du service.
 :::
 
 # Statut opérationnel — DWD, MeteoSwiss (2026)
