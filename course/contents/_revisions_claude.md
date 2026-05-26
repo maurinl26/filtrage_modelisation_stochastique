@@ -68,6 +68,15 @@ git show stash@{0}:course/contents/03_equations_differentielles_stochastiques.md
 diff /tmp/03_eds_claude.md course/contents/03_equations_differentielles_stochastiques.md
 ```
 
+# Monétisation (placeholder posé)
+
+Bouton "Acheter le pack PDF + corrigés" ajouté dans `course/README.md` avec URL provisoire `TODO-LEMONSQUEEZY-PRODUCT-URL`. À faire :
+- [ ] Créer un compte Lemon Squeezy + le produit (PDF + zip corrigés, 30 €).
+- [ ] Créer les codes promo 100% : `ENM-2026`, `ENSEEIHT-HPC-2026` (limiter usages).
+- [ ] Remplacer `TODO-LEMONSQUEEZY-PRODUCT-URL` dans `course/README.md` par l'URL réelle.
+- [ ] Vérifier la clause de propriété intellectuelle dans le contrat ENM/ENSEEIHT avant publication payante.
+- [ ] Optionnel : ajouter un watermark dynamique (email acheteur) dans la pipeline de build du PDF.
+
 # Points ouverts (TODO cet été)
 
 - [ ] **Récupérer Stratonovitch + dérivés climatiques** depuis le stash et les intégrer dans le `03_equations_differentielles_stochastiques.md` actuel.
