@@ -290,11 +290,15 @@ Entrées : s_θ (score latent), e^o_θ, H^z_θ, R^z, y, T, N
 
 **Annonces à surveiller** (signaux faibles à intégrer le moment venu) :
 
-- ECMWF AIFS — bascule explicite vers DA latente (présentations EWGLAM / EUMETNET).
-- Météo-France — annonce d'un modèle fondationnel ou d'un module DA neural.
-- NVIDIA Earth-2 — release d'une stack open d'inférence DA générative.
-- DeepMind / Google Climate — extension de GenCast à la DA explicite.
-- INRIA ARCHES — bench public Atelier 2026/27 sur DA générative.
+- **ECMWF AIFS** — bascule explicite vers DA latente (présentations EWGLAM / EUMETNET).
+- **NVIDIA Earth-2** — release d'une stack open d'inférence DA générative.
+- **DeepMind / Google Climate** — extension de GenCast à la DA explicite (multi-sources).
+- **INRIA ARCHES** — bench public Atelier 2026/27 sur DA générative.
+- **UK Met Office** (Aardvark, FastNet) — services météo nationaux européens en pivot rapide.
+
+:::{note} À propos de Météo-France
+Réalisme du terrain : MF est en position d'**implémenteur retard**, pas de pionnier. Les annonces de rupture viendront de l'extérieur (DeepMind, ECMWF, INRIA, NVIDIA) ; MF les intégrera dans son chaîne opérationnelle avec un délai typique de 2 à 5 ans. C'est pertinent pour les étudiants qui visent des postes à MF : la valeur ajoutée sera de **savoir lire et déployer** ces systèmes externes plus que de les inventer en interne.
+:::
 
 # Statut opérationnel — DWD, MeteoSwiss (2026)
 
