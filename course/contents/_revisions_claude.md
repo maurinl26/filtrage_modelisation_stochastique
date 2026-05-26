@@ -37,6 +37,8 @@ suppression de `08_markov_chain_monte_carlo.md`, étoffement substantiel de `04_
 | `03b_tp_derives_climatiques.ipynb` | Placeholder TP assurance paramétrique : OU saisonnalisé, simulation EDS, pricing par Monte-Carlo, sensibilités climat. |
 | `11b_feynman_kac.md` | Nouveau chapitre : formule de Feynman-Kac, EDP backward Kolmogorov, lien advection-diffusion, illustration ArchesWeatherGen, récap. Compact mais autonome. |
 | `11c_tp_feynman_kac.ipynb` | Placeholder TP : équation de la chaleur par Monte-Carlo, comparaison MC vs DF, Black-Scholes, malédiction de la dimension. |
+| `13_jepa_latent_assimilation.md` | **Chapitre d'ouverture frontière** : JEPA (LeCun), Latent EnKF (DWD/MeteoSwiss opérationnels), Generative DA / Diffusion Posterior Sampling, DA JEPA-flavor sur GenCast / ArchesWeatherGen, section vivante "Frontière du cours" à enrichir au fil des sorties. |
+| `10_diffusion_models.md` (modifié) | Section d'ouverture ajoutée en fin pour enchaîner sur le ch.13. |
 
 # Bandeaux de redondance ajoutés (à arbitrer cet été)
 

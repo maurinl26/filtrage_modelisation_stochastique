@@ -40,6 +40,7 @@ project:
   - file: contents/11_tp_diffusion_models.ipynb
   - file: contents/11b_feynman_kac.md                      # NEW (Claude 2026-05-26)
   - file: contents/11c_tp_feynman_kac.ipynb                # NEW (Claude 2026-05-26)
+  - file: contents/13_jepa_latent_assimilation.md          # NEW (Claude 2026-05-26) - ouverture frontière JEPA / Generative DA
   - file: contents/99_annexes.md
   # contents/_revisions_claude.md NON inclus volontairement (notes de relecture, à supprimer après arbitrage).
 

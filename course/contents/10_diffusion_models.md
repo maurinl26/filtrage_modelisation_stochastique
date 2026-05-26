@@ -57,4 +57,19 @@ $$dx(t) = f(t)x(t) dt + g(t) dw(t)$$
 
 $$dx(t) = [f(t)x(t) - g(t)^2 \nabla_{x(t)} log p(x(t))]dt + g(t)dw(t)$$
 
+# Ouverture — Et si on faisait tout ça dans un espace d'embedding ?
+
+<!-- TODO-CLAUDE 2026-05-26 : section d'ouverture ajoutée à la fin du chapitre diffusion,
+     préparant l'enchaînement vers le chapitre suivant `12_jepa_latent_assimilation.md`.
+     Annotation visible côté étudiant pour bien marquer la transition. -->
+
+Jusqu'ici, **tout** ce qu'on a vu — Itô, Fokker-Planck, score matching, EDS inverse — s'exerce sur l'**état physique** $x$ : la grille atmosphérique 3D, le pixel d'image, la position d'une particule. Apprendre $\nabla \log p_t(x)$ sur cet espace est coûteux et redondant : il faut modéliser des hautes fréquences (texture, vapeur d'eau à 0.25°) dont la valeur prédictive est marginale.
+
+**Yann LeCun défend depuis 2022 une alternative** : les **JEPA** (*Joint Embedding Predictive Architectures*). L'idée tient en une phrase : *on ne reconstruit jamais en espace pixel, on prédit en espace d'embedding*. Le réseau apprend un encodeur $e_\theta : x \mapsto z$, et la dynamique / le débruitage / la prédiction se font dans l'espace latent $z$ — pas dans $x$.
+
+→ Ce n'est pas qu'une querelle d'école. **C'est *déjà* ce que font les gros modèles météo neuronaux** : GraphCast, AIFS, ArchesWeatherGen ont tous un encodeur qui projette l'état 3D vers un latent réduit ; la dynamique apprise opère dans le latent ; le décodage vers la grille n'a lieu qu'à la fin. Une version JEPA-stricte ne décoderait même pas — l'assimilation, le filtrage, la prédiction d'événements rares se feraient *intégralement dans le latent*.
+
+Et c'est exactement la frontière opérationnelle 2026 : **DWD (Allemagne) et MeteoSwiss (Suisse) déploient en production des variantes de *Latent EnKF*** — Ensemble Kalman Filter dans un espace d'embedding appris, avec ICON comme modèle de fond. Ce qui était de la recherche en 2023 entre en opérationnel NWP en 2026.
+
+→ Tu as maintenant tous les outils pour comprendre cette littérature. La suite — chapitre [JEPA et assimilation latente](13_jepa_latent_assimilation.md) — assemble les briques.
 
