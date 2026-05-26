@@ -22,20 +22,26 @@ project:
     
 
 
+  # NOTE Claude 2026-05-26 : TOC étendue avec 3 nouvelles entrées (03b, 11b, 11c).
+  # Voir contents/_revisions_claude.md pour le détail des modifications du cours.
   toc:
   - file: README.md
   - file: contents/01_introduction.md
   - file: contents/02_processus_stochastiques.md
   - file: contents/03_equations_differentielles_stochastiques.md
-  - file: contents/04_filtre_kalman.md
-  - file: contents/05_tp_filtre_kalman.ipynb
+  - file: contents/03b_tp_derives_climatiques.ipynb        # NEW (Claude 2026-05-26)
+  - file: contents/04_filtre_kalman.md                     # ⚠️ Redondance (à arbitrer)
+  - file: contents/05_tp_filtre_kalman.ipynb               # ⚠️ Redondance
   - file: contents/06_markov_chains.md
   - file: contents/07_tp_page_rank.ipynb
-  - file: contents/08_enkf.md
-  - file: contents/09_tp_enkf.ipynb
+  - file: contents/08_enkf.md                              # ⚠️ Redondance
+  - file: contents/09_tp_enkf.ipynb                        # ⚠️ Redondance
   - file: contents/10_diffusion_models.md
   - file: contents/11_tp_diffusion_models.ipynb
+  - file: contents/11b_feynman_kac.md                      # NEW (Claude 2026-05-26)
+  - file: contents/11c_tp_feynman_kac.ipynb                # NEW (Claude 2026-05-26)
   - file: contents/99_annexes.md
+  # contents/_revisions_claude.md NON inclus volontairement (notes de relecture, à supprimer après arbitrage).
 
 
 extends:

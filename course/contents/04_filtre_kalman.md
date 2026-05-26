@@ -3,6 +3,14 @@ title: Filtre de Kalman
 subtitle: Filtrage et modélisation stochastique
 ---
 
+:::{warning} ⚠️ Redondance — À arbitrer cet été (Claude, 2026-05-26)
+Le filtre de Kalman est déjà couvert par un autre intervenant du parcours HPC-BigData. À décider :
+- supprimer entièrement ce chapitre et son TP associé `05_tp_filtre_kalman.ipynb`,
+- ou le réduire à une annexe / rappel court.
+
+Voir [`_revisions_claude.md`](_revisions_claude.md).
+:::
+
 **Filtre de Kalman** (1960), Rudolf Kalman (mathématicien hongrois) : utilisé pour la première fois pour l'estimation de trajectoire des programmes Apollo.
 
 $\rightarrow$ Comment concilier au mieux l'information disponible (capteurs), et les équations de la dynamique pour contrôler un système ?

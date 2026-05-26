@@ -3,6 +3,14 @@ title: Filtre Kalman d'Ensemble
 
 ---
 
+:::{warning} ⚠️ Redondance — À arbitrer cet été (Claude, 2026-05-26)
+L'EnKF est déjà couvert par un autre intervenant du parcours HPC-BigData. À décider :
+- supprimer ce chapitre et son TP associé `09_tp_enkf.ipynb`,
+- ou le réduire à une annexe / rappel court.
+
+Voir [`_revisions_claude.md`](_revisions_claude.md).
+:::
+
 Le filtre Kalman d'Ensemble (EnKF) utilise des méthodes de Monte-Carlo pour évaluer la covariance de l'erreur d'analyse, sur un Filtre de Kalman. La méthode est développée à l'origine par [](doi:10.1029/94JC00572).
 
 # Ensemble Kalman Filter (EnKF)
