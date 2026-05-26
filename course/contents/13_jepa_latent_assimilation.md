@@ -301,8 +301,9 @@ Distinction interne importante :
 
 - **CNRM (recherche)** : porte la dette historique d'AROME / ARPEGE et de l'assimilation variationnelle classique. Sauf pivot tranché — peu probable —, peu de chances de voir sortir un modèle fondationnel ou une DA générative de l'intérieur. Position de **suiveur** sur le sujet.
 - **DSI / ingénierie / données / opérations** : sur les briques infrastructure (pipelines d'observation, MLOps, intégration de modèles externes type AIFS ou GenCast dans la chaîne opérationnelle, hébergement GPU, bases d'obs ouvertes), il y a une vraie marge de manœuvre et des livrables possibles.
+- **Partenariats externes (CIFRE, ANR, labos communs)** : canal historique de MF pour absorber ce que le CNRM ne fait pas en interne. INRIA, CNRS, universités co-financés produisent les travaux frontière, MF en récupère les fruits côté opérationnel. C'est *aussi* un débouché direct pour les étudiants — thèse CIFRE MF × INRIA sur DA générative, par exemple.
 
-**Implication carrière** : pour un étudiant ENM/ENSEEIHT visant MF, la valeur ajoutée se construira *côté ingénierie* — savoir lire les papiers externes, déployer les modèles publiés, industrialiser l'inférence — bien plus qu'en R&D modèles. C'est cohérent avec le positionnement *intégrateur* du service.
+**Implication carrière** : pour un étudiant ENM/ENSEEIHT visant MF ou son écosystème, trois pistes lisibles — **(1)** côté ingénierie / MLOps / déploiement de modèles externes ; **(2)** côté partenariat académique (CIFRE, postdoc) sur la R&D frontière ; **(3)** poste opérationnel classique avec une *culture* ML pour rester pertinent dans 5 ans. La piste "R&D modèle pur en interne CNRM" est aujourd'hui la moins prometteuse.
 :::
 
 # Statut opérationnel — DWD, MeteoSwiss (2026)
